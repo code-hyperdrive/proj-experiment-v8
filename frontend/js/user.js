@@ -554,7 +554,6 @@ class UserProfile {
             
             const stats = this.getStats();
             const displayId = this.getDisplayId();
-            const hasCustomId = !!this.data.customId;
             const syncEnabled = this.apiClient?.syncEnabled;
             const isSignedInWithGoogle = !!this.data.email;
             const isAdmin = isSignedInWithGoogle && this.data.email === 'ramsharans.rathore@gmail.com' && this.data.signInProvider === 'google.com';
@@ -626,9 +625,7 @@ class UserProfile {
                                 </div>
                             </div>
                             
-                            <!-- Unique ID Section - only relevant before Google
-                                 sign-in; once signed in, the account's real,
-                                 durable identity is the Google account itself. -->
+                            <!-- Unique ID Section (display only) -->
                             ${!isSignedInWithGoogle ? `
                                 <div class="profile-id-section">
                                     <div class="id-display-row">
@@ -638,23 +635,6 @@ class UserProfile {
                                             <button type="button" id="copyProfileIdBtn" class="copy-id-btn" title="Copy ID">📋</button>
                                         </div>
                                     </div>
-                                    <div class="id-change-section">
-                                        <button type="button" id="changeIdBtn" class="link-btn">
-                                            ${hasCustomId ? '✏️ Change Custom Nickname' : '✏️ Set Custom Nickname'}
-                                        </button>
-                                        <div id="changeIdForm" class="change-id-form" hidden>
-                                            <input type="text" id="newCustomIdInput"
-                                                   placeholder="${hasCustomId ? this.data.customId : 'your_nickname'}"
-                                                   minlength="4" maxlength="12" autocomplete="off">
-                                            <span id="newIdStatus" class="id-status"></span>
-                                            <span class="input-hint">4-12 characters, letters/numbers/underscore</span>
-                                            <div class="change-id-actions">
-                                                <button type="button" id="saveNewIdBtn" class="save-name-btn" disabled>Save</button>
-                                                <button type="button" id="cancelChangeIdBtn" class="link-btn">Cancel</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="id-warning">ℹ️ Share your 8-digit ID or custom nickname with friends to help them find you</p>
                                 </div>
                             ` : ''}
 
@@ -1158,103 +1138,6 @@ class UserProfile {
             });
             
             // Change ID button and form
-            const changeIdBtn = document.getElementById('changeIdBtn');
-            const changeIdForm = document.getElementById('changeIdForm');
-            const newCustomIdInput = document.getElementById('newCustomIdInput');
-            const newIdStatus = document.getElementById('newIdStatus');
-            const saveNewIdBtn = document.getElementById('saveNewIdBtn');
-            const cancelChangeIdBtn = document.getElementById('cancelChangeIdBtn');
-            let newIdValid = false;
-
-            changeIdBtn?.addEventListener('click', () => {
-                changeIdForm.hidden = !changeIdForm.hidden;
-                if (!changeIdForm.hidden) {
-                    newCustomIdInput.focus();
-                }
-            });
-            
-            cancelChangeIdBtn?.addEventListener('click', () => {
-                changeIdForm.hidden = true;
-                newCustomIdInput.value = '';
-                newIdStatus.textContent = '';
-            });
-            
-            // Format-only validation, same reasoning as the setup modal's
-            // custom-ID field - real availability is only known on submit.
-            newCustomIdInput?.addEventListener('input', () => {
-                const value = newCustomIdInput.value.trim().toLowerCase();
-                newIdStatus.textContent = '';
-                newIdStatus.className = 'id-status';
-                saveNewIdBtn.disabled = true;
-
-                if (value.length < 8) {
-                    newIdValid = false;
-                    if (value.length > 0) {
-                        newIdStatus.textContent = `${8 - value.length} more characters needed`;
-                        newIdStatus.className = 'id-status warning';
-                    }
-                    return;
-                }
-
-                if (!isValidCustomIdFormat(value)) {
-                    newIdValid = false;
-                    newIdStatus.textContent = 'Must start with a letter; letters, numbers, underscore only';
-                    newIdStatus.className = 'id-status error';
-                    return;
-                }
-
-                newIdValid = true;
-                saveNewIdBtn.disabled = false;
-            });
-
-            saveNewIdBtn?.addEventListener('click', async () => {
-                if (!newIdValid) return;
-
-                const newId = newCustomIdInput.value.trim().toLowerCase();
-                saveNewIdBtn.disabled = true;
-                saveNewIdBtn.textContent = t('syncing');
-
-                if (this.apiClient?.syncEnabled) {
-                    try {
-                        await this.apiClient.updateProfile({ customId: newId });
-                        this.data.customId = newId;
-                        this.save();
-                        document.getElementById('profileIdDisplay').textContent = this.getDisplayId();
-
-                        newIdStatus.textContent = '✓ ' + t('idChangedSuccess');
-                        newIdStatus.className = 'id-status success';
-
-                        setTimeout(() => {
-                            changeIdForm.hidden = true;
-                            newCustomIdInput.value = '';
-                            newIdStatus.textContent = '';
-                            saveNewIdBtn.textContent = t('save');
-                        }, 1500);
-                    } catch (error) {
-                        newIdStatus.textContent = error.message || 'That ID is already taken';
-                        newIdStatus.className = 'id-status error';
-                        saveNewIdBtn.textContent = t('save');
-                        saveNewIdBtn.disabled = false;
-                    }
-                } else {
-                    // Offline - save locally only; save()'s debounce will
-                    // push it once the backend is reachable again.
-                    this.data.customId = newId;
-                    this.save();
-                    document.getElementById('profileIdDisplay').textContent = this.getDisplayId();
-
-                    newIdStatus.textContent = '✓ ' + t('savedLocally');
-                    newIdStatus.className = 'id-status success';
-
-                    setTimeout(() => {
-                        changeIdForm.hidden = true;
-                        newCustomIdInput.value = '';
-                        newIdStatus.textContent = '';
-                        saveNewIdBtn.textContent = t('save');
-                    }, 1500);
-                }
-            });
-            
             // Sync Now button - re-fetches from the backend and reconciles,
             // rather than a one-way local->cloud push like before.
             const syncNowBtn = document.getElementById('syncNowBtn');
