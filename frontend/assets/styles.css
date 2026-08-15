@@ -1007,14 +1007,19 @@ body.panel-collapsed .floating-logo-container {
 }
 
 .tab-pane-content {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
 }
 
 .tab-pane-content h2 {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     color: var(--text-primary);
+    letter-spacing: 0.5px;
 }
 
 .help-text {
