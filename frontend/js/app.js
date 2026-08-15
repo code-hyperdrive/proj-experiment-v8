@@ -1102,14 +1102,14 @@ class GlobeRadioApp {
                 if (svg) svg.setAttribute('fill', isFavorite ? 'currentColor' : 'none');
             }
         } else {
-            // Hide player info and controls when not playing
+            // No station selected — hide station info but keep controls visible
             playerBar.classList.remove('playing');
             document.body.classList.remove('player-active');
-            
+
             if (playerInfo) playerInfo.hidden = true;
-            if (playerControls) playerControls.style.display = 'none';
-            if (playerVolume) playerVolume.style.display = 'none';
-            if (visualizerBtn) visualizerBtn.style.display = 'none';
+            if (playerControls) playerControls.style.display = 'flex';
+            if (playerVolume) playerVolume.style.display = 'flex';
+            if (visualizerBtn) visualizerBtn.style.display = 'flex';
         }
     }
     
