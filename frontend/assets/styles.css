@@ -1604,10 +1604,14 @@ body.panel-collapsed .floating-logo-container {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    background: var(--bg-tertiary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
 }
 
 .station-card {
-    background: var(--bg-tertiary);
+    background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: var(--spacing-md);
