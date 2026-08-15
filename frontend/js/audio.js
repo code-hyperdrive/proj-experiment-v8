@@ -687,13 +687,15 @@ class AudioController {
             return this.tryNextStream(generation);
         }
 
-        if (!isHls && !this.canPlayType(stream.type)) {
-            this.emit('warning', {
-                title: 'Unsupported Format',
-                message: `Stream format ${stream.type} not supported. Trying next stream...`
-            });
-            this.currentStreamIndex++;
-            return this.tryNextStream(generation);
+        // Only skip a stream pre-emptively if the browser explicitly says it
+        // cannot play the format AND the type is a known, non-empty MIME type.
+        // Unknown / empty types (e.g. stream.type === '' or 'audio/aacp') get
+        // a real attempt — canPlayType('') always returns '' even for formats
+        // the browser handles fine, so skipping on that result wastes streams.
+        const knownType = stream.type && stream.type.trim() !== '';
+        if (!isHls && knownType && !this.canPlayType(stream.type)) {
+            console.warn(`⚠️ Browser reports no support for ${stream.type} — trying anyway`);
+            // Fall through and attempt; don't skip pre-emptively.
         }
 
         this.setState(this.states.LOADING);
@@ -773,12 +775,19 @@ class AudioController {
             this.currentStreamIndex++;
 
             if (this.currentStreamIndex < this.currentStation.streams.length) {
-                this.emit('warning', {
-                    title: 'Stream Failed',
-                    message: `Stream #${this.currentStreamIndex} failed. Trying next stream...`
+                this.emit('info', {
+                    title: t('tryingAlternative') || 'Trying Alternative',
+                    message: t('streamFailedTryingNext') || 'Stream failed, trying next...'
                 });
                 return this.tryNextStream(generation);
             } else {
+                // All streams exhausted — show final error
+                this.emit('error', {
+                    title: t('stationUnavailable') || 'Station Unavailable',
+                    message: t('stationNotAvailable') || 'This station is currently unavailable. Please try another station.',
+                    action: 'tryAnother'
+                });
+                this.setState(this.states.ERROR);
                 return false;
             }
         }
@@ -860,11 +869,11 @@ class AudioController {
                     message: 'Please click the play button to start playback. Browser autoplay policy requires user interaction.'
                 });
             } else if (error.name === 'NotSupportedError') {
-                this.emit('error', {
-                    title: 'Stream Not Supported',
-                    message: 'This stream format is not supported by your browser.',
-                    action: 'tryAnother'
-                });
+                // Throw silently — tryNextStream()'s catch will either
+                // show a warning and try the next stream, or show a final
+                // error if all streams are exhausted. Emitting here would
+                // show an error toast even when a backup stream is about
+                // to succeed.
             } else {
                 // Don't show error for interrupted play requests
                 if (!error.message?.includes('interrupted')) {
