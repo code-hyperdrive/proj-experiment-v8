@@ -698,10 +698,10 @@ class UserProfile {
 
                         <!-- Tab 4: Appearance -->
                         <div class="profile-tab-content" id="profileTabAppearance" hidden>
-                            <div class="profile-preferences">
-                                <div class="pref-item">
-                                    <span>${t('theme')}</span>
-                                    <select id="prefTheme">
+                            <div class="compact-prefs">
+                                <div class="cpref-row">
+                                    <span class="cpref-label">${t('theme')}</span>
+                                    <select id="prefTheme" class="cpref-select">
                                         <option value="dark" ${this.data.preferences.theme === 'dark' ? 'selected' : ''}>🌙 Dark</option>
                                         <option value="light" ${this.data.preferences.theme === 'light' ? 'selected' : ''}>☀️ Light</option>
                                         <option value="midnight" ${this.data.preferences.theme === 'midnight' ? 'selected' : ''}>🌌 Midnight Blue</option>
@@ -710,89 +710,51 @@ class UserProfile {
                                         <option value="sunset" ${this.data.preferences.theme === 'sunset' ? 'selected' : ''}>🌅 Sunset Orange</option>
                                         <option value="ocean" ${this.data.preferences.theme === 'ocean' ? 'selected' : ''}>🌊 Ocean Blue</option>
                                         <option value="rosegold" ${this.data.preferences.theme === 'rosegold' ? 'selected' : ''}>🌸 Rose Gold</option>
-                                        <option value="rathore" ${this.data.preferences.theme === 'rathore' ? 'selected' : ''}>🦁 Rathore Royal (Default)</option>
+                                        <option value="rathore" ${this.data.preferences.theme === 'rathore' ? 'selected' : ''}>🦁 Rathore Royal</option>
                                     </select>
                                 </div>
-                                <div class="pref-item">
-                                    <span>${t('appLanguage')}</span>
-                                    <select id="prefLanguage">
-                                        ${i18n.getLanguages().map(lang => 
+                                <div class="cpref-row">
+                                    <span class="cpref-label">${t('appLanguage')}</span>
+                                    <select id="prefLanguage" class="cpref-select">
+                                        ${i18n.getLanguages().map(lang =>
                                             `<option value="${lang.code}" ${this.data.preferences.language === lang.code ? 'selected' : ''}>${lang.flag} ${lang.native}</option>`
                                         ).join('')}
                                     </select>
                                 </div>
-                                <div class="pref-item">
-                                    <span>${t('viewMode')}</span>
+                                <div class="cpref-row">
+                                    <span class="cpref-label">${t('viewMode')}</span>
                                     <div class="view-mode-toggle">
                                         <button id="prefViewGlobe" class="view-mode-btn ${this.data.preferences.viewMode === 'globe' ? 'active' : ''}">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <circle cx="12" cy="12" r="10"/>
-                                                <line x1="2" y1="12" x2="22" y2="12"/>
-                                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                                            </svg>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                                             ${t('globe')}
                                         </button>
                                         <button id="prefViewMap" class="view-mode-btn ${this.data.preferences.viewMode === 'map' ? 'active' : ''}">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                                <line x1="3" y1="9" x2="21" y2="9"/>
-                                                <line x1="3" y1="15" x2="21" y2="15"/>
-                                                <line x1="9" y1="3" x2="9" y2="21"/>
-                                            </svg>
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
                                             ${t('map')}
                                         </button>
                                     </div>
                                 </div>
-                                <div class="pref-item">
-                                    <span>${t('autoResume')}</span>
-                                    <label class="toggle-switch">
-                                        <input type="checkbox" id="prefAutoResume" ${this.data.preferences.autoResume ? 'checked' : ''}>
-                                        <span class="toggle-slider"></span>
-                                    </label>
+                                <div class="cpref-row">
+                                    <span class="cpref-label">${t('autoResume')}</span>
+                                    <label class="toggle-switch"><input type="checkbox" id="prefAutoResume" ${this.data.preferences.autoResume ? 'checked' : ''}><span class="toggle-slider"></span></label>
                                 </div>
-                                <div class="pref-item pref-item-vertical">
-                                    <div class="pref-item-header">
-                                        <span>${t('httpsOnly')}</span>
-                                        <label class="toggle-switch">
-                                            <input type="checkbox" id="prefHttpsOnly" ${this.data.preferences.httpsOnly ? 'checked' : ''}>
-                                            <span class="toggle-slider"></span>
-                                        </label>
-                                    </div>
-                                    <p class="pref-help-text">${t('httpsOnlyDesc')}</p>
-                                </div>
-                                <div class="pref-item">
-                                    <span>${t('panelAutoHide') || 'Panel Auto-Hide'}</span>
-                                    <label class="toggle-switch">
-                                        <input type="checkbox" id="prefPanelAutoHide" ${this.data.preferences.panelAutoHide ? 'checked' : ''}>
-                                        <span class="toggle-slider"></span>
-                                    </label>
-                                </div>
-                                <div class="pref-item" id="panelAutoHideDelayRow" ${!this.data.preferences.panelAutoHide ? 'style="opacity: 0.5; pointer-events: none;"' : ''}>
-                                    <span>${t('panelAutoHideDelay') || 'Auto-Hide Delay'}</span>
-                                    <select id="prefPanelAutoHideDelay">
-                                        <option value="5" ${this.data.preferences.panelAutoHideDelay === 5 ? 'selected' : ''}>5 ${t('seconds')}</option>
-                                        <option value="10" ${this.data.preferences.panelAutoHideDelay === 10 ? 'selected' : ''}>10 ${t('seconds')}</option>
-                                        <option value="15" ${this.data.preferences.panelAutoHideDelay === 15 ? 'selected' : ''}>15 ${t('seconds')}</option>
-                                        <option value="30" ${this.data.preferences.panelAutoHideDelay === 30 ? 'selected' : ''}>30 ${t('seconds')}</option>
-                                        <option value="60" ${this.data.preferences.panelAutoHideDelay === 60 ? 'selected' : ''}>60 ${t('seconds')}</option>
-                                    </select>
+                                <div class="cpref-row">
+                                    <span class="cpref-label">${t('httpsOnly')}</span>
+                                    <label class="toggle-switch"><input type="checkbox" id="prefHttpsOnly" ${this.data.preferences.httpsOnly ? 'checked' : ''}><span class="toggle-slider"></span></label>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Tab 5: Visualizer -->
                         <div class="profile-tab-content" id="profileTabVisualizer" hidden>
-                            <div class="profile-preferences">
-                                <div class="pref-item">
-                                    <span>${t('showOnIdle')}</span>
-                                    <label class="toggle-switch">
-                                        <input type="checkbox" id="prefVisualizerEnabled" ${this.data.preferences.visualizerEnabled ? 'checked' : ''}>
-                                        <span class="toggle-slider"></span>
-                                    </label>
+                            <div class="compact-prefs">
+                                <div class="cpref-row">
+                                    <span class="cpref-label">${t('showOnIdle')}</span>
+                                    <label class="toggle-switch"><input type="checkbox" id="prefVisualizerEnabled" ${this.data.preferences.visualizerEnabled ? 'checked' : ''}><span class="toggle-slider"></span></label>
                                 </div>
-                                <div class="pref-item">
-                                    <span>${t('style')}</span>
-                                    <select id="prefVisualizerStyle">
+                                <div class="cpref-row">
+                                    <span class="cpref-label">${t('style')}</span>
+                                    <select id="prefVisualizerStyle" class="cpref-select">
                                         <option value="bars" ${this.data.preferences.visualizerStyle === 'bars' ? 'selected' : ''}>📊 Bars</option>
                                         <option value="wave" ${this.data.preferences.visualizerStyle === 'wave' ? 'selected' : ''}>🌊 Wave</option>
                                         <option value="circular" ${this.data.preferences.visualizerStyle === 'circular' ? 'selected' : ''}>⭕ Circular</option>
@@ -811,9 +773,9 @@ class UserProfile {
                                         <option value="disco" ${this.data.preferences.visualizerStyle === 'disco' ? 'selected' : ''}>🪩 Disco Ball</option>
                                     </select>
                                 </div>
-                                <div class="pref-item">
-                                    <span>${t('idleTimeout')}</span>
-                                    <select id="prefIdleTimeout">
+                                <div class="cpref-row">
+                                    <span class="cpref-label">${t('idleTimeout')}</span>
+                                    <select id="prefIdleTimeout" class="cpref-select">
                                         <option value="3" ${this.data.preferences.idleTimeout === 3 ? 'selected' : ''}>3 ${t('seconds')}</option>
                                         <option value="5" ${this.data.preferences.idleTimeout === 5 ? 'selected' : ''}>5 ${t('seconds')}</option>
                                         <option value="10" ${this.data.preferences.idleTimeout === 10 ? 'selected' : ''}>10 ${t('seconds')}</option>
@@ -821,17 +783,15 @@ class UserProfile {
                                         <option value="30" ${this.data.preferences.idleTimeout === 30 ? 'selected' : ''}>30 ${t('seconds')}</option>
                                     </select>
                                 </div>
-                                
-                                <!-- Visualizer Genre Filter -->
-                                <div class="pref-item pref-item-vertical">
-                                    <span>Show visualizer for genres:</span>
+                                <div class="cpref-row cpref-row-block">
+                                    <span class="cpref-label">Genres</span>
                                     <div class="genre-checkboxes" id="visualizerGenreCheckboxes">
                                         ${this.renderVisualizerGenreCheckboxes()}
                                     </div>
                                     <div class="genre-checkbox-actions">
-                                        <button type="button" id="selectAllGenres" class="link-btn">Select All</button>
+                                        <button type="button" id="selectAllGenres" class="link-btn">All</button>
                                         <span class="divider">|</span>
-                                        <button type="button" id="selectNoneGenres" class="link-btn">Select None</button>
+                                        <button type="button" id="selectNoneGenres" class="link-btn">None</button>
                                     </div>
                                 </div>
                             </div>

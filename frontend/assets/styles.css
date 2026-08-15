@@ -4842,6 +4842,55 @@ button:focus-visible {
     margin-top: var(--spacing-sm);
 }
 
+/* ── Appearance & Visualizer compact layout ───────────────────────── */
+.compact-prefs {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.cpref-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px var(--spacing-md);
+    gap: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cpref-row:last-child {
+    border-bottom: none;
+}
+
+.cpref-row-block {
+    flex-wrap: wrap;
+    row-gap: var(--spacing-xs);
+}
+
+.cpref-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cpref-select {
+    font-size: var(--font-size-sm);
+    padding: 3px var(--spacing-sm);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    max-width: 60%;
+}
+
+.cpref-select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
 /* ── Account tab compact layout ───────────────────────────────────── */
 .acct-card {
     background: var(--bg-tertiary);
