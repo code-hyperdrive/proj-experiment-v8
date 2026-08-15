@@ -1,0 +1,22 @@
+# Cloudflare Pages header rules.
+# https://developers.cloudflare.com/pages/configuration/headers/
+#
+# version.json, index.html, and service-worker.js are the three files the
+# client-side auto-update check (index.html + service-worker.js) depends on
+# being genuinely fresh on every request. If Cloudflare's edge cache serves a
+# stale copy of any of these after a deploy, the update check reads a stale
+# version.json, concludes nothing changed, and never triggers a refresh —
+# defeating the whole mechanism. Force no-cache on them so the edge always
+# revalidates against the latest deployment.
+
+/version.json
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/service-worker.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/
+  Cache-Control: no-cache, no-store, must-revalidate

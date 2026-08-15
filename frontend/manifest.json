@@ -1,0 +1,62 @@
+{
+  "name": "Radio Explorer - World Radio Stations",
+  "short_name": "Radio Explorer",
+  "description": "Explore and play live internet radio streams from around the world on an interactive map",
+  "start_url": "./",
+  "id": "./",
+  "display": "standalone",
+  "background_color": "#0a0e27",
+  "theme_color": "#00e676",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "lang": "en",
+  "categories": ["music", "entertainment"],
+  "icons": [
+    {
+      "src": "assets/images/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "PLACEHOLDER — replace with a real desktop screenshot (map + side panel), same 1280x720 size"
+    },
+    {
+      "src": "assets/images/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "PLACEHOLDER — replace with a real mobile screenshot (map + bottom nav), same 750x1334 size"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Search Stations",
+      "short_name": "Search",
+      "description": "Search for radio stations",
+      "url": "./?tab=search",
+      "icons": [{ "src": "assets/images/logo-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Favorites",
+      "short_name": "Favorites",
+      "description": "Your favorite stations",
+      "url": "./?tab=favorites",
+      "icons": [{ "src": "assets/images/logo-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

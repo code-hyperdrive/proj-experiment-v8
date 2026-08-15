@@ -1,0 +1,63 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "radio-explorer-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[dev]
+port = 8787
+local_protocol = "http"
+
+# --- D1 (profiles / favorites / history / stats) -----------------------
+# Real database, created 2026-08-13 via `wrangler d1 create radio_db`
+# (free tier: 5 databases, 5GB storage, 5M rows read/day, 100k rows
+# written/day — comfortably enough for this app's scale). `wrangler dev
+# --local` still uses a separate local SQLite file under .wrangler/state
+# regardless of this id — running locally never touches this real database.
+[[d1_databases]]
+binding = "DB"
+database_name = "radio_db"
+database_id = "0afc2d4a-12bc-492e-8dea-05a165956a94"
+
+# --- KV (fixed-window rate-limit counters) ------------------------------
+# Real namespace, created 2026-08-13 via `wrangler kv namespace create
+# radio_rate_limit` (free tier: 100k reads/day, 1k writes/day, 1GB storage).
+# Same local-dev isolation note as D1 above applies.
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "782d76e8f61341e2a86a0f33230eb8a7"
+
+# --- Non-secret config ---------------------------------------------------
+# Not sensitive — safe as a plain var, not `wrangler secret put`. Includes
+# both the local dev origin (so `wrangler dev`/tests keep working
+# unchanged) and the real site's origin (so Milestone 2's frontend wiring
+# can call the deployed API without another deploy just to open CORS).
+# Nothing on radio.rathore.club calls this API yet — this only permits
+# requests from that origin, it doesn't wire anything up by itself.
+[vars]
+ALLOWED_ORIGINS = "http://localhost:8080,http://127.0.0.1:8080,https://radio.rathore.club"
+
+# --- Google OAuth (Sign in with Google) ---------------------------------
+# CLIENT_ID and REDIRECT_URI are not secret (both are sent in the
+# redirect URL itself, visible to anyone) — safe as plain vars. The
+# CLIENT_SECRET (needed for the server-to-server token exchange in
+# lib/oauth.ts) is genuinely secret: it belongs in backend/.dev.vars
+# locally (gitignored) and via `wrangler secret put GOOGLE_CLIENT_SECRET`
+# only at actual deploy time — never here, never committed.
+#
+# Setup (one-time, in Google Cloud Console):
+#   1. console.cloud.google.com → APIs & Services → Credentials
+#   2. Create Credentials → OAuth client ID → Application type: Web application
+#   3. Authorized redirect URIs: add BOTH
+#        http://localhost:8787/api/v1/auth/google/callback   (local dev)
+#        https://radio-explorer-api.ramsharans-rathore.workers.dev/api/v1/auth/google/callback  (deployed)
+#   4. Copy the Client ID below; put the Client Secret in .dev.vars (see
+#      that file's own placeholder line) — not here.
+GOOGLE_CLIENT_ID = "859783419407-kb8jj85tfk22v6nknrh09dmiqh99fpv8.apps.googleusercontent.com"
+GOOGLE_REDIRECT_URI = "http://localhost:8787/api/v1/auth/google/callback"
+
+# Where /auth/google/callback redirects back to after a successful sign-in
+# (with ?sessionToken=&userId=&isNewUser=&wasLinked= appended) — the
+# frontend's own origin, not this Worker's. Update if/when the frontend is
+# ever served from somewhere other than these two.
+FRONTEND_ORIGIN = "http://localhost:8080"

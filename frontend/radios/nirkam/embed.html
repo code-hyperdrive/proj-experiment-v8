@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nirkam - Embedded Radio Player">
+    <title>Nirkam Player</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .player-container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(42, 42, 42, 0.95);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .player-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .player-logo {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .player-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .player-location {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        .now-playing {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .now-playing-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .now-playing-title {
+            font-size: 16px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .playback-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+
+        .live-badge {
+            display: inline-block;
+            background: #FF6B6B;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #667eea;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .volume-icon {
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+
+        .volume-slider {
+            flex: 1;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+        }
+
+        .status-bar {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12px;
+            color: #b0b0b0;
+            text-align: center;
+        }
+
+        .status-text {
+            display: flex;
+            justify-content: space-around;
+            gap: 12px;
+        }
+
+        .status-item {
+            flex: 1;
+        }
+
+        .status-label {
+            display: block;
+            font-size: 10px;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .status-value {
+            display: block;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        audio {
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        .sync-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #00d97e;
+            margin-top: 8px;
+        }
+
+        .sync-dot {
+            width: 8px;
+            height: 8px;
+            background: #00d97e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <!-- Header -->
+        <div class="player-header">
+            <div class="player-logo">🎵</div>
+            <div class="player-title">Nirkam</div>
+            <div class="player-location">Chapra, India</div>
+        </div>
+
+        <!-- Now Playing -->
+        <div class="now-playing">
+            <div class="now-playing-label">Now Playing</div>
+            <div class="now-playing-title" id="nowPlayingTitle">Track 1</div>
+            <div class="playback-info">
+                <span id="currentTime">00:00</span>
+                <span id="totalTime">08:49</span>
+            </div>
+            <div class="live-badge">🔴 LIVE</div>
+            <div class="sync-indicator">
+                <span class="sync-dot"></span>
+                <span>Synchronized Global</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" id="playPauseBtn" title="Play/Pause">▶</button>
+        </div>
+
+        <!-- Volume -->
+        <div class="volume-control">
+            <span class="volume-icon">🔊</span>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+        </div>
+
+        <!-- Status -->
+        <div class="status-bar">
+            <div class="status-text">
+                <div class="status-item">
+                    <span class="status-label">Listeners</span>
+                    <span class="status-value">Live</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Uptime</span>
+                    <span class="status-value" id="uptimeDisplay">00:00:00</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Status</span>
+                    <span class="status-value">Broadcasting</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer" crossorigin="anonymous" autoplay playsinline preload="auto"></audio>
+
+    <script>
+        // CORS Headers (client-side, inform host)
+        const CORS_HEADERS = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+        };
+
+        // Station Configuration
+        const STATION = {
+            id: '667add4e-3e14-49bf-a314-8415b893c0bc',
+            name: 'Nirkam',
+            location: 'Chapra, Bihar, India',
+            url: 'https://nirkam.rathore.club/',
+            embed_url: 'https://nirkam.rathore.club/embed.html'
+        };
+
+        // 26-track alternating Music & Speech Playlist
+        var PLAYLIST = [
+            // Music & Speech alternating pattern
+            { title: "🎵 Music 01", file: "music/01.mp3", duration: 268, type: "music" },
+            { title: "🎤 Speech 01", file: "speach/01.mp3", duration: 18, type: "speech" },
+
+            { title: "🎵 Music 02", file: "music/02.mp3", duration: 58, type: "music" },
+            { title: "🎤 Speech 02", file: "speach/02.mp3", duration: 28, type: "speech" },
+
+            { title: "🎵 Music 03", file: "music/03.mp3", duration: 15, type: "music" },
+            { title: "🎤 Speech 03", file: "speach/03.mp3", duration: 25, type: "speech" },
+
+            { title: "🎵 Music 04", file: "music/04.mp3", duration: 150, type: "music" },
+            { title: "🎤 Speech 04", file: "speach/04.mp3", duration: 25, type: "speech" },
+
+            { title: "🎵 Music 05", file: "music/08.mp3", duration: 148, type: "music" },
+            { title: "🎤 Speech 05", file: "speach/05.mp3", duration: 22, type: "speech" },
+
+            { title: "🎵 Music 06", file: "music/05.mp3", duration: 138, type: "music" },
+            { title: "🎤 Speech 06", file: "speach/06.mp3", duration: 19, type: "speech" },
+
+            { title: "🎵 Music 07", file: "music/06.mp3", duration: 111, type: "music" },
+            { title: "🎤 Speech 07", file: "speach/07.mp3", duration: 13, type: "speech" },
+
+            { title: "🎵 Music 08", file: "music/07.mp3", duration: 73, type: "music" },
+            { title: "🎤 Speech 08", file: "speach/08.mp3", duration: 18, type: "speech" },
+
+            // Remaining speech files (9-18)
+            { title: "🎤 Speech 09", file: "speach/09.mp3", duration: 17, type: "speech" },
+            { title: "🎤 Speech 10", file: "speach/10.mp3", duration: 45, type: "speech" },
+            { title: "🎤 Speech 11", file: "speach/11.mp3", duration: 23, type: "speech" },
+            { title: "🎤 Speech 12", file: "speach/12.mp3", duration: 12, type: "speech" },
+            { title: "🎤 Speech 13", file: "speach/13.mp3", duration: 43, type: "speech" },
+            { title: "🎤 Speech 14", file: "speach/14.mp3", duration: 27, type: "speech" },
+            { title: "🎤 Speech 15", file: "speach/15.mp3", duration: 85, type: "speech" },
+            { title: "🎤 Speech 16", file: "speach/16.mp3", duration: 24, type: "speech" },
+            { title: "🎤 Speech 17", file: "speach/17.mp3", duration: 31, type: "speech" },
+            { title: "🎤 Speech 18", file: "speach/18.mp3", duration: 24, type: "speech" }
+        ];
+
+        // Calculate total playlist duration in seconds
+        var TOTAL_PLAYLIST_DURATION = PLAYLIST.reduce((sum, track) => sum + track.duration, 0);
+        // MUST match js/playlist.js's RADIO_START_TIME exactly - a fixed
+        // absolute epoch, not page-load-relative (see the comment there for
+        // why the previous version defeated the whole point of "all
+        // listeners hear the same song at the same position").
+        const RADIO_START_TIME = new Date('2026-01-01T00:00:00Z');
+
+        class EmbeddedPlayer {
+            constructor() {
+                this.audioPlayer = document.getElementById('audioPlayer');
+                this.playPauseBtn = document.getElementById('playPauseBtn');
+                this.volumeSlider = document.getElementById('volumeSlider');
+                this.isPlaying = false;
+                this.currentSongIndex = -1;
+                this.currentSongFile = '';
+
+                this.init();
+            }
+
+            init() {
+                this.playPauseBtn.addEventListener('click', () => this.togglePlay());
+                this.volumeSlider.addEventListener('input', (e) => this.setVolume(e.target.value));
+                this.audioPlayer.addEventListener('ended', () => this.onSongEnded());
+                this.audioPlayer.addEventListener('loadedmetadata', () => this.onMetadataLoaded());
+                this.audioPlayer.addEventListener('error', (e) => {
+                    console.error('Audio error:', e.type, this.audioPlayer.error?.message);
+                });
+
+                setInterval(() => this.updateDisplay(), 100);
+                setInterval(() => this.updateUptime(), 1000);
+
+                // Start listening
+                this.startListening();
+            }
+
+            startListening() {
+                this.syncToLivePosition();
+                this.audioPlayer.volume = this.volumeSlider.value / 100;
+
+                // Try to autoplay with proper error handling
+                const playPromise = this.audioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise
+                        .then(() => {
+                            console.log('✅ Autoplay started successfully');
+                            this.isPlaying = true;
+                            this.updatePlayPauseButton();
+                        })
+                        .catch(err => {
+                            console.log('⚠️ Autoplay prevented by browser:', err.name);
+                            console.log('   Hint: Browser requires user interaction or specific permissions');
+                            // Autoplay is blocked - user will need to click play button
+                        });
+                }
+            }
+
+            syncToLivePosition() {
+                const radioPosition = this.getRadioPosition();
+
+                if (this.currentSongIndex !== radioPosition.songIndex) {
+                    this.loadSong(radioPosition.songIndex);
+                }
+
+                setTimeout(() => {
+                    if (this.audioPlayer.readyState >= 2) {
+                        this.audioPlayer.currentTime = radioPosition.positionInSong;
+                    }
+                }, 100);
+            }
+
+            loadSong(index) {
+                const song = PLAYLIST[index];
+                if (!song) return;
+
+                const isSongChange = this.currentSongFile !== song.file;
+
+                this.currentSongIndex = index;
+                document.getElementById('nowPlayingTitle').textContent = song.title;
+                document.getElementById('totalTime').textContent = this.formatTime(song.duration);
+
+                if (isSongChange) {
+                    this.audioPlayer.src = song.file;
+                    this.audioPlayer.load();
+                    this.currentSongFile = song.file;
+                }
+            }
+
+            getRadioPosition() {
+                const now = new Date();
+                const elapsedSeconds = (now - RADIO_START_TIME) / 1000;
+                const positionInCycle = elapsedSeconds % TOTAL_PLAYLIST_DURATION;
+
+                let accumulated = 0;
+                for (let i = 0; i < PLAYLIST.length; i++) {
+                    accumulated += PLAYLIST[i].duration;
+                    if (positionInCycle < accumulated) {
+                        return {
+                            songIndex: i,
+                            positionInSong: positionInCycle - (accumulated - PLAYLIST[i].duration)
+                        };
+                    }
+                }
+
+                return { songIndex: 0, positionInSong: 0 };
+            }
+
+            togglePlay() {
+                if (this.isPlaying) {
+                    this.audioPlayer.pause();
+                    this.isPlaying = false;
+                    this.updatePlayPauseButton();
+                } else {
+                    // Ensure audio is ready before playing
+                    if (this.audioPlayer.readyState >= 2) {
+                        const playPromise = this.audioPlayer.play();
+                        if (playPromise !== undefined) {
+                            playPromise
+                                .then(() => {
+                                    this.isPlaying = true;
+                                    this.updatePlayPauseButton();
+                                })
+                                .catch(err => {
+                                    console.log('Play failed:', err.message);
+                                    this.updatePlayPauseButton();
+                                });
+                        }
+                    } else {
+                        console.log('Audio not ready, waiting for loadeddata...');
+                        this.isPlaying = true;
+                        this.updatePlayPauseButton();
+                    }
+                }
+            }
+
+            onMetadataLoaded() {
+                // Don't try to set position on metadata loaded - just ensure we're at the right position
+                const radioPosition = this.getRadioPosition();
+                try {
+                    this.audioPlayer.currentTime = radioPosition.positionInSong;
+                } catch (e) {
+                    console.log('Set currentTime error:', e);
+                }
+            }
+
+            onSongEnded() {
+                // Song ended - move to next track
+                this.syncToLivePosition();
+
+                // Give the audio element time to load the new track, then resume playback
+                setTimeout(() => {
+                    if (this.isPlaying && this.audioPlayer.readyState >= 2) {
+                        this.audioPlayer.play().catch(err => console.log('Resume play error:', err));
+                    }
+                }, 50);
+            }
+
+            setVolume(value) {
+                this.audioPlayer.volume = value / 100;
+                localStorage.setItem('nirkam_volume', value);
+            }
+
+            updatePlayPauseButton() {
+                this.playPauseBtn.textContent = this.isPlaying ? '⏸' : '▶';
+            }
+
+            updateDisplay() {
+                document.getElementById('currentTime').textContent = this.formatTime(this.audioPlayer.currentTime);
+                this.isPlaying = !this.audioPlayer.paused;
+                this.playPauseBtn.textContent = this.isPlaying ? '⏸' : '▶';
+            }
+
+            updateUptime() {
+                const elapsed = new Date() - RADIO_START_TIME;
+                const hours = Math.floor(elapsed / 3600000);
+                const minutes = Math.floor((elapsed % 3600000) / 60000);
+                const seconds = Math.floor((elapsed % 60000) / 1000);
+
+                const formatted = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                document.getElementById('uptimeDisplay').textContent = formatted;
+            }
+
+            formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }
+        }
+
+        // Expose API for parent window (aggregator)
+        window.syncRadioAPI = {
+            play: () => {
+                document.getElementById('audioPlayer').play().catch(err => console.log('Play error:', err));
+            },
+            pause: () => {
+                document.getElementById('audioPlayer').pause();
+            },
+            getNowPlaying: () => {
+                const player = window.nirkamPlayer;
+                if (player) {
+                    const radioPos = player.getRadioPosition();
+                    const song = PLAYLIST[radioPos.songIndex];
+                    return {
+                        title: song.title,
+                        artist: 'Nirkam',
+                        duration: song.duration,
+                        position: radioPos.positionInSong
+                    };
+                }
+                return null;
+            },
+            getStatus: () => {
+                const audioPlayer = document.getElementById('audioPlayer');
+                return {
+                    station: STATION,
+                    isPlaying: !audioPlayer.paused,
+                    currentTime: audioPlayer.currentTime,
+                    volume: audioPlayer.volume * 100,
+                    playlist: PLAYLIST,
+                    sync: 'UTC-based',
+                    all_listeners_synchronized: true
+                };
+            },
+            setVolume: (volume) => {
+                document.getElementById('audioPlayer').volume = volume / 100;
+            },
+            addListener: (event, callback) => {
+                if (event === 'play') {
+                    document.getElementById('audioPlayer').addEventListener('play', callback);
+                } else if (event === 'pause') {
+                    document.getElementById('audioPlayer').addEventListener('pause', callback);
+                }
+            }
+        };
+
+        // Expose station info
+        window.syncRadioStationInfo = STATION;
+
+        // Initialize player
+        window.nirkamPlayer = new EmbeddedPlayer();
+
+        // Notify parent that embed is ready
+        window.parent.postMessage({
+            type: 'nirkam-ready',
+            station: STATION,
+            api: 'syncRadioAPI'
+        }, '*');
+    </script>
+</body>
+</html>

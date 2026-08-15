@@ -1,0 +1,24 @@
+{
+  "name": "radio-explorer-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cloudflare Worker + D1 backend for Radio Explorer — Phase 1: profile/favorites/history/stats, backend-owned opaque-session auth (D1-verified, no Firebase/Firestore involved at all).",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "db:migrate:local": "wrangler d1 migrations apply radio_db --local",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run typecheck && npm test"
+  },
+  "dependencies": {
+    "hono": "^4.6.14"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.6.4",
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "wrangler": "^4.0.0"
+  }
+}

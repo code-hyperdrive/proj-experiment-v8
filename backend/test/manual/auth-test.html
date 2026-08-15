@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--
+  Throwaway manual verification harness for the Radio Explorer backend
+  (Milestone 1). NOT part of the deployed app — lives entirely under
+  backend/, which _redirects already blocks from being served by
+  Cloudflare Pages, and this file is never linked from index.html.
+
+  No Firebase involved anywhere — auth is backend-owned opaque sessions
+  (see src/lib/session.ts). Anonymous "sign in" just means calling
+  POST /api/v1/auth/anonymous and holding onto the sessionToken it
+  returns; there's no external identity provider to configure for that
+  path. Google sign-in (added later) is real OAuth against Google's own
+  servers — see the "2b. Sign in with Google" section below, and
+  src/lib/oauth.ts / wrangler.toml's "Google OAuth" comment for setup.
+
+  Usage: serve this file over plain HTTP, don't open it via file:// —
+  a file:// page sends `Origin: null`, which the backend's CORS
+  allow-list (wrangler.toml's ALLOWED_ORIGINS) correctly rejects, so
+  every call fails with a CORS error before it even reaches your code
+  (confirmed by an actual browser-driven test; file:// does NOT work
+  here, unlike some earlier assumptions in this project's history).
+  From this directory:
+      python3 -m http.server 8080
+  then open http://localhost:8080/auth-test.html — port 8080 is already
+  in ALLOWED_ORIGINS's local-dev default, so no backend config change is
+  needed. Point "API base URL" at your local `wrangler dev` server
+  (default http://localhost:8787), and click through the buttons in order.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Radio Explorer backend — manual API test harness</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.3rem; }
+  section { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+  button { margin: 0.25rem 0.25rem 0.25rem 0; padding: 0.4rem 0.8rem; cursor: pointer; }
+  input { padding: 0.3rem; margin: 0.25rem 0; }
+  label { display: block; font-size: 0.85rem; color: #444; margin-top: 0.5rem; }
+  pre { background: #111; color: #cfffcf; padding: 0.75rem; border-radius: 6px; max-height: 320px; overflow: auto; font-size: 0.8rem; }
+  .row input[type="text"] { width: 60%; }
+  .status { font-weight: bold; }
+  .status.ok { color: #1a7a1a; }
+  .status.err { color: #b00; }
+</style>
+</head>
+<body>
+<h1>Radio Explorer backend — manual API test harness (dev only)</h1>
+
+<section>
+  <h2>1. Config</h2>
+  <label for="apiBase">API base URL</label>
+  <input type="text" id="apiBase" value="http://localhost:8787" />
+  <div id="authStatus" class="status">Not signed in.</div>
+</section>
+
+<section>
+  <h2>2. Session (backend-owned, no Firebase)</h2>
+  <button id="btnCreateAccount">Create anonymous account (POST /auth/anonymous)</button>
+  <button id="btnLogout">Logout (POST /auth/logout — revokes the session)</button>
+  <button id="btnForgetLocally">Forget session locally (without revoking server-side)</button>
+</section>
+
+<section>
+  <h2>2b. Sign in with Google</h2>
+  <p style="font-size:0.85rem;color:#666">
+    This is a real full-page redirect to Google's consent screen — can't be
+    done via fetch()/AJAX. Requires <code>GOOGLE_CLIENT_ID</code> /
+    <code>GOOGLE_CLIENT_SECRET</code> to be real values (see
+    backend/wrangler.toml and backend/.dev.vars) — until then this will
+    reach Google but fail with an "invalid_client" style error, which is
+    expected, not a bug here. After a successful sign-in, Google redirects
+    back to <code>/auth/google/callback</code>, which currently just
+    renders raw JSON in the browser (no frontend wiring exists yet to
+    receive it — see that route's own code comment).
+  </p>
+  <button id="btnGoogleSignInFresh">Sign in with Google (fresh — no linking)</button>
+  <button id="btnGoogleSignInLinked">Sign in with Google (link current anonymous session)</button>
+</section>
+
+<section>
+  <h2>3. Profile</h2>
+  <button data-call="GET /api/v1/profile">GET /profile</button>
+  <button data-call="PATCH /api/v1/profile" data-body='{"displayName":"Test User","preferences":{"theme":"midnight"}}'>PATCH /profile</button>
+  <button data-call="DELETE /api/v1/profile">DELETE /profile (careful! deletes the account)</button>
+</section>
+
+<section>
+  <h2>4. Favorites</h2>
+  <button data-call="GET /api/v1/favorites">GET /favorites</button>
+  <button data-call="PUT /api/v1/favorites/test-station-1">PUT /favorites/test-station-1</button>
+  <button data-call="PUT /api/v1/favorites/test-station-2">PUT /favorites/test-station-2</button>
+  <button data-call="PUT /api/v1/favorites/reorder" data-body='{"order":["test-station-2","test-station-1"]}'>PUT /favorites/reorder</button>
+  <button data-call="DELETE /api/v1/favorites/test-station-1">DELETE /favorites/test-station-1</button>
+</section>
+
+<section>
+  <h2>5. History</h2>
+  <button data-call="GET /api/v1/history">GET /history</button>
+  <button data-call="POST /api/v1/history" data-body='{"stationId":"test-station-1","genre":"Jazz","country":"USA","durationSeconds":120}'>POST /history</button>
+</section>
+
+<section>
+  <h2>6. Stats (public, no auth)</h2>
+  <button data-call="GET /api/v1/stats" data-noauth="1">GET /stats</button>
+</section>
+
+<section>
+  <h2>7. Negative auth tests</h2>
+  <button id="btnNoToken">GET /profile with NO Authorization header</button>
+  <button id="btnBadToken">GET /profile with a token that was never issued</button>
+</section>
+
+<section>
+  <h2>Log</h2>
+  <pre id="log">Waiting for actions…</pre>
+</section>
+
+<script>
+  const logEl = document.getElementById('log');
+  const authStatusEl = document.getElementById('authStatus');
+  let session = null; // { userId, sessionToken, expiresAt }
+
+  function log(label, data) {
+    const ts = new Date().toISOString().split('T')[1].replace('Z', '');
+    logEl.textContent = `[${ts}] ${label}\n` + JSON.stringify(data, null, 2) + '\n\n' + logEl.textContent;
+  }
+
+  function renderAuthStatus() {
+    if (session) {
+      authStatusEl.textContent = `Signed in — userId: ${session.userId} (expires ${new Date(session.expiresAt).toLocaleString()})`;
+      authStatusEl.className = 'status ok';
+    } else {
+      authStatusEl.textContent = 'Not signed in.';
+      authStatusEl.className = 'status';
+    }
+  }
+
+  function apiBase() {
+    return document.getElementById('apiBase').value.trim();
+  }
+
+  document.getElementById('btnCreateAccount').onclick = async () => {
+    try {
+      const res = await fetch(apiBase() + '/api/v1/auth/anonymous', { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(JSON.stringify(data));
+      session = data;
+      renderAuthStatus();
+      log('POST /auth/anonymous -> ' + res.status, data);
+    } catch (err) {
+      log('POST /auth/anonymous FAILED', { message: err.message });
+    }
+  };
+
+  document.getElementById('btnLogout').onclick = async () => {
+    if (!session) { log('Logout skipped', { reason: 'not signed in' }); return; }
+    try {
+      const res = await fetch(apiBase() + '/api/v1/auth/logout', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + session.sessionToken },
+      });
+      const data = await res.json();
+      log('POST /auth/logout -> ' + res.status, data);
+      session = null;
+      renderAuthStatus();
+    } catch (err) {
+      log('POST /auth/logout FAILED', { message: err.message });
+    }
+  };
+
+  document.getElementById('btnForgetLocally').onclick = () => {
+    session = null;
+    renderAuthStatus();
+    log('Session forgotten locally (server-side session still valid)', {});
+  };
+
+  document.getElementById('btnGoogleSignInFresh').onclick = () => {
+    log('Redirecting to Google (fresh sign-in, no linking)...', {});
+    window.location.href = apiBase() + '/api/v1/auth/google/start';
+  };
+
+  document.getElementById('btnGoogleSignInLinked').onclick = () => {
+    if (!session) {
+      log('Link sign-in skipped', { reason: 'create an anonymous account first, so there is something to link' });
+      return;
+    }
+    log('Redirecting to Google (will link current anonymous session on return)...', { anonymousUserId: session.userId });
+    window.location.href = apiBase() + '/api/v1/auth/google/start?sessionToken=' + encodeURIComponent(session.sessionToken);
+  };
+
+  async function callApi(method, path, body, useAuth) {
+    const headers = { 'Content-Type': 'application/json' };
+    if (useAuth) {
+      if (!session) throw new Error('Not signed in — create an anonymous account first');
+      headers['Authorization'] = 'Bearer ' + session.sessionToken;
+    }
+    const res = await fetch(apiBase() + path, {
+      method,
+      headers,
+      body: body ? JSON.stringify(JSON.parse(body)) : undefined,
+    });
+    let data;
+    try { data = await res.json(); } catch { data = await res.text(); }
+    return { status: res.status, data };
+  }
+
+  document.querySelectorAll('button[data-call]').forEach((btn) => {
+    btn.onclick = async () => {
+      const [method, path] = btn.dataset.call.split(' ');
+      const body = btn.dataset.body;
+      const useAuth = !btn.dataset.noauth;
+      try {
+        const result = await callApi(method, path, body, useAuth);
+        log(`${method} ${path} -> ${result.status}`, result.data);
+      } catch (err) {
+        log(`${method} ${path} FAILED`, { message: err.message });
+      }
+    };
+  });
+
+  document.getElementById('btnNoToken').onclick = async () => {
+    const res = await fetch(apiBase() + '/api/v1/profile');
+    log('GET /profile (no Authorization header) -> ' + res.status, await res.json().catch(() => null));
+  };
+
+  document.getElementById('btnBadToken').onclick = async () => {
+    const res = await fetch(apiBase() + '/api/v1/profile', {
+      headers: { Authorization: 'Bearer this-token-was-never-issued' },
+    });
+    log('GET /profile (unknown token) -> ' + res.status, await res.json().catch(() => null));
+  };
+
+  renderAuthStatus();
+</script>
+</body>
+</html>

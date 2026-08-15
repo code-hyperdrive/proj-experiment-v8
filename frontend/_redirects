@@ -1,0 +1,14 @@
+# Cloudflare Pages redirects/rewrites.
+# This is a static site with no build step — Pages' "Root directory" project
+# setting points at frontend/, so everything in THIS directory is published
+# as-is. Repo-root siblings (backend/, automation/, docs/) are outside what
+# Pages can even see now, so they no longer need blocking here — the old
+# rules for them (kept as history in docs/PROJECT_REFERENCE.md) are gone.
+# What's left below is only the dev-only files that still live INSIDE
+# frontend/ (the embedded radios/nirkam player ships some markdown/test
+# pages alongside its real embed.html) and shouldn't be crawlable.
+
+/radios/*.md                         /404.html   404
+/radios/nirkam/*.md                  /404.html   404
+/radios/nirkam/play-local.html       /404.html   404
+/radios/nirkam/test-local.html       /404.html   404

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirkam Radio Player - Local Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .player {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .now-playing {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .track-number {
+            color: #999;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .track-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .track-file {
+            font-size: 12px;
+            color: #666;
+            font-family: 'Monaco', monospace;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .track-duration {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #667eea;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        audio {
+            width: 100%;
+            margin-bottom: 25px;
+            height: 40px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-play {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-play:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .btn-prev {
+            background: #f0f4ff;
+            color: #667eea;
+        }
+
+        .btn-prev:hover {
+            background: #e0e8ff;
+        }
+
+        .btn-next {
+            background: #f0f4ff;
+            color: #667eea;
+        }
+
+        .btn-next:hover {
+            background: #e0e8ff;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+
+        .stat {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .stat-label {
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .info {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .error {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #c62828;
+            margin-bottom: 15px;
+        }
+
+        .playlist-mini {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 11px;
+            max-height: 150px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .playlist-mini div {
+            padding: 4px;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+
+        .playlist-mini div.active {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+            border-radius: 3px;
+            border-bottom: none;
+        }
+
+        @media (max-width: 600px) {
+            .player {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .track-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="player">
+        <div class="logo">🎵</div>
+        <h1>Nirkam Radio</h1>
+        <p class="subtitle">Synchronized Internet Radio</p>
+
+        <div id="message" style="display: none;"></div>
+
+        <div class="now-playing">
+            <div class="track-number" id="trackNum">Track 1 of 26</div>
+            <div class="track-title" id="trackTitle">Loading...</div>
+            <div class="track-file" id="trackFile">-</div>
+            <div class="track-duration" id="trackDur">0:00</div>
+        </div>
+
+        <audio id="player" controls></audio>
+
+        <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-prev" onclick="previousTrack()">⏮ Previous</button>
+            <button class="btn-play" id="playBtn" onclick="togglePlay()">▶ Play</button>
+            <button class="btn-next" onclick="nextTrack()">Next ⏭</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-label">Total Tracks</div>
+                <div class="stat-value" id="statTracks">-</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Total Duration</div>
+                <div class="stat-value" id="statDuration">-</div>
+            </div>
+        </div>
+
+        <div id="info" class="info" style="display: none;"></div>
+
+        <div class="playlist-mini" id="playlistMini"></div>
+    </div>
+
+    <script>
+        // Inline playlist data
+        const PLAYLIST = [
+            { title: "🎵 Music 01", file: "music/01.mp3", duration: 268, type: "music" },
+            { title: "🎤 Speech 01", file: "speach/01.mp3", duration: 18, type: "speech" },
+            { title: "🎵 Music 02", file: "music/02.mp3", duration: 58, type: "music" },
+            { title: "🎤 Speech 02", file: "speach/02.mp3", duration: 28, type: "speech" },
+            { title: "🎵 Music 03", file: "music/03.mp3", duration: 15, type: "music" },
+            { title: "🎤 Speech 03", file: "speach/03.mp3", duration: 25, type: "speech" },
+            { title: "🎵 Music 04", file: "music/04.mp3", duration: 150, type: "music" },
+            { title: "🎤 Speech 04", file: "speach/04.mp3", duration: 25, type: "speech" },
+            { title: "🎵 Music 05", file: "music/08.mp3", duration: 148, type: "music" },
+            { title: "🎤 Speech 05", file: "speach/05.mp3", duration: 22, type: "speech" },
+            { title: "🎵 Music 06", file: "music/05.mp3", duration: 138, type: "music" },
+            { title: "🎤 Speech 06", file: "speach/06.mp3", duration: 19, type: "speech" },
+            { title: "🎵 Music 07", file: "music/06.mp3", duration: 111, type: "music" },
+            { title: "🎤 Speech 07", file: "speach/07.mp3", duration: 13, type: "speech" },
+            { title: "🎵 Music 08", file: "music/07.mp3", duration: 73, type: "music" },
+            { title: "🎤 Speech 08", file: "speach/08.mp3", duration: 18, type: "speech" },
+            { title: "🎤 Speech 09", file: "speach/09.mp3", duration: 17, type: "speech" },
+            { title: "🎤 Speech 10", file: "speach/10.mp3", duration: 45, type: "speech" },
+            { title: "🎤 Speech 11", file: "speach/11.mp3", duration: 23, type: "speech" },
+            { title: "🎤 Speech 12", file: "speach/12.mp3", duration: 12, type: "speech" },
+            { title: "🎤 Speech 13", file: "speach/13.mp3", duration: 43, type: "speech" },
+            { title: "🎤 Speech 14", file: "speach/14.mp3", duration: 27, type: "speech" },
+            { title: "🎤 Speech 15", file: "speach/15.mp3", duration: 85, type: "speech" },
+            { title: "🎤 Speech 16", file: "speach/16.mp3", duration: 24, type: "speech" },
+            { title: "🎤 Speech 17", file: "speach/17.mp3", duration: 31, type: "speech" },
+            { title: "🎤 Speech 18", file: "speach/18.mp3", duration: 24, type: "speech" }
+        ];
+
+        let currentTrack = 0;
+        let isPlaying = false;
+
+        const player = document.getElementById('player');
+        const playBtn = document.getElementById('playBtn');
+        const trackTitle = document.getElementById('trackTitle');
+        const trackNum = document.getElementById('trackNum');
+        const trackFile = document.getElementById('trackFile');
+        const trackDur = document.getElementById('trackDur');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        const progressFill = document.getElementById('progressFill');
+        const statTracks = document.getElementById('statTracks');
+        const statDuration = document.getElementById('statDuration');
+        const playlistMini = document.getElementById('playlistMini');
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${String(secs).padStart(2, '0')}`;
+        }
+
+        function loadTrack(index) {
+            currentTrack = (index + PLAYLIST.length) % PLAYLIST.length;
+            const track = PLAYLIST[currentTrack];
+
+            trackTitle.textContent = track.title;
+            trackNum.textContent = `Track ${currentTrack + 1} of ${PLAYLIST.length}`;
+            trackFile.textContent = track.file;
+            trackDur.textContent = formatTime(track.duration);
+
+            player.src = track.file;
+            durationEl.textContent = formatTime(track.duration);
+
+            updatePlaylistHighlight();
+        }
+
+        function togglePlay() {
+            if (isPlaying) {
+                player.pause();
+                isPlaying = false;
+                playBtn.textContent = '▶ Play';
+            } else {
+                player.play().catch(err => {
+                    document.getElementById('message').innerHTML = '<div class="error">❌ Cannot play: ' + err.message + '</div>';
+                    document.getElementById('message').style.display = 'block';
+                });
+                isPlaying = true;
+                playBtn.textContent = '⏸ Pause';
+            }
+        }
+
+        function nextTrack() {
+            loadTrack(currentTrack + 1);
+            if (isPlaying) player.play();
+        }
+
+        function previousTrack() {
+            loadTrack(currentTrack - 1);
+            if (isPlaying) player.play();
+        }
+
+        function updatePlaylistHighlight() {
+            document.querySelectorAll('.playlist-mini div').forEach((el, i) => {
+                if (i === currentTrack) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+        }
+
+        function updateStats() {
+            statTracks.textContent = PLAYLIST.length;
+            const totalDur = PLAYLIST.reduce((sum, t) => sum + t.duration, 0);
+            statDuration.textContent = formatTime(totalDur);
+        }
+
+        function renderPlaylist() {
+            let html = '';
+            PLAYLIST.forEach((track, i) => {
+                html += `<div class="${i === currentTrack ? 'active' : ''}">${i + 1}. ${track.title}</div>`;
+            });
+            playlistMini.innerHTML = html;
+        }
+
+        player.addEventListener('timeupdate', () => {
+            currentTimeEl.textContent = formatTime(player.currentTime);
+            progressFill.style.width = ((player.currentTime / player.duration) * 100) + '%';
+        });
+
+        player.addEventListener('ended', () => {
+            nextTrack();
+        });
+
+        player.addEventListener('error', (e) => {
+            document.getElementById('message').innerHTML = '<div class="error">❌ Cannot load audio file. Check file paths.</div>';
+            document.getElementById('message').style.display = 'block';
+            console.error('Audio error:', e);
+        });
+
+        // Initialize
+        window.addEventListener('load', () => {
+            updateStats();
+            renderPlaylist();
+            loadTrack(0);
+
+            // Show info
+            const info = document.getElementById('info');
+            info.innerHTML = `✅ Loaded 26 tracks (8 music + 18 speech alternating) • 24:20 total duration`;
+            info.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

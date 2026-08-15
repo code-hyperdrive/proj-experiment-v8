@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirkam Radio - Local Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .info-box strong {
+            color: #333;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin: 5px 0;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        .playlist-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
+        }
+
+        .track {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .track.music {
+            border-left: 3px solid #ff9800;
+        }
+
+        .track.speech {
+            border-left: 3px solid #4caf50;
+        }
+
+        .track-title {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .track-duration {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #f0f4ff;
+            color: #667eea;
+            border: 1px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .status {
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 6px;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .status.error {
+            background: #ffebee;
+            border-left-color: #f44336;
+            color: #c62828;
+        }
+
+        .nowplaying {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .nowplaying-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .nowplaying-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .nowplaying-time {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .test-output {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            line-height: 1.5;
+            margin-top: 20px;
+        }
+
+        .test-output .success {
+            color: #81c784;
+        }
+
+        .test-output .error {
+            color: #ef5350;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Nirkam Radio Test</h1>
+        <p class="subtitle">Local Playlist Validation</p>
+
+        <div id="status" class="status">
+            Loading playlist...
+        </div>
+
+        <div id="nowplaying" class="nowplaying" style="display: none;">
+            <div class="nowplaying-label">Now Playing</div>
+            <div class="nowplaying-title" id="np-title">-</div>
+            <div class="nowplaying-time" id="np-time">-</div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Tracks</div>
+                <div class="stat-value" id="stat-tracks">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Duration</div>
+                <div class="stat-value" id="stat-duration">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Music Tracks</div>
+                <div class="stat-value" id="stat-music">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Speech Tracks</div>
+                <div class="stat-value" id="stat-speech">-</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-primary" id="btn-play">▶ Play</button>
+            <button class="btn-secondary" id="btn-next">Next Track →</button>
+        </div>
+
+        <div class="playlist-section">
+            <div class="section-title">Playlist Preview (26 Tracks)</div>
+            <div id="playlist" style="max-height: 400px; overflow-y: auto;"></div>
+        </div>
+
+        <div class="test-output" id="test-output" style="display: none;"></div>
+    </div>
+
+    <script src="js/playlist.js?v=19"></script>
+    <script>
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${String(secs).padStart(2, '0')}`;
+        }
+
+        function updateStats() {
+            const musicCount = PLAYLIST.filter(t => t.type === 'music').length;
+            const speechCount = PLAYLIST.filter(t => t.type === 'speech').length;
+
+            document.getElementById('stat-tracks').textContent = PLAYLIST.length;
+            document.getElementById('stat-duration').textContent = formatTime(TOTAL_PLAYLIST_DURATION);
+            document.getElementById('stat-music').textContent = musicCount;
+            document.getElementById('stat-speech').textContent = speechCount;
+        }
+
+        function renderPlaylist() {
+            const container = document.getElementById('playlist');
+            let html = '';
+
+            PLAYLIST.forEach((track, index) => {
+                const isMusic = track.type === 'music';
+                const className = `track ${isMusic ? 'music' : 'speech'}`;
+                html += `
+                    <div class="${className}">
+                        <div class="track-title">${index + 1}. ${track.title}</div>
+                        <div class="track-duration">${formatTime(track.duration)}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function updateNowPlaying() {
+            const track = PLAYLIST[currentTrackIndex];
+            const npDiv = document.getElementById('nowplaying');
+            document.getElementById('np-title').textContent = track.title;
+            document.getElementById('np-time').textContent = formatTime(track.duration);
+            npDiv.style.display = 'block';
+        }
+
+        function playNext() {
+            if (!isPlaying) {
+                isPlaying = true;
+                document.getElementById('btn-play').textContent = '⏸ Pause';
+            }
+
+            currentTrackIndex = (currentTrackIndex + 1) % PLAYLIST.length;
+            updateNowPlaying();
+        }
+
+        function play() {
+            if (isPlaying) {
+                isPlaying = false;
+                document.getElementById('btn-play').textContent = '▶ Play';
+            } else {
+                playNext();
+            }
+        }
+
+        function validatePlaylist() {
+            const logs = [];
+            let hasErrors = false;
+
+            try {
+                // Check if PLAYLIST exists
+                if (!PLAYLIST || !Array.isArray(PLAYLIST)) {
+                    logs.push('<span class="error">❌ PLAYLIST is not an array</span>');
+                    hasErrors = true;
+                } else {
+                    logs.push(`<span class="success">✓ PLAYLIST array found with ${PLAYLIST.length} tracks</span>`);
+                }
+
+                // Check duration calculation
+                if (TOTAL_PLAYLIST_DURATION === 1460) {
+                    logs.push(`<span class="success">✓ Total duration: ${TOTAL_PLAYLIST_DURATION}s (${formatTime(TOTAL_PLAYLIST_DURATION)})</span>`);
+                } else {
+                    logs.push(`<span class="error">❌ Duration mismatch: expected 1460, got ${TOTAL_PLAYLIST_DURATION}</span>`);
+                    hasErrors = true;
+                }
+
+                // Check alternation pattern
+                let musicCount = 0, speechCount = 0;
+                let alternationOk = true;
+
+                PLAYLIST.slice(0, 16).forEach((track, i) => {
+                    const expectedType = (i % 2 === 0) ? 'music' : 'speech';
+                    if (track.type !== expectedType) {
+                        alternationOk = false;
+                        logs.push(`<span class="error">❌ Position ${i + 1}: expected ${expectedType}, got ${track.type}</span>`);
+                    }
+                });
+
+                if (alternationOk) {
+                    logs.push('<span class="success">✓ Alternation pattern correct (Music ↔ Speech)</span>');
+                }
+
+                // Count tracks
+                PLAYLIST.forEach(t => {
+                    if (t.type === 'music') musicCount++;
+                    if (t.type === 'speech') speechCount++;
+                });
+
+                logs.push(`<span class="success">✓ Music tracks: ${musicCount}, Speech tracks: ${speechCount}</span>`);
+
+                // Check track files
+                let fileCheck = true;
+                PLAYLIST.forEach((track, i) => {
+                    if (!track.file) {
+                        logs.push(`<span class="error">❌ Track ${i + 1} missing file path</span>`);
+                        fileCheck = false;
+                    }
+                    if (!track.duration || track.duration <= 0) {
+                        logs.push(`<span class="error">❌ Track ${i + 1} has invalid duration</span>`);
+                        fileCheck = false;
+                    }
+                });
+
+                if (fileCheck) {
+                    logs.push('<span class="success">✓ All tracks have valid file paths and durations</span>');
+                }
+
+                // Status
+                if (!hasErrors && alternationOk && fileCheck) {
+                    logs.push('');
+                    logs.push('<span class="success">✅ ALL TESTS PASSED - Playlist is valid!</span>');
+                    return { passed: true, logs };
+                }
+            } catch (e) {
+                logs.push(`<span class="error">❌ Error: ${e.message}</span>`);
+            }
+
+            return { passed: hasErrors, logs };
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            try {
+                updateStats();
+                renderPlaylist();
+                updateNowPlaying();
+
+                const validation = validatePlaylist();
+
+                if (validation.passed) {
+                    document.getElementById('status').innerHTML =
+                        '✅ <strong>Playlist loaded successfully!</strong> 26 tracks ready to play. Click "Play" to start.';
+                    document.getElementById('status').classList.remove('error');
+                } else {
+                    document.getElementById('status').innerHTML =
+                        '⚠️ <strong>Playlist loaded but with issues.</strong> See test output below.';
+                    document.getElementById('status').classList.add('error');
+                }
+
+                // Show test output
+                const output = document.getElementById('test-output');
+                output.innerHTML = validation.logs.join('<br>');
+                output.style.display = 'block';
+
+                // Wire up buttons
+                document.getElementById('btn-play').addEventListener('click', play);
+                document.getElementById('btn-next').addEventListener('click', playNext);
+
+            } catch (error) {
+                document.getElementById('status').innerHTML =
+                    `❌ <strong>Error loading playlist:</strong> ${error.message}`;
+                document.getElementById('status').classList.add('error');
+            }
+        });
+    </script>
+</body>
+</html>

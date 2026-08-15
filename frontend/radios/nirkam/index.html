@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Satyanusaran - Synchronized Internet Radio from Chapra, India">
+    <title>Satyanusaran - Synchronized Internet Radio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <!-- Header -->
+        <header class="header" id="headerElement">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🎵</span>
+                    <h1>Satyanusaran</h1>
+                </div>
+                <p class="tagline">Chapra, India • Always Live. Always Synchronized.</p>
+            </div>
+        </header>
+
+        <!-- Start Listening Button (hidden after first play) -->
+        <div id="startScreen" class="start-screen">
+            <div class="start-content">
+                <div class="start-icon">🔴</div>
+                <h2>Join The Live Stream</h2>
+                <p>Satyanusaran - Sync with listeners worldwide</p>
+                <button id="startButton" class="btn-start" aria-label="Start listening to Satyanusaran">
+                    ▶ START LISTENING
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main id="mainContent" class="main-content hidden">
+            <!-- Live Indicator -->
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span>LIVE</span>
+            </div>
+
+            <!-- Now Playing Panel -->
+            <section class="panel now-playing-panel">
+                <h2>Now Playing</h2>
+                <div class="song-info">
+                    <h3 id="currentSongTitle" class="song-title">Loading...</h3>
+                    <div class="playback-time">
+                        <span id="currentTime">00:00</span>
+                        <span class="separator">/</span>
+                        <span id="totalTime">00:00</span>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Player Controls -->
+                <div class="player-controls">
+                    <button id="playPauseBtn" class="control-btn play-btn" aria-label="Play or pause">
+                        <span class="icon">⏸</span>
+                    </button>
+
+                    <div class="volume-control">
+                        <button id="muteBtn" class="control-btn mute-btn" aria-label="Mute or unmute">
+                            <span class="icon">🔊</span>
+                        </button>
+                        <input
+                            type="range"
+                            id="volumeSlider"
+                            min="0"
+                            max="100"
+                            value="70"
+                            class="volume-slider"
+                            aria-label="Volume"
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- Radio Status Panel -->
+            <section class="panel status-panel" id="statusPanel">
+                <h2>Radio Status</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-label">Current UTC Time</span>
+                        <span id="utcTime" class="status-value">00:00:00</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Station Uptime</span>
+                        <span id="stationUptime" class="status-value">00:00:00</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Radio Status</span>
+                        <span id="radioStatus" class="status-value">
+                            <span class="status-dot live"></span>
+                            Running
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Up Next Panel -->
+            <section class="panel upcoming-panel">
+                <h2>Up Next</h2>
+                <div class="upcoming-list" id="upcomingList">
+                    <div class="upcoming-item">Loading...</div>
+                </div>
+            </section>
+
+            <!-- Footer Info -->
+            <footer class="footer-info">
+                <p>All listeners hear the same song at the same time</p>
+                <p class="tech-info">🔒 Client-side synchronization • No servers required</p>
+            </footer>
+        </main>
+
+        <!-- Hidden Audio Player -->
+        <audio id="audioPlayer" crossorigin="anonymous" autoplay playsinline></audio>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/embed-mode.js?v=17"></script>
+    <script src="js/prayer-times.js?v=17"></script>
+    <script src="js/playlist.js?v=19"></script>
+    <script src="js/app.js?v=18"></script>
+</body>
+</html>

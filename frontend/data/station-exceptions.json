@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "description": "Stations excluded from the app — require login, use web-player URLs, or otherwise cannot play in HTML5 audio.",
+  "reason": "auth_required",
+  "stationIds": [
+    "defa0e5c-f689-4db1-97db-87ebb759f7d1",
+    "4d01c3fb-75d8-11ea-b1cf-52543be04c81",
+    "332f6491-d62d-48a4-b44a-fa8020896949",
+    "6bfb7a7c-b811-472b-b091-5e27cb098bac",
+    "97d830f4-c35f-11e9-8502-52543be04c81",
+    "2c260d07-110c-473c-8a7f-df4b937b31a8",
+    "dfc627d6-5bb2-11ea-be63-52543be04c81",
+    "a722ad53-b10d-4087-85d8-5fabe061f758",
+    "5c781485-ee91-47bc-aa2d-bbe66024ff52",
+    "69cdf0f5-ed69-4bf2-be17-719a17c5681f",
+    "f48ce4f1-3f31-11e8-b74d-52543be04c81",
+    "f940cc74-1673-4bc8-adbc-832d5d51a012",
+    "f872bfc4-b09a-405f-9c7f-d535adba238e"
+  ],
+  "streamUrlPatterns": [
+    "listen.radioking.com",
+    "www.radioking.com/play/"
+  ],
+  "stations": [
+    { "id": "332f6491-d62d-48a4-b44a-fa8020896949", "name": "Equinoxe Radio", "note": "RadioKing 401 authentication" },
+    { "id": "defa0e5c-f689-4db1-97db-87ebb759f7d1", "name": "Antinea Radio", "note": "RadioKing authentication" },
+    { "id": "4d01c3fb-75d8-11ea-b1cf-52543be04c81", "name": "A2Z RADIO", "note": "RadioKing authentication" },
+    { "id": "6bfb7a7c-b811-472b-b091-5e27cb098bac", "name": "A ntinea Radio", "note": "RadioKing authentication" },
+    { "id": "97d830f4-c35f-11e9-8502-52543be04c81", "name": "Alternative Radio", "note": "RadioKing web player URL, not a stream" },
+    { "id": "2c260d07-110c-473c-8a7f-df4b937b31a8", "name": "Radio Manarat", "note": "RadioKing authentication" },
+    { "id": "dfc627d6-5bb2-11ea-be63-52543be04c81", "name": "Tropiques FM", "note": "RadioKing authentication" },
+    { "id": "a722ad53-b10d-4087-85d8-5fabe061f758", "name": "The Independent FM", "note": "RadioKing authentication" },
+    { "id": "5c781485-ee91-47bc-aa2d-bbe66024ff52", "name": "Radio Choco", "note": "RadioKing authentication" },
+    { "id": "69cdf0f5-ed69-4bf2-be17-719a17c5681f", "name": "Gritty Rock Radio", "note": "RadioKing authentication" },
+    { "id": "f48ce4f1-3f31-11e8-b74d-52543be04c81", "name": "Reggae.fr", "note": "RadioKing authentication" },
+    { "id": "f940cc74-1673-4bc8-adbc-832d5d51a012", "name": "Kurd1 FM", "note": "RadioKing authentication" },
+    { "id": "f872bfc4-b09a-405f-9c7f-d535adba238e", "name": "FM 80 Funky Music", "note": "RadioKing authentication" }
+  ]
+}
