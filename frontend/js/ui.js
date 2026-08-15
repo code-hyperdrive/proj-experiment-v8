@@ -436,19 +436,31 @@ class UIController {
     }
 
     /**
-     * Show toast notification
+     * Show toast notification.
+     * Only one toast is shown at a time — any existing toast is replaced.
+     * Duration is capped at 2 s; errors stay until dismissed or 2 s.
      */
     showToast(options) {
         const {
-            type = 'info', // 'info', 'success', 'warning', 'error'
+            type = 'info',
             title = '',
             message = '',
-            duration = 5000,
             action = null,
             actionLabel = 'Try Another',
             secondaryAction = null,
             secondaryActionLabel = 'Retry'
         } = options;
+
+        // Only show errors and warnings — skip info/success toasts
+        if (type !== 'error' && type !== 'warning') return;
+
+        // One toast at a time — remove any existing one instantly
+        const container = document.getElementById('toastContainer');
+        if (container) {
+            container.querySelectorAll('.toast').forEach(t => t.remove());
+        }
+
+        const duration = 2000; // hard cap: 2 seconds
 
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
@@ -477,7 +489,6 @@ class UIController {
             </button>
         `;
 
-        const container = document.getElementById('toastContainer');
         container.appendChild(toast);
 
         // Close button

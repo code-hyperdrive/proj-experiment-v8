@@ -802,55 +802,36 @@ class GlobeRadioApp {
         });
         
         this.audio.on('error', (data) => {
+            // Show error toast (max 2 s, one at a time — enforced by showToast)
             this.ui.showToast({
                 type: 'error',
                 title: data.title,
                 message: data.message,
-                duration: 10000,
                 action: data.action || null,
                 actionLabel: 'Try Another',
                 secondaryAction: 'retryStation',
                 secondaryActionLabel: '↺ Retry'
             });
-            // All streams failed in this browser → report to backend so the
-            // dot turns grey for everyone on the next status load.
-            // Use data.failedStation (set by audio.js before streams are tried)
-            // rather than this.state.currentStation (only set on success).
+            // Report failure → grey dot
             const failedStation = data.failedStation || this.state.currentStation;
-            if (failedStation) {
-                this.reportStationFailure(failedStation);
-            }
+            if (failedStation) this.reportStationFailure(failedStation);
         });
-        
+
         // Handle toast actions
         window.addEventListener('toastAction', (e) => {
             if (e.detail === 'tryAnother') {
                 this.playNextStation();
             } else if (e.detail === 'retryStation') {
-                // Retry the same station from scratch
-                if (this.state.currentStation) {
-                    this.playStation(this.state.currentStation);
-                }
+                if (this.state.currentStation) this.playStation(this.state.currentStation);
             }
         });
-        
+
+        // Warning toasts only (info toasts suppressed)
         this.audio.on('warning', (data) => {
-            this.ui.showToast({
-                type: 'warning',
-                title: data.title,
-                message: data.message,
-                duration: 5000
-            });
+            this.ui.showToast({ type: 'warning', title: data.title, message: data.message });
         });
-        
-        this.audio.on('info', (data) => {
-            this.ui.showToast({
-                type: 'info',
-                title: data.title,
-                message: data.message,
-                duration: 4000
-            });
-        });
+
+        // audio 'info' events (stream retry notices) are intentionally not shown as toasts
         
         // (search:searchResults used to also be handled here via
         // handleSearchResults(), which re-rendered #searchStations with its
@@ -1873,13 +1854,7 @@ class GlobeRadioApp {
             this.updateUI();
             this.updateBottomPlayer();
             
-            // Show success toast
-            this.ui.showToast({
-                type: 'success',
-                title: 'Now Playing',
-                message: `${station.name} - ${station.city}`,
-                duration: 3000
-            });
+            // No "Now Playing" toast — bottom player already shows this
         }
     }
     
@@ -1894,14 +1869,7 @@ class GlobeRadioApp {
         const isFavorite = this.favorites.toggle(stationId);
         const station = this.stations.find(s => s.id === stationId);
 
-        if (station) {
-            this.ui.showToast({
-                type: 'success',
-                title: isFavorite ? 'Added to Favorites' : 'Removed from Favorites',
-                message: station.name,
-                duration: 2000
-            });
-        }
+        // No toast for favorites — action is reflected in the UI immediately
     }
     
     /**
