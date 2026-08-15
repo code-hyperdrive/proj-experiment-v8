@@ -4842,6 +4842,113 @@ button:focus-visible {
     margin-top: var(--spacing-sm);
 }
 
+/* ── Account tab compact layout ───────────────────────────────────── */
+.acct-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.acct-card-danger {
+    border-left: 3px solid #ef4444;
+}
+
+.acct-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.acct-card-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.acct-card-meta {
+    font-size: 10px;
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 55%;
+    text-align: right;
+}
+
+.acct-card-hint {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.acct-btn-row {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.acct-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.acct-row .acct-card {
+    margin-bottom: 0;
+}
+
+.acct-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px var(--spacing-sm);
+    font-size: 11px;
+    font-family: var(--font-primary);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.acct-btn:hover:not(:disabled) {
+    border-color: var(--accent-primary);
+    background: var(--bg-primary);
+}
+
+.acct-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.acct-btn-primary {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    border-color: var(--accent-primary);
+}
+
+.acct-btn-primary:hover:not(:disabled) {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.acct-btn-danger {
+    color: #ef4444;
+    border-color: #ef4444;
+    background: transparent;
+}
+
+.acct-btn-danger:hover:not(:disabled) {
+    background: #ef4444;
+    color: #fff;
+}
+
 /* Setup Modal Tabs */
 .setup-tabs {
     display: flex;

@@ -839,79 +839,56 @@ class UserProfile {
                         
                         <!-- Tab 6: Account -->
                         <div class="profile-tab-content" id="profileTabAccount" hidden>
-                            <!-- App Install (hidden via CSS/JS once running standalone) -->
-                            <div class="profile-data-management" id="profileInstallSection">
-                                <h4>📲 App</h4>
-                                <div class="data-management-buttons">
-                                    <button id="profileInstallBtn" class="data-btn">
-                                        ⬇️ Install App
-                                    </button>
-                                </div>
-                                <p class="data-hint">Install Radio Explorer for a faster, full-screen experience with offline access.</p>
-                            </div>
 
-                            <!-- Data Management -->
-                            <div class="profile-data-management">
-                                <h4>☁️ Cloud Sync</h4>
-                                <div class="data-management-buttons">
-                                    <button id="syncNowBtn" class="data-btn sync-btn" ${!syncEnabled ? 'disabled' : ''}>
-                                        🔄 Sync Now
-                                    </button>
-                                    ${isSignedInWithGoogle ? `
-                                        <button id="signOutBtn" class="data-btn">🚪 Sign Out</button>
-                                    ` : `
-                                        <button id="googleSignInBtn" class="data-btn">🔐 Sign in with Google</button>
-                                    `}
+                            <!-- Cloud Sync row -->
+                            <div class="acct-card">
+                                <div class="acct-card-header">
+                                    <span class="acct-card-title">☁️ Cloud Sync</span>
+                                    <span class="acct-card-meta">${isSignedInWithGoogle ? '🟢 ' + this.escapeHtml(this.data.email) : '⚪ Anonymous'}</span>
                                 </div>
-                                ${isSignedInWithGoogle ? `
-                                    <p class="data-hint">Signed in as ${this.escapeHtml(this.data.email)}</p>
-                                ` : `
-                                    <p class="data-hint">Sign in to access your favorites and history on other devices.</p>
-                                `}
-                                <p class="data-hint">
+                                <div class="acct-card-hint">
                                     ${syncEnabled
                                         ? `Last synced: ${this.data.lastSyncAt ? new Date(this.data.lastSyncAt).toLocaleString() : 'Never'}`
-                                        : 'Cloud sync not available - data stored locally only'
-                                    }
-                                </p>
+                                        : 'Stored locally only'}
+                                </div>
+                                <div class="acct-btn-row">
+                                    <button id="syncNowBtn" class="acct-btn" ${!syncEnabled ? 'disabled' : ''}>🔄 Sync</button>
+                                    ${isSignedInWithGoogle
+                                        ? `<button id="signOutBtn" class="acct-btn">🚪 Sign Out</button>`
+                                        : `<button id="googleSignInBtn" class="acct-btn acct-btn-primary">🔐 Sign in with Google</button>`}
+                                </div>
                             </div>
 
-                            <!-- App Updates -->
-                            <div class="profile-data-management">
-                                <h4>🔄 App Updates <span class="app-version-badge" id="appVersionBadge">v${localStorage.getItem('appVersion') || '—'}</span></h4>
-                                <div class="data-management-buttons">
-                                    <button id="checkUpdatesBtn" class="data-btn update-btn">
-                                        🔍 Check for Updates
-                                    </button>
+                            <!-- App Install + Updates row -->
+                            <div class="acct-row">
+                                <div class="acct-card" id="profileInstallSection">
+                                    <div class="acct-card-title">📲 Install</div>
+                                    <div class="acct-card-hint">Full-screen offline app</div>
+                                    <button id="profileInstallBtn" class="acct-btn">⬇️ Install</button>
                                 </div>
-                                <p class="data-hint" id="updateHint">Click to check if a newer version is available and refresh your browser to get the latest features and improvements.</p>
-                                <div id="updateStatus" style="display:none; margin-top:10px; padding:10px; border-radius:4px;" class="update-status">
-                                    <p id="updateMessage"></p>
-                                    <button id="applyUpdateBtn" class="data-btn update-btn" style="margin-top:8px; display:none;">
-                                        ✅ Apply Update & Reload
-                                    </button>
+                                <div class="acct-card">
+                                    <div class="acct-card-header">
+                                        <span class="acct-card-title">🔄 Updates</span>
+                                        <span class="app-version-badge" id="appVersionBadge">v${localStorage.getItem('appVersion') || '—'}</span>
+                                    </div>
+                                    <div class="acct-card-hint" id="updateHint">Check for latest</div>
+                                    <button id="checkUpdatesBtn" class="acct-btn">🔍 Check</button>
+                                    <div id="updateStatus" style="display:none; margin-top:6px;" class="update-status">
+                                        <p id="updateMessage" class="acct-card-hint"></p>
+                                        <button id="applyUpdateBtn" class="acct-btn" style="display:none; margin-top:4px;">✅ Apply & Reload</button>
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Danger Zone -->
-                            <div class="profile-danger-zone">
-                                <h4>⚠️ Danger Zone</h4>
-                                <p>Reset clears browser data only. Use your ID to recover from cloud.</p>
-                                <button id="resetLocalDataBtn" class="reset-btn reset-local-btn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                                        <path d="M3 3v5h5"/>
-                                    </svg>
-                                    Reset Local Data
-                                </button>
-                                <button id="resetAllDataBtn" class="reset-btn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="3 6 5 6 21 6"/>
-                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                                    </svg>
-                                    ${t('resetAll')} (Local + Cloud)
-                                </button>
+                            <div class="acct-card acct-card-danger">
+                                <div class="acct-card-title">⚠️ Danger Zone</div>
+                                <div class="acct-btn-row">
+                                    <button id="resetLocalDataBtn" class="acct-btn acct-btn-danger">↺ Reset Local</button>
+                                    <button id="resetAllDataBtn" class="acct-btn acct-btn-danger">🗑 Reset All</button>
+                                </div>
                             </div>
+
                         </div>
 
                         <!-- Tab 7: Admin Dashboard (only for admins) -->
