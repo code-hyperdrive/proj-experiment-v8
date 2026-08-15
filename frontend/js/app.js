@@ -85,6 +85,12 @@ class GlobeRadioApp {
             // Load stations data
             await this.loadStations();
             console.log(`Loaded ${this.stations.length} stations`);
+
+            // Fetch station health statuses from the backend (non-blocking —
+            // if the API is unreachable the app still works, just without
+            // online/offline badges).  Runs in the background so it doesn't
+            // delay the rest of init.
+            this.fetchStationStatuses();
             
             console.log('Initializing audio controller...');
             // Initialize modules
@@ -440,6 +446,139 @@ class GlobeRadioApp {
     /**
      * Refresh stations cache in background
      */
+    /**
+     * Fetch station health statuses from the backend API and annotate each
+     * station in this.allStations with { _isOnline, _lastChecked, _errorType }.
+     *
+     * Stations confirmed offline for >7 days are hidden; those offline for
+     * 1-7 days get a "may be offline" warning when playback fails.
+     * Stations with no status entry (never scanned) are shown normally.
+     */
+    async fetchStationStatuses() {
+        const API_BASE = 'https://radio-explorer-api.ramsharans-rathore.workers.dev';
+
+        try {
+            const res = await fetch(`${API_BASE}/api/v1/stations/status`, {
+                // Cache for 10 minutes in the browser — the status map is large
+                // and changes only when the scanner runs.
+                cache: 'default',
+                headers: { 'Cache-Control': 'max-age=600' }
+            });
+            if (!res.ok) return; // non-fatal
+
+            const { status } = await res.json();
+            if (!status || typeof status !== 'object') return;
+
+            let hidden = 0;
+            let badged = 0;
+
+            // Annotate every station in allStations
+            for (const station of this.allStations) {
+                const s = status[station.id];
+                if (!s) continue; // never scanned — leave as-is
+
+                station._isOnline     = s.isOnline;
+                station._lastChecked  = s.lastChecked;
+                station._lastOnline   = s.lastOnline;
+                station._errorType    = s.errorType;
+                station._status       = s.status;       // active | inactive | dead | unscanned
+                station._reliability  = s.reliability;
+
+                if (!s.isOnline) {
+                    // Use the backend-computed 3-state status:
+                    //   inactive → grey dot (soft error, may recover)
+                    //   dead     → hide from map (hard error, permanently gone)
+                    if (s.status === 'inactive') {
+                        station._statusWarn = true;
+                        badged++;
+                    } else {
+                        // dead (or legacy/unscanned offline rows) → hide
+                        station._statusHide = true;
+                        hidden++;
+                    }
+                }
+            }
+
+            // Store globally so other parts of the app can read it
+            this.stationStatuses = status;
+
+            // Remove dead stations from visible lists
+            if (hidden > 0) {
+                this.stations    = this.stations.filter(s => !s._statusHide);
+                this.allStations = this.allStations.filter(s => !s._statusHide);
+                if (this.search) this.search.setStations(this.allStations);
+                this.updateBottomBarStats(this.stations);
+            }
+
+            // Always re-render the globe so inactive stations turn grey.
+            // Previously this only ran when hidden > 0, so stations with
+            // _statusWarn=true (inactive) stayed green — this was the bug.
+            if (this.globe?.updateDisplayedStations) {
+                this.globe.updateDisplayedStations(this.stations);
+            }
+
+            console.log(`📡 Station statuses loaded — hidden ${hidden} dead, ${badged} inactive (grey)`);
+
+            window.dispatchEvent(new CustomEvent('stationStatusesLoaded', {
+                detail: { status, hidden, badged }
+            }));
+
+        } catch (e) {
+            // Non-fatal — app works without statuses
+            console.warn('ℹ️ Station status fetch skipped:', e.message);
+        }
+    }
+
+    /**
+     * Report a user-experienced playback failure to the backend.
+     * The backend marks the station inactive (grey dot) for everyone.
+     * Fire-and-forget — never blocks the UI.
+     */
+    reportStationFailure(station) {
+        if (!station?.id) return;
+
+        // ── Step 1: mark grey IMMEDIATELY (synchronous, no network wait) ──────
+        // Mutate every copy of this station across all lists the globe uses,
+        // because audio.js may hold a different object reference than the app.
+        const stationId = station.id;
+        const allCopies = [
+            ...this.allStations,
+            ...(this.stations || []),
+            ...(this.globe?.stations || []),
+            ...(this.globe?.displayedStations || []),
+        ].filter(s => s?.id === stationId);
+
+        // Deduplicate by reference
+        const seen = new Set();
+        for (const s of allCopies) {
+            if (seen.has(s)) continue;
+            seen.add(s);
+            s._isOnline   = false;
+            s._errorType  = 'user_reported';
+            s._status     = 'inactive';
+            s._statusWarn = true;
+            s._statusHide = false;
+        }
+
+        // updateDisplayedStations reads _statusWarn → grey dot
+        if (this.globe?.updateDisplayedStations) {
+            this.globe.updateDisplayedStations(this.stations);
+        }
+        console.log(`📡 Marked ${station.name} inactive locally`);
+
+        // ── Step 2: persist to backend (fire-and-forget) ─────────────────────
+        const API_BASE = 'https://radio-explorer-api.ramsharans-rathore.workers.dev';
+        fetch(
+            `${API_BASE}/api/v1/stations/status/${encodeURIComponent(stationId)}/report-failure`,
+            { method: 'POST' }
+        )
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+            if (data) console.log(`📡 Backend updated ${station.name} → ${data.status ?? 'rate-limited'}`);
+        })
+        .catch(() => {}); // non-fatal — local update already applied above
+    }
+
     async refreshStationsCache() {
         try {
             const apiBase = 'https://de1.api.radio-browser.info';
@@ -667,16 +806,31 @@ class GlobeRadioApp {
                 type: 'error',
                 title: data.title,
                 message: data.message,
-                duration: 8000,
+                duration: 10000,
                 action: data.action || null,
-                actionLabel: 'Try Another Station'
+                actionLabel: 'Try Another',
+                secondaryAction: 'retryStation',
+                secondaryActionLabel: '↺ Retry'
             });
+            // All streams failed in this browser → report to backend so the
+            // dot turns grey for everyone on the next status load.
+            // Use data.failedStation (set by audio.js before streams are tried)
+            // rather than this.state.currentStation (only set on success).
+            const failedStation = data.failedStation || this.state.currentStation;
+            if (failedStation) {
+                this.reportStationFailure(failedStation);
+            }
         });
         
         // Handle toast actions
         window.addEventListener('toastAction', (e) => {
             if (e.detail === 'tryAnother') {
                 this.playNextStation();
+            } else if (e.detail === 'retryStation') {
+                // Retry the same station from scratch
+                if (this.state.currentStation) {
+                    this.playStation(this.state.currentStation);
+                }
             }
         });
         
@@ -829,6 +983,22 @@ class GlobeRadioApp {
         window.addEventListener('resize', () => {
             this.ui.updateResponsive();
         });
+
+        // Flush listening session to backend when the user navigates away or
+        // hides the tab. Without this, endSession() only fires on station
+        // switch — closing the tab silently drops the last session and the
+        // backend stats never get updated.
+        // pagehide fires reliably on mobile and in bfcache scenarios;
+        // visibilitychange catches tab switches and desktop minimise.
+        const flushSession = () => {
+            if (this.user && typeof this.user.endSession === 'function') {
+                this.user.endSession();
+            }
+        };
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') flushSession();
+        });
+        window.addEventListener('pagehide', flushSession);
     }
     
     /**
@@ -1668,6 +1838,18 @@ class GlobeRadioApp {
                 duration: 4000
             });
             return;
+        }
+
+        // Show a brief heads-up if the scanner has flagged this station as
+        // recently offline — doesn't block playback, just sets expectations.
+        if (station._statusWarn) {
+            const daysSince = station._lastOnline
+                ? Math.round((Date.now() - station._lastOnline) / 86400000)
+                : null;
+            const msg = daysSince
+                ? `Last seen online ${daysSince} day${daysSince === 1 ? '' : 's'} ago. Trying anyway...`
+                : 'This station was recently unreachable. Trying anyway...';
+            this.ui.showToast({ type: 'warning', title: '⚠ May be offline', message: msg, duration: 4000 });
         }
         
         // Record play in user profile

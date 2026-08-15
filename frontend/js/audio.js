@@ -701,6 +701,12 @@ class AudioController {
         this.setState(this.states.LOADING);
         this.destroyHls(); // clean up any previous instance before starting this one
 
+        // Per-stream load timeout: if the stream doesn't start playing within
+        // this window, treat it as a failure and advance to the next stream
+        // rather than leaving the user stuck on "Loading…" indefinitely.
+        // Live-stream connections are usually fast; 12 s is generous but not forever.
+        const STREAM_LOAD_TIMEOUT_MS = 12000;
+
         try {
             if (needsHlsJs) {
                 this.hls = new Hls();
@@ -753,13 +759,19 @@ class AudioController {
 
                 this.hls.loadSource(streamUrl);
                 this.hls.attachMedia(this.audio);
-                await manifestPromise;
+                const timeoutPromise = new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('Stream load timeout')), STREAM_LOAD_TIMEOUT_MS)
+                );
+                await Promise.race([manifestPromise, timeoutPromise]);
             } else {
                 this.audio.src = streamUrl;
                 this.audio.load();
             }
 
-            await this.play();
+            const playTimeoutPromise = new Promise((_, reject) =>
+                setTimeout(() => reject(new Error('Stream load timeout')), STREAM_LOAD_TIMEOUT_MS)
+            );
+            await Promise.race([this.play(), playTimeoutPromise]);
             if (generation !== this.loadGeneration) {
                 // Superseded while play() was pending — let the newer chain own the UI state.
                 return false;
@@ -785,7 +797,8 @@ class AudioController {
                 this.emit('error', {
                     title: t('stationUnavailable') || 'Station Unavailable',
                     message: t('stationNotAvailable') || 'This station is currently unavailable. Please try another station.',
-                    action: 'tryAnother'
+                    action: 'tryAnother',
+                    failedStation: this.currentStation,
                 });
                 this.setState(this.states.ERROR);
                 return false;
@@ -1119,6 +1132,7 @@ class AudioController {
                 message: finalMessage,
                 action: 'tryAnother',
                 errorType: errorType,
+                failedStation: this.currentStation,
                 debugInfo: {
                     url: currentStreamUrl,
                     station: this.currentStation?.name,

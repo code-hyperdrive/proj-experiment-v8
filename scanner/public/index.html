@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radio Station Scanner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <span class="logo">📡</span>
+      <div>
+        <h1>Radio Station Scanner</h1>
+        <span class="subtitle" id="lastScanLabel">No scans run yet</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="status-text" id="statusText">Idle</span>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="scan">Scan</button>
+    <button class="tab" data-tab="report">Report</button>
+    <button class="tab" data-tab="stations">Stations</button>
+    <button class="tab" data-tab="logs">Logs</button>
+    <button class="tab" data-tab="settings">Settings</button>
+  </nav>
+
+  <!-- ── TAB: SCAN ─────────────────────────────────────── -->
+  <section class="tab-panel active" id="tab-scan">
+
+    <!-- Controls -->
+    <div class="card controls-card">
+      <div class="scan-mode-row">
+        <div class="scan-mode-explain">
+          <strong>Regular scan</strong> skips stations with permanent errors (network, SSL, bad content) — faster, best for routine checks.
+          <strong>Deep scan</strong> probes every station from scratch — use after a long gap or to verify dead stations.
+        </div>
+      </div>
+      <div class="controls-row">
+        <div class="control-group">
+          <label>Options</label>
+          <div class="toggle-row">
+            <label class="toggle"><input type="checkbox" id="optDryRun"> <span>Dry Run (no upload)</span></label>
+          </div>
+        </div>
+        <div class="control-group">
+          <label>Limit <span class="hint">(0 = all)</span></label>
+          <input type="number" id="optLimit" value="0" min="0" max="2500" class="input-sm">
+        </div>
+        <div class="control-group">
+          <label>Concurrency</label>
+          <input type="number" id="optConcurrency" value="50" min="1" max="200" class="input-sm">
+        </div>
+        <div class="control-group">
+          <label>Timeout (ms)</label>
+          <input type="number" id="optTimeout" value="8000" min="1000" max="30000" step="1000" class="input-sm">
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btnRegular">▶ Regular Scan</button>
+        <button class="btn btn-deep"    id="btnDeep">🔍 Deep Scan</button>
+        <button class="btn btn-danger"  id="btnStop" disabled>■ Stop</button>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="card progress-card" id="progressCard" style="display:none">
+      <div class="progress-header">
+        <span id="progressLabel">Scanning...</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progressBar" style="width:0%"></div>
+      </div>
+      <div class="progress-stats">
+        <span>✅ Online: <strong id="pOnline">0</strong></span>
+        <span>❌ Offline: <strong id="pOffline">0</strong></span>
+        <span>⏭ Skipped: <strong id="pSkipped">0</strong></span>
+        <span>⏱ Elapsed: <strong id="pElapsed">0s</strong></span>
+        <span>📊 <strong id="pAvail">—</strong> available</span>
+      </div>
+    </div>
+
+    <!-- Summary cards -->
+    <div class="stat-grid" id="statGrid">
+      <div class="stat-card">
+        <div class="stat-value" id="statTotal">—</div>
+        <div class="stat-label">Total Probed</div>
+      </div>
+      <div class="stat-card online">
+        <div class="stat-value" id="statOnline">—</div>
+        <div class="stat-label">Online</div>
+      </div>
+      <div class="stat-card offline">
+        <div class="stat-value" id="statOffline">—</div>
+        <div class="stat-label">Offline</div>
+      </div>
+      <div class="stat-card skipped">
+        <div class="stat-value" id="statSkipped">—</div>
+        <div class="stat-label">Skipped (dead)</div>
+      </div>
+    </div>
+
+    <!-- Live results feed -->
+    <div class="card" id="liveFeedCard">
+      <div class="card-header">
+        <span>Live Results</span>
+        <div class="feed-filters">
+          <button class="chip active" data-feed-filter="all">All</button>
+          <button class="chip" data-feed-filter="offline">Offline only</button>
+        </div>
+      </div>
+      <div class="feed" id="liveFeed">
+        <div class="feed-empty">Start a scan to see results here.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── TAB: REPORT ──────────────────────────────────── -->
+  <section class="tab-panel" id="tab-report">
+
+    <!-- Toolbar -->
+    <div class="report-toolbar">
+      <span class="report-updated" id="reportUpdated">Not loaded</span>
+      <button class="btn btn-sm" id="btnRefreshReport">↻ Refresh</button>
+      <button class="btn btn-sm" id="btnExportReport">⬇ Export CSV</button>
+    </div>
+
+    <!-- Summary row -->
+    <div class="report-summary" id="reportSummary">
+      <div class="rstat-card total">
+        <div class="rstat-value" id="rTotal">—</div>
+        <div class="rstat-label">Total Stations</div>
+      </div>
+      <div class="rstat-card active">
+        <div class="rstat-value" id="rActive">—</div>
+        <div class="rstat-label">✅ Active</div>
+      </div>
+      <div class="rstat-card inactive">
+        <div class="rstat-value" id="rInactive">—</div>
+        <div class="rstat-label">🔘 Inactive</div>
+      </div>
+      <div class="rstat-card dead">
+        <div class="rstat-value" id="rDead">—</div>
+        <div class="rstat-label">💀 Dead</div>
+      </div>
+      <div class="rstat-card unscanned">
+        <div class="rstat-value" id="rUnscanned">—</div>
+        <div class="rstat-label">❓ Unscanned</div>
+      </div>
+      <div class="rstat-card avail">
+        <div class="rstat-value" id="rAvail">—</div>
+        <div class="rstat-label">📊 Availability</div>
+      </div>
+    </div>
+
+    <!-- Two-column breakdown -->
+    <div class="report-two-col">
+
+      <!-- Error type breakdown -->
+      <div class="card">
+        <div class="card-header">Error Type Breakdown</div>
+        <table class="breakdown-table" id="errorBreakdownTable">
+          <thead><tr><th>Error Type</th><th>Status</th><th>Count</th><th>%</th></tr></thead>
+          <tbody><tr><td colspan="4" class="empty-row">Load report to see data</td></tr></tbody>
+        </table>
+      </div>
+
+      <!-- Consecutive failures distribution -->
+      <div class="card">
+        <div class="card-header">Consecutive Failures</div>
+        <table class="breakdown-table" id="failBreakdownTable">
+          <thead><tr><th>Failures in a Row</th><th>Stations</th><th>Next Regular Scan</th></tr></thead>
+          <tbody><tr><td colspan="3" class="empty-row">Load report to see data</td></tr></tbody>
+        </table>
+        <div style="margin-top:12px">
+          <div class="card-header" style="margin-bottom:8px">Scan Coverage (UTC)</div>
+          <table class="breakdown-table" id="coverageTable">
+            <thead><tr><th>Window</th><th>Stations Scanned</th></tr></thead>
+            <tbody><tr><td colspan="2" class="empty-row">Load report to see data</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Full station detail table -->
+    <div class="card">
+      <div class="card-header">
+        <span>Station Detail <span class="badge" id="reportTableCount">—</span></span>
+        <div class="report-filters">
+          <input type="text" id="reportSearch" placeholder="Search name / country / genre…" class="input-search" style="max-width:260px">
+          <select id="reportStatusFilter" class="select-sm">
+            <option value="all">All statuses</option>
+            <option value="active">✅ Active</option>
+            <option value="inactive">🔘 Inactive</option>
+            <option value="dead">💀 Dead</option>
+            <option value="unscanned">❓ Unscanned</option>
+          </select>
+          <select id="reportFailFilter" class="select-sm">
+            <option value="all">Any failures</option>
+            <option value="0">0 failures</option>
+            <option value="1">1 failure</option>
+            <option value="2">2 failures</option>
+            <option value="3plus">3+ (skipped in regular)</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="station-table" id="reportTable">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Name</th>
+              <th>Country</th>
+              <th>Genre</th>
+              <th>Error Type</th>
+              <th>Fails ✗</th>
+              <th>Reliability</th>
+              <th>Checked</th>
+              <th>Online</th>
+              <th>Last Checked (UTC)</th>
+              <th>Next Regular</th>
+            </tr>
+          </thead>
+          <tbody id="reportTableBody">
+            <tr><td colspan="9" class="empty-row">Click ↻ Refresh to load report.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── TAB: STATIONS ─────────────────────────────────── -->
+  <section class="tab-panel" id="tab-stations">
+    <div class="card">
+      <div class="card-header">
+        <span>Stations <span class="badge" id="stationCount">—</span></span>
+        <div class="search-row">
+          <input type="text" id="stationSearch" placeholder="Search name, country, genre..." class="input-search">
+          <select id="stationFilter" class="select-sm">
+            <option value="all">All</option>
+            <option value="online">✅ Active</option>
+            <option value="transient">🔘 Inactive (grey)</option>
+            <option value="dead">💀 Dead (hidden)</option>
+            <option value="unscanned">❓ Not yet scanned</option>
+          </select>
+          <button class="btn btn-sm" id="btnLoadStations">Load</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="station-table" id="stationTable">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Name</th>
+              <th>Country</th>
+              <th>Genre</th>
+              <th>Streams</th>
+              <th>Error Type</th>
+              <th>Fails ✗</th>
+              <th>Reliability</th>
+              <th>Last Checked (UTC)</th>
+            </tr>
+          </thead>
+          <tbody id="stationTableBody">
+            <tr><td colspan="7" class="empty-row">Click "Load" to fetch station list.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TAB: LOGS ─────────────────────────────────────── -->
+  <section class="tab-panel" id="tab-logs">
+    <div class="card log-card">
+      <div class="card-header">
+        <span>Scan Log</span>
+        <div class="log-actions">
+          <label class="toggle"><input type="checkbox" id="autoScrollLog" checked> <span>Auto-scroll</span></label>
+          <button class="btn btn-sm" id="btnRefreshLogs">↻ Refresh</button>
+          <button class="btn btn-sm btn-danger" id="btnClearLogs">Clear view</button>
+        </div>
+      </div>
+      <pre class="log-output" id="logOutput"><span class="log-empty">No log entries yet.</span></pre>
+    </div>
+  </section>
+
+  <!-- ── TAB: SETTINGS ─────────────────────────────────── -->
+  <section class="tab-panel" id="tab-settings">
+    <div class="card">
+      <h2>Configuration</h2>
+      <p class="hint-text">Changes are saved to <code>config.json</code> immediately.</p>
+      <div class="settings-form" id="settingsForm">
+        <div class="form-row">
+          <label>API Key</label>
+          <input type="password" id="cfgApiKey" placeholder="Scanner API key">
+          <button class="btn btn-sm" id="btnToggleKey">Show</button>
+        </div>
+        <div class="form-row">
+          <label>API Base URL</label>
+          <input type="text" id="cfgApiBase">
+        </div>
+        <div class="form-row">
+          <label>Stations File</label>
+          <input type="text" id="cfgStationsFile">
+        </div>
+        <div class="form-row">
+          <label>Concurrency</label>
+          <input type="number" id="cfgConcurrency" min="1" max="200">
+        </div>
+        <div class="form-row">
+          <label>Probe Timeout (ms)</label>
+          <input type="number" id="cfgTimeout" min="1000" max="30000" step="500">
+        </div>
+        <div class="form-row">
+          <label>Upload Batch Size</label>
+          <input type="number" id="cfgBatchSize" min="10" max="500">
+        </div>
+        <div class="form-row">
+          <label>Log File</label>
+          <input type="text" id="cfgLogFile">
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="btnSaveSettings">💾 Save Settings</button>
+          <span class="save-msg" id="saveMsg"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Quick Commands</h2>
+      <div class="cmd-list">
+        <div class="cmd-item">
+          <code>node scan.js</code>
+          <span>Regular scan — skips dead stations</span>
+        </div>
+        <div class="cmd-item">
+          <code>node scan.js --deep</code>
+          <span>Deep scan — probes all stations</span>
+        </div>
+        <div class="cmd-item">
+          <code>node scan.js --dry-run</code>
+          <span>Scan without uploading</span>
+        </div>
+        <div class="cmd-item">
+          <code>node scan.js --limit 50 --verbose</code>
+          <span>Quick test — 50 stations (regular)</span>
+        </div>
+        <div class="cmd-item">
+          <code>node scan.js --deep --limit 50 --verbose</code>
+          <span>Quick deep test — 50 stations</span>
+        </div>
+        <div class="cmd-item">
+          <code>node server.js</code>
+          <span>Start this dashboard</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

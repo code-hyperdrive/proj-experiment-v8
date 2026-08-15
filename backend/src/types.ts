@@ -13,6 +13,13 @@ export interface Env {
   /** Secret — via .dev.vars locally, `wrangler secret put` only at deploy time. */
   GOOGLE_CLIENT_SECRET: string;
   FRONTEND_ORIGIN: string;
+  /**
+   * Secret API key used by the external station-scanner CLI to authenticate
+   * bulk status updates.  Set via `wrangler secret put SCANNER_API_KEY`;
+   * never committed.  Locally, add SCANNER_API_KEY=<any-string> to
+   * backend/.dev.vars.
+   */
+  SCANNER_API_KEY: string;
 }
 
 /** Hono per-request context variables, set by lib/auth.ts's requireAuth(). */

@@ -13,7 +13,7 @@
 // that changes any cached JS/CSS/HTML. There used to be a separate,
 // never-read CACHE_NAME constant here that looked like the thing to bump -
 // don't reintroduce that trap.
-const RELEASE = '1.1.2';
+const RELEASE = '1.2.7';
 const STATIC_CACHE = `radio-explorer-static-v${RELEASE}`;
 const DATA_CACHE = 'radio-explorer-data-v5';
 

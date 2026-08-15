@@ -1,0 +1,19 @@
+{
+  "name": "radio-station-scanner",
+  "version": "1.0.0",
+  "description": "Radio station health checker — web dashboard + CLI",
+  "type": "module",
+  "scripts": {
+    "start":        "node server.js",
+    "scan":         "node scan.js",
+    "scan:deep":    "node scan.js --deep",
+    "scan:dry":     "node scan.js --dry-run",
+    "scan:verbose": "node scan.js --verbose",
+    "scan:quick":   "node scan.js --limit 20 --verbose --deep"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "express": "^5.2.1",
+    "open": "^11.0.1"
+  }
+}

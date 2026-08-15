@@ -1,0 +1,9 @@
+{
+  "apiKey": "your-scanner-api-key-here",
+  "apiBaseUrl": "https://radio-explorer-api.ramsharans-rathore.workers.dev",
+  "stationsFile": "../frontend/data/stations.json",
+  "concurrency": 50,
+  "probeTimeoutMs": 8000,
+  "uploadBatchSize": 200,
+  "logFile": "./logs/scan.log"
+}

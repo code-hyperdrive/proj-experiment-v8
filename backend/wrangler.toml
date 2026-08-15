@@ -17,7 +17,7 @@ local_protocol = "http"
 [[d1_databases]]
 binding = "DB"
 database_name = "radio_db"
-database_id = "0afc2d4a-12bc-492e-8dea-05a165956a94"
+database_id = "a271a9ea-36dc-46bf-a34e-a11f9d13e427"
 
 # --- KV (fixed-window rate-limit counters) ------------------------------
 # Real namespace, created 2026-08-13 via `wrangler kv namespace create
@@ -25,7 +25,7 @@ database_id = "0afc2d4a-12bc-492e-8dea-05a165956a94"
 # Same local-dev isolation note as D1 above applies.
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
-id = "782d76e8f61341e2a86a0f33230eb8a7"
+id = "2dacd37002d04881abc697ddc4498a65"
 
 # --- Non-secret config ---------------------------------------------------
 # Not sensitive — safe as a plain var, not `wrangler secret put`. Includes
@@ -54,10 +54,10 @@ ALLOWED_ORIGINS = "http://localhost:8080,http://127.0.0.1:8080,https://radio.rat
 #   4. Copy the Client ID below; put the Client Secret in .dev.vars (see
 #      that file's own placeholder line) — not here.
 GOOGLE_CLIENT_ID = "859783419407-kb8jj85tfk22v6nknrh09dmiqh99fpv8.apps.googleusercontent.com"
-GOOGLE_REDIRECT_URI = "http://localhost:8787/api/v1/auth/google/callback"
+GOOGLE_REDIRECT_URI = "https://radio-explorer-api.ramsharans-rathore.workers.dev/api/v1/auth/google/callback"
 
 # Where /auth/google/callback redirects back to after a successful sign-in
 # (with ?sessionToken=&userId=&isNewUser=&wasLinked= appended) — the
 # frontend's own origin, not this Worker's. Update if/when the frontend is
 # ever served from somewhere other than these two.
-FRONTEND_ORIGIN = "http://localhost:8080"
+FRONTEND_ORIGIN = "https://radio.rathore.club"

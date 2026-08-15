@@ -815,9 +815,10 @@ class GlobeController {
             }
             
             const isPlaying = this.currentStation && this.currentStation.id === station.id;
-            const status = station.status || 'active';
+            // _statusWarn = scanner confirmed this station is currently offline
+            const status = station._statusWarn ? 'down' : (station.status || 'active');
             const isHttpOnly = this.isHttpOnlyStation(station);
-            
+
             // Calculate distance from playing station for "dancing" effect
             let danceOffset = { x: 0, y: 0 };
             if (playingPos && this.isPlaying && !isPlaying && status === 'active') {
@@ -918,9 +919,10 @@ class GlobeController {
                         [1, 'rgba(245, 158, 11, 0)']
                     ]);
                 } else {
+                    // down / scanner-confirmed offline → grey, no glow
                     gradient = getCachedGradient(`down_${glowRadius}`, glowRadius, [
-                        [0, 'rgba(239, 68, 68, 0.3)'],
-                        [1, 'rgba(239, 68, 68, 0)']
+                        [0, 'rgba(120, 120, 120, 0.15)'],
+                        [1, 'rgba(120, 120, 120, 0)']
                     ]);
                 }
 
@@ -931,15 +933,15 @@ class GlobeController {
                 ctx.arc(0, 0, glowRadius, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.restore();
-                
-                // Solid dot - HTTP only gets orange, otherwise based on status
+
+                // Solid dot colour
                 let dotColor = '#00e676'; // Default green
                 if (isHttpOnly) {
                     dotColor = '#fb923c'; // Orange for HTTP only
                 } else if (status === 'inactive') {
                     dotColor = '#f59e0b'; // Yellow-orange for inactive
                 } else if (status === 'down') {
-                    dotColor = '#ef4444'; // Red for down
+                    dotColor = '#6b7280'; // Grey for offline / scanner-confirmed down
                 }
                 ctx.fillStyle = dotColor;
                 ctx.beginPath();
@@ -1356,10 +1358,10 @@ class GlobeController {
         if (this.globe) {
             const pointsData = validStations.map(station => {
                 const isActive = station.id === this.currentStation?.id;
-                const status = station.status || 'active';
+                const status = station._statusWarn ? 'down' : (station.status || 'active');
                 const isHttpOnly = this.isHttpOnlyStation(station);
                 let color = '#00e676'; // Default active color (green)
-                
+
                 if (isActive) {
                     color = '#76ff03'; // Playing station (bright green)
                 } else if (isHttpOnly) {
@@ -1367,7 +1369,7 @@ class GlobeController {
                 } else if (status === 'inactive') {
                     color = '#f59e0b'; // Inactive (yellow-orange)
                 } else if (status === 'down') {
-                    color = '#ef4444'; // Down (red)
+                    color = '#6b7280'; // Offline / scanner-confirmed down (grey)
                 }
                 
                 return {

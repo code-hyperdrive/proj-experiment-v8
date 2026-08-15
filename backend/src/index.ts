@@ -10,6 +10,7 @@ import favorites from './routes/favorites';
 import history from './routes/history';
 import stats from './routes/stats';
 import admin from './routes/admin';
+import stationStatus from './routes/station-status';
 
 const app = new Hono<{ Bindings: Env; Variables: Vars }>();
 
@@ -25,6 +26,7 @@ app.route('/api/v1/favorites', favorites);
 app.route('/api/v1/history', history);
 app.route('/api/v1/stats', stats);
 app.route('/api/v1/admin', admin);
+app.route('/api/v1/stations/status', stationStatus);
 
 app.notFound((c) => c.json({ error: 'Not found' }, 404));
 

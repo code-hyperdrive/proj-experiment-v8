@@ -158,6 +158,41 @@ class UserProfile {
         if (this.apiClient.pendingAuthError) {
             window.dispatchEvent(new CustomEvent('authSignInError', { detail: { message: this.apiClient.pendingAuthError } }));
         }
+
+        // Re-sync profile whenever the tab becomes visible again — this is
+        // how stats stay consistent across devices that are both open at the
+        // same time (mobile + laptop). Without this, each device only sees
+        // its own local accumulation after the initial load.
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                this.syncProfileFromBackend();
+            }
+        });
+    }
+
+    /**
+     * Pull the latest profile from the backend and merge it into local state.
+     * Called on tab-focus so cross-device stats stay in sync.
+     * Silently no-ops if the API client isn't ready or sync is disabled.
+     */
+    async syncProfileFromBackend() {
+        if (!this.apiClient || !this.apiClient.syncEnabled) return;
+        // Debounce: skip if we synced in the last 30 seconds
+        const now = Date.now();
+        if (this._lastProfileSync && now - this._lastProfileSync < 30_000) return;
+        this._lastProfileSync = now;
+
+        try {
+            // Flush any in-progress session first so this device's latest
+            // stats are in D1 before we pull the merged server state.
+            this.endSession();
+            const { profile, globalStats } = await this.apiClient.getProfile();
+            this.mergeServerProfile(profile);
+            this.globalStats = globalStats;
+            window.dispatchEvent(new CustomEvent('globalStatsUpdated', { detail: this.globalStats }));
+        } catch (e) {
+            // Silently ignore — sync is best-effort
+        }
     }
 
     /**
@@ -189,6 +224,32 @@ class UserProfile {
         if (!serverPrefsEmpty) {
             this.data.preferences = { ...this.data.preferences, ...profile.preferences };
             this.applyTheme(this.data.preferences.theme);
+        }
+
+        // Merge server-side stats — server is the authoritative accumulator for
+        // listening history (genre/country counts, total time). On a fresh device
+        // the local object is empty, so always prefer the server values when they
+        // exist. We merge rather than overwrite so locally-incremented keys that
+        // haven't yet synced are not silently discarded.
+        if (profile.genreStats && Object.keys(profile.genreStats).length > 0) {
+            const merged = { ...(this.data.genreStats || {}) };
+            for (const [genre, count] of Object.entries(profile.genreStats)) {
+                merged[genre] = Math.max(merged[genre] || 0, count);
+            }
+            this.data.genreStats = merged;
+        }
+        if (profile.countryStats && Object.keys(profile.countryStats).length > 0) {
+            const merged = { ...(this.data.countryStats || {}) };
+            for (const [country, count] of Object.entries(profile.countryStats)) {
+                merged[country] = Math.max(merged[country] || 0, count);
+            }
+            this.data.countryStats = merged;
+        }
+        if (typeof profile.totalListeningTime === 'number' && profile.totalListeningTime > 0) {
+            this.data.totalListeningTime = Math.max(
+                this.data.totalListeningTime || 0,
+                profile.totalListeningTime
+            );
         }
 
         this.data.lastSyncAt = Date.now();
@@ -1076,8 +1137,21 @@ class UserProfile {
                 syncNowBtn.textContent = '🔄 ' + t('syncing');
 
                 try {
-                    const { profile } = await this.apiClient.getProfile();
+                    // 1. Flush the current listening session so the backend has
+                    //    this device's latest stats before we pull.
+                    this.endSession();
+                    // Give the history POST a moment to land before we re-fetch.
+                    await new Promise(r => setTimeout(r, 600));
+
+                    // 2. Pull latest profile (stats, preferences) from server.
+                    const { profile, globalStats } = await this.apiClient.getProfile();
                     this.mergeServerProfile(profile);
+                    if (globalStats) {
+                        this.globalStats = globalStats;
+                        window.dispatchEvent(new CustomEvent('globalStatsUpdated', { detail: globalStats }));
+                    }
+
+                    // 3. Reconcile favorites (union merge).
                     if (window.favorites?.reconcileWithBackend) {
                         await window.favorites.reconcileWithBackend();
                     }

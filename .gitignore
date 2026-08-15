@@ -1,13 +1,19 @@
-# Backend (Cloudflare Worker + D1) — local dev state and dependencies,
-# never committed. See backend/README.md / IMPROVEMENT_PLAN.md for context.
-backend/node_modules/
+scanner/config.json
+scanner/node_modules/
+scanner/logs/
+
+# Wrangler local state & secrets
+.wrangler/
 backend/.wrangler/
 backend/.dev.vars
-backend/dist/
 
-# OS cruft
+# macOS
 .DS_Store
 
-# Application logs — never committed (local debugging)
-backend/logs/
-logs/
+# Backup files
+*.bak
+*.bak2
+*.bak3
+*.bak4
+backend/node_modules/
+**/.DS_Store

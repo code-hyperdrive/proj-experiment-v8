@@ -374,12 +374,15 @@ class UIController {
             </div>
             <div class="station-picker-list">
                 ${stations.map(station => {
+                    const isInactive = station._statusWarn === true;
                     const httpBadge = typeof isHttpOnlyStation === 'function' && isHttpOnlyStation(station)
                         ? '<span class="badge badge-status badge-http">HTTP</span>' : '';
+                    const offlineBadge = isInactive
+                        ? '<span class="badge badge-status badge-offline">● offline</span>' : '';
                     return `
-                        <button type="button" class="station-picker-item" data-station-id="${this.escapeAttr(station.id)}">
+                        <button type="button" class="station-picker-item${isInactive ? ' station-picker-item--inactive' : ''}" data-station-id="${this.escapeAttr(station.id)}">
                             <span class="station-picker-name">${this.escapeHtml(station.name)}</span>
-                            <span class="station-picker-meta">${this.escapeHtml(station.city || '')}${station.city && station.country ? ', ' : ''}${this.escapeHtml(station.country || '')} ${httpBadge}</span>
+                            <span class="station-picker-meta">${this.escapeHtml(station.city || '')}${station.city && station.country ? ', ' : ''}${this.escapeHtml(station.country || '')} ${httpBadge}${offlineBadge}</span>
                         </button>
                     `;
                 }).join('')}
@@ -442,24 +445,29 @@ class UIController {
             message = '',
             duration = 5000,
             action = null,
-            actionLabel = 'Try Another'
+            actionLabel = 'Try Another',
+            secondaryAction = null,
+            secondaryActionLabel = 'Retry'
         } = options;
-        
+
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
-        
+
         const iconSvg = this.getToastIcon(type);
-        
-        const actionHtml = action ? `
-            <button class="toast-action" data-action="${action}">${this.escapeHtml(actionLabel)}</button>
+
+        const actionsHtml = (action || secondaryAction) ? `
+            <div class="toast-actions">
+                ${secondaryAction ? `<button class="toast-action toast-action-secondary" data-action="${secondaryAction}">${this.escapeHtml(secondaryActionLabel)}</button>` : ''}
+                ${action ? `<button class="toast-action" data-action="${action}">${this.escapeHtml(actionLabel)}</button>` : ''}
+            </div>
         ` : '';
-        
+
         toast.innerHTML = `
             ${iconSvg}
             <div class="toast-content">
                 ${title ? `<div class="toast-title">${this.escapeHtml(title)}</div>` : ''}
                 <div>${this.escapeHtml(message)}</div>
-                ${actionHtml}
+                ${actionsHtml}
             </div>
             <button class="toast-close" aria-label="Close">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -468,24 +476,23 @@ class UIController {
                 </svg>
             </button>
         `;
-        
+
         const container = document.getElementById('toastContainer');
         container.appendChild(toast);
-        
+
         // Close button
         const closeBtn = toast.querySelector('.toast-close');
         closeBtn.addEventListener('click', () => {
             this.removeToast(toast);
         });
-        
-        // Action button
-        const actionBtn = toast.querySelector('.toast-action');
-        if (actionBtn) {
-            actionBtn.addEventListener('click', () => {
-                window.dispatchEvent(new CustomEvent('toastAction', { detail: action }));
+
+        // Action buttons
+        toast.querySelectorAll('.toast-action').forEach(btn => {
+            btn.addEventListener('click', () => {
+                window.dispatchEvent(new CustomEvent('toastAction', { detail: btn.dataset.action }));
                 this.removeToast(toast);
             });
-        }
+        });
         
         // Auto-remove after duration (with hover pause)
         if (duration > 0) {
