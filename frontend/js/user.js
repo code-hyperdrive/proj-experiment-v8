@@ -581,7 +581,7 @@ class UserProfile {
                     <div class="profile-tabs">
                         <button class="profile-tab-btn active" data-tab="profile" role="tab" aria-selected="true">
                             <span class="tab-icon">👤</span>
-                            <span class="tab-label">Profile</span>
+                            <span class="tab-label">Me</span>
                         </button>
                         <button class="profile-tab-btn" data-tab="stats" role="tab" aria-selected="false">
                             <span class="tab-icon">📊</span>
