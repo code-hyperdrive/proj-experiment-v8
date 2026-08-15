@@ -4547,7 +4547,7 @@ button:focus-visible {
 .profile-id-section {
     padding: var(--spacing-md);
     background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: var(--radius-lg);
     margin-bottom: var(--spacing-md);
 }
@@ -4622,18 +4622,20 @@ button:focus-visible {
 .change-id-form,
 .import-profile-form {
     margin-top: var(--spacing-sm);
-    padding: var(--spacing-sm);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm) 0;
+    background: transparent;
+    border-radius: 0;
+    border: none;
 }
 
 .change-id-form input,
 .import-profile-form input {
     width: 100%;
-    padding: var(--spacing-sm);
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm) 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0;
     color: var(--text-primary);
     font-family: monospace;
     font-size: var(--font-size-sm);
@@ -4642,7 +4644,7 @@ button:focus-visible {
 .change-id-form input:focus,
 .import-profile-form input:focus {
     outline: none;
-    border-color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
 }
 
 .change-id-actions,
