@@ -566,7 +566,7 @@ class UserProfile {
             modal.setAttribute('aria-modal', 'true');
             modal.innerHTML = `
                 <div class="modal-backdrop"></div>
-                <div class="modal-content profile-modal profile-modal-accordion">
+                <div class="modal-content profile-modal profile-modal-tabbed">
                     <div class="modal-header">
                         <h3>${t('profile')}</h3>
                         <button class="icon-btn close-modal-btn" aria-label="${t('close')}">
@@ -581,31 +581,28 @@ class UserProfile {
                     <div class="profile-tabs">
                         <button class="profile-tab-btn active" data-tab="profile" role="tab" aria-selected="true">
                             <span class="tab-icon">👤</span>
-                            <span class="tab-label">PR...</span>
+                            <span class="tab-label">Profile</span>
                         </button>
                         <button class="profile-tab-btn" data-tab="appearance" role="tab" aria-selected="false">
                             <span class="tab-icon">🎨</span>
-                            <span class="tab-label">AP...</span>
+                            <span class="tab-label">Appearance</span>
                         </button>
                         <button class="profile-tab-btn" data-tab="visualizer" role="tab" aria-selected="false">
                             <span class="tab-icon">🎵</span>
-                            <span class="tab-label">VI...</span>
+                            <span class="tab-label">Visualizer</span>
                         </button>
                         <button class="profile-tab-btn" data-tab="account" role="tab" aria-selected="false">
                             <span class="tab-icon">⚙️</span>
-                            <span class="tab-label">AC...</span>
+                            <span class="tab-label">Account</span>
                         </button>
                         ${isAdmin ? `
                         <button class="profile-tab-btn" data-tab="admin" role="tab" aria-selected="false">
                             <span class="tab-icon">🔐</span>
-                            <span class="tab-label">AD...</span>
+                            <span class="tab-label">Admin</span>
                         </button>
                         ` : ''}
                     </div>
 
-                    <!-- Accordion Sections -->
-                    <div class="profile-accordion">
-                    
                     <div class="modal-body profile-tab-body">
                         <!-- Tab 1: Profile -->
                         <div class="profile-tab-content active" id="profileTabProfile">
