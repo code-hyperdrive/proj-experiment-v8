@@ -1010,11 +1010,25 @@ body.panel-collapsed .floating-logo-container {
     padding: var(--spacing-lg);
 }
 
+/* Radio explorer panel tab content styling */
+.side-panel .tab-pane-content {
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
 .tab-pane-content h2 {
     font-size: var(--font-size-lg);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--text-primary);
+}
+
+.side-panel .tab-pane-content h2 {
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.5px;
 }
 
 .help-text {
