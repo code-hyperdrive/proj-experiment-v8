@@ -198,15 +198,20 @@ class AudioController {
      */
     async checkProxyHealth() {
         if (!this.proxyUrl) return false;
-        
+
         try {
-            const healthUrl = this.proxyUrl.replace('/proxy', '/health');
-            const response = await fetch(healthUrl, { 
+            // Append /health to the base proxy URL — do NOT use string.replace()
+            // because the proxy hostname itself contains "proxy" and replace()
+            // would corrupt it (e.g. https://proxy.foo.workers.dev →
+            // https://health.foo.workers.dev which doesn't exist).
+            const base = this.proxyUrl.replace(/\/$/, ''); // strip trailing slash
+            const healthUrl = `${base}/health`;
+            const response = await fetch(healthUrl, {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'no-cache'
             });
-            
+
             if (response.ok) {
                 return true;
             }
