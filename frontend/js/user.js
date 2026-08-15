@@ -577,6 +577,32 @@ class UserProfile {
                         </button>
                     </div>
 
+                    <!-- Profile Tabs Navigation -->
+                    <div class="profile-tabs">
+                        <button class="profile-tab-btn active" data-tab="profile" role="tab" aria-selected="true">
+                            <span class="tab-icon">👤</span>
+                            <span class="tab-label">PR...</span>
+                        </button>
+                        <button class="profile-tab-btn" data-tab="appearance" role="tab" aria-selected="false">
+                            <span class="tab-icon">🎨</span>
+                            <span class="tab-label">AP...</span>
+                        </button>
+                        <button class="profile-tab-btn" data-tab="visualizer" role="tab" aria-selected="false">
+                            <span class="tab-icon">🎵</span>
+                            <span class="tab-label">VI...</span>
+                        </button>
+                        <button class="profile-tab-btn" data-tab="account" role="tab" aria-selected="false">
+                            <span class="tab-icon">⚙️</span>
+                            <span class="tab-label">AC...</span>
+                        </button>
+                        ${isAdmin ? `
+                        <button class="profile-tab-btn" data-tab="admin" role="tab" aria-selected="false">
+                            <span class="tab-icon">🔐</span>
+                            <span class="tab-label">AD...</span>
+                        </button>
+                        ` : ''}
+                    </div>
+
                     <!-- Accordion Sections -->
                     <div class="profile-accordion">
                     
@@ -899,17 +925,21 @@ class UserProfile {
             profileTabBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     const tabName = btn.dataset.tab;
-                    
+
                     // Update active button
-                    profileTabBtns.forEach(b => b.classList.remove('active'));
+                    profileTabBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
                     btn.classList.add('active');
-                    
+                    btn.setAttribute('aria-selected', 'true');
+
                     // Show corresponding content
                     profileTabContents.forEach(content => {
                         content.hidden = true;
                         content.classList.remove('active');
                     });
-                    
+
                     const targetContent = document.getElementById(`profileTab${tabName.charAt(0).toUpperCase() + tabName.slice(1)}`);
                     if (targetContent) {
                         targetContent.hidden = false;
