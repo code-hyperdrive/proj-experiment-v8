@@ -166,7 +166,10 @@ function filterExceptedStations(stations, exceptions) {
 }
 
 function filterLoadableStations(stations, exceptions) {
-    const enabled = (stations || []).filter(station => station.enabled !== false);
+    const enabled = (stations || []).filter(station =>
+        station.enabled !== false &&
+        station.supported !== false   // exclude stations that failed stream validation
+    );
     return filterExceptedStations(enabled, exceptions);
 }
 
