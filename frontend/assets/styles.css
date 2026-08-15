@@ -1039,6 +1039,10 @@ body.panel-collapsed .floating-logo-container {
 .search-box-row {
     width: 100%;
     margin-bottom: var(--spacing-md);
+    background: var(--bg-tertiary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
 }
 
 .search-box-row .search-input-wrapper {
