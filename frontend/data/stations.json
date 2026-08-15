@@ -751,7 +751,8 @@
     "lastChecked": "2026-01-25T02:04:17.161647",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "b96225b2-8536-4b9b-8add-03582fd2e6a2",
@@ -1169,7 +1170,8 @@
     "lastChecked": "2026-01-25T02:04:17.167056",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "0a364b59-56b6-11e9-aa33-52543be04c81",
@@ -1233,7 +1235,8 @@
     "lastChecked": "2026-01-25T02:04:17.168158",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "964fade0-0601-11e8-ae97-52543be04c81",
@@ -1301,7 +1304,8 @@
     "lastChecked": "2026-01-25T02:04:17.169046",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960b9e98-0601-11e8-ae97-52543be04c81",
@@ -1706,7 +1710,8 @@
     "lastChecked": "2026-01-25T02:04:17.174663",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Tehran",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "963c00ab-0601-11e8-ae97-52543be04c81",
@@ -3001,7 +3006,8 @@
     "lastChecked": "2026-01-25T02:04:17.190364",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "6efe216d-bf7e-11e9-8502-52543be04c81",
@@ -3417,7 +3423,8 @@
     "lastChecked": "2026-01-25T02:04:17.195208",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "9609ed67-0601-11e8-ae97-52543be04c81",
@@ -3716,7 +3723,8 @@
     "lastChecked": "2026-01-25T02:04:17.197997",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "eee58136-ebe6-11e8-a471-52543be04c81",
@@ -5019,7 +5027,8 @@
     "lastChecked": "2026-01-25T02:04:17.210558",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "81440088-0a76-11e8-ae97-52543be04c81",
@@ -5673,7 +5682,8 @@
     "lastChecked": "2026-01-25T02:04:17.216078",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "3e6e3252-dd81-4b07-baba-b61bf96cd457",
@@ -6475,7 +6485,8 @@
     "lastChecked": "2026-01-25T02:04:17.223742",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9610a807-0601-11e8-ae97-52543be04c81",
@@ -6603,7 +6614,8 @@
     "lastChecked": "2026-01-25T02:04:17.224660",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "c77c45c4-cf37-414c-ae34-868f7d9cd944",
@@ -7054,7 +7066,8 @@
     "lastChecked": "2026-01-25T02:04:17.228847",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "360028f5-46ba-11ea-a860-52543be04c81",
@@ -7242,7 +7255,8 @@
     "lastChecked": "2026-01-25T02:04:17.230205",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Budapest",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961a35ee-0601-11e8-ae97-52543be04c81",
@@ -7402,7 +7416,8 @@
     "lastChecked": "2026-01-25T02:04:17.231606",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "1e0dcee9-bfb6-41a4-8356-e8c4540dfcf0",
@@ -7502,7 +7517,8 @@
     "lastChecked": "2026-01-25T02:04:17.232280",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bucharest",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "960ece9a-0601-11e8-ae97-52543be04c81",
@@ -7864,7 +7880,8 @@
     "lastChecked": "2026-01-25T02:04:17.235771",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "960dc513-0601-11e8-ae97-52543be04c81",
@@ -8533,7 +8550,8 @@
     "favicon": "https://graph.facebook.com/NoticiasPanamericana/picture?width=200&height=200",
     "lastChecked": "2026-01-25T02:04:17.241254",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "961173b5-0601-11e8-ae97-52543be04c81",
@@ -9155,7 +9173,8 @@
     "lastChecked": "2026-01-25T02:04:17.246150",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "65cd1362-71ab-4829-8a4a-f530caf3a465",
@@ -9186,7 +9205,8 @@
     "lastChecked": "2026-01-25T02:04:17.246400",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Warsaw",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "0ad8350d-7d03-4f0d-9f35-b38cc42c40af",
@@ -9309,7 +9329,8 @@
     "lastChecked": "2026-01-25T02:04:17.247263",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Dhaka",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "960b77af-0601-11e8-ae97-52543be04c81",
@@ -9541,7 +9562,8 @@
     "lastChecked": "2026-01-25T02:04:17.249428",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "0012c08a-31e7-48c6-87a9-7f64736e0a38",
@@ -9570,7 +9592,8 @@
     "lastChecked": "2026-01-25T02:04:17.249660",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ankara",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "b129bdd2-65bc-4363-8f74-14b474bc0500",
@@ -9702,7 +9725,8 @@
     "lastChecked": "2026-01-25T02:04:17.250592",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Madrid",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "501e4f18-fd92-441e-b4c6-4bd4a8435672",
@@ -10197,7 +10221,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.254643",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "a0b40c3f-aede-46e9-b67f-38cd8b262936",
@@ -10232,7 +10257,8 @@
     "lastChecked": "2026-01-25T02:04:17.254865",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6a3c2435-6ba0-465c-84ee-fe68a07cef17",
@@ -10396,7 +10422,8 @@
     "lastChecked": "2026-01-25T02:04:17.255940",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Budapest",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "29a68b7f-f573-4b19-b3ba-cdbb0979e348",
@@ -10427,7 +10454,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.256161",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "819e0ecb-fb3d-49de-8d8d-50fd408ff173",
@@ -10741,7 +10769,8 @@
     "lastChecked": "2026-01-25T02:04:17.258836",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "963559d7-0601-11e8-ae97-52543be04c81",
@@ -10842,7 +10871,8 @@
     "favicon": "https://yt3.ggpht.com/ytc/AAUvwnjGCqHNgRIXL-qgnm4HKlYyXS_1Yy-ctciPKLMI=s900-c-k-c0x00ffffff-no-rj",
     "lastChecked": "2026-01-25T02:04:17.259894",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "33178054-56cd-449c-8cf7-412cc7be936a",
@@ -10936,7 +10966,8 @@
     "lastChecked": "2026-01-25T02:04:17.260672",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Lisbon",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "8c0eaabf-29b1-4fae-86f1-e7cfa7ec4953",
@@ -11197,7 +11228,8 @@
     "lastChecked": "2026-01-25T02:04:17.262707",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kabul",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "e2011342-2b07-40b7-a64d-af695146085b",
@@ -11615,7 +11647,8 @@
     "lastChecked": "2026-01-25T02:04:17.266069",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Belgrade",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "5b42c7de-0774-4d6b-b2dc-3e41d7fc2daf",
@@ -11771,7 +11804,8 @@
     "lastChecked": "2026-01-25T02:04:17.267190",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961ae516-0601-11e8-ae97-52543be04c81",
@@ -11805,7 +11839,8 @@
     "lastChecked": "2026-01-25T02:04:17.267411",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bucharest",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "621f9bd0-b91e-414d-b72b-7b8f2374183f",
@@ -11869,7 +11904,8 @@
     "lastChecked": "2026-01-25T02:04:17.268209",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "03eccedf-bf40-4413-8d52-817c298331e2",
@@ -12030,7 +12066,8 @@
     "lastChecked": "2026-01-25T02:04:17.269494",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9619ef9e-0601-11e8-ae97-52543be04c81",
@@ -12159,7 +12196,8 @@
     "lastChecked": "2026-01-25T02:04:17.270654",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Lilongwe",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "aa3cee2f-df72-11e8-a9cc-52543be04c81",
@@ -12219,7 +12257,8 @@
     "lastChecked": "2026-01-25T02:04:17.271099",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bucharest",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9606d076-0601-11e8-ae97-52543be04c81",
@@ -12513,7 +12552,8 @@
     "lastChecked": "2026-01-25T02:04:17.273372",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Tórshavn",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96077079-0601-11e8-ae97-52543be04c81",
@@ -12614,7 +12654,8 @@
     "lastChecked": "2026-01-25T02:04:17.274048",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "81cee789-221c-45a5-abe0-cc07e8e9589f",
@@ -12860,7 +12901,8 @@
     "lastChecked": "2026-01-25T02:04:17.275927",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "964bdb24-0601-11e8-ae97-52543be04c81",
@@ -13432,7 +13474,8 @@
     "lastChecked": "2026-01-25T02:04:17.281258",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kyiv",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "8c01f241-6fe8-42b1-afd3-d6abf90ec78e",
@@ -14248,7 +14291,8 @@
     "lastChecked": "2026-01-25T02:04:17.288325",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "a23469c1-a0f4-42f7-80d3-ca69f6ddaa01",
@@ -14628,7 +14672,8 @@
     "favicon": "https://radiozu.ro/favicon-96x96.png",
     "lastChecked": "2026-01-25T02:04:17.291353",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "4ba75473-8d53-4a71-b797-9a73798265c4",
@@ -14821,7 +14866,8 @@
     "lastChecked": "2026-01-25T02:04:17.293265",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960de41d-0601-11e8-ae97-52543be04c81",
@@ -14925,7 +14971,8 @@
     "lastChecked": "2026-01-25T02:04:17.293971",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6b77cd64-68ef-4984-91ec-9b7e77a26eda",
@@ -15151,7 +15198,8 @@
     "lastChecked": "2026-01-25T02:04:17.295801",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "962e0e57-0601-11e8-ae97-52543be04c81",
@@ -15307,7 +15355,8 @@
     "lastChecked": "2026-01-25T02:04:17.296949",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Jakarta",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960d2014-0601-11e8-ae97-52543be04c81",
@@ -15532,7 +15581,8 @@
     "lastChecked": "2026-01-25T02:04:17.298499",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "2b85feeb-2fb3-4144-af8e-d1df0b5d686b",
@@ -15595,7 +15645,8 @@
     "lastChecked": "2026-01-25T02:04:17.299157",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96168833-0601-11e8-ae97-52543be04c81",
@@ -15629,7 +15680,8 @@
     "lastChecked": "2026-01-25T02:04:17.299374",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "49b2c8f9-c7ed-4df5-afc3-93b8f6028121",
@@ -16696,7 +16748,8 @@
     "lastChecked": "2026-01-25T02:04:17.308426",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "1b34da1a-246d-4fcb-9d33-1af386e1c064",
@@ -16820,7 +16873,8 @@
     "lastChecked": "2026-01-25T02:04:17.309345",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "3e2183ea-6fa4-40ec-93b3-887ce68ae67a",
@@ -17778,7 +17832,8 @@
     "lastChecked": "2026-01-25T02:04:17.317362",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "e7599368-1801-11e8-ae97-52543be04c81",
@@ -17813,7 +17868,8 @@
     "lastChecked": "2026-01-25T02:04:17.317576",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "264afd2f-8aa2-40c1-a5c5-b4ef1627e7be",
@@ -17911,7 +17967,8 @@
     "lastChecked": "2026-01-25T02:04:17.318782",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "cc059379-dd72-451e-82af-434cb3859c7b",
@@ -18234,7 +18291,8 @@
     "lastChecked": "2026-01-25T02:04:17.321004",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Sana'a",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "decc15a9-b49b-4bd4-af5a-5b8fe9133826",
@@ -18428,7 +18486,8 @@
     "lastChecked": "2026-01-25T02:04:17.322313",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Paris",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96056147-0601-11e8-ae97-52543be04c81",
@@ -18784,7 +18843,8 @@
     "lastChecked": "2026-01-25T02:04:17.325446",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ankara",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "f2d3e6ea-9319-4e73-bac6-1c326fc7ae14",
@@ -18976,7 +19036,8 @@
     "lastChecked": "2026-01-25T02:04:17.327386",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Cairo",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "9615dc04-0601-11e8-ae97-52543be04c81",
@@ -19534,7 +19595,8 @@
     "favicon": "https://upload.wikimedia.org/wikipedia/en/1/1d/XEFR_RadioFelicidad1180_logo.jpg",
     "lastChecked": "2026-01-25T02:04:17.332059",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "962a67c2-0601-11e8-ae97-52543be04c81",
@@ -19665,7 +19727,8 @@
     "lastChecked": "2026-01-25T02:04:17.333468",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Pretoria",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "963b8a47-0601-11e8-ae97-52543be04c81",
@@ -20154,7 +20217,8 @@
     "lastChecked": "2026-01-25T02:04:17.337899",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9614e0a1-0601-11e8-ae97-52543be04c81",
@@ -20254,7 +20318,8 @@
     "lastChecked": "2026-01-25T02:04:17.338492",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "e215f48c-3ff7-4430-91e0-2dfd499fd41c",
@@ -20346,7 +20411,8 @@
     "favicon": "https://i.iheart.com/v3/re/new_assets/5ef0ca067ec97a064f3322c9",
     "lastChecked": "2026-01-25T02:04:17.339123",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "bcb3b03a-f0ec-4ceb-b22f-922138858800",
@@ -20375,7 +20441,8 @@
     "lastChecked": "2026-01-25T02:04:17.339333",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Buenos Aires",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "baae978e-a9d0-422c-8ad4-ec803da4ef8c",
@@ -20689,7 +20756,8 @@
     "lastChecked": "2026-01-25T02:04:17.341724",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "962683f5-0601-11e8-ae97-52543be04c81",
@@ -20790,7 +20858,8 @@
     "lastChecked": "2026-01-25T02:04:17.342405",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kathmandu",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96463caa-0601-11e8-ae97-52543be04c81",
@@ -21010,7 +21079,8 @@
     "lastChecked": "2026-01-25T02:04:17.344206",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Tripoli",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "b019fb4e-adfd-43a9-a00d-68e086e0b06f",
@@ -21267,7 +21337,8 @@
     "lastChecked": "2026-01-25T02:04:17.346250",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ankara",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "963beab0-0601-11e8-ae97-52543be04c81",
@@ -21331,7 +21402,8 @@
     "lastChecked": "2026-01-25T02:04:17.346683",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Addis Ababa",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "ca359617-6b25-4df0-83ba-5b3793386377",
@@ -21686,7 +21758,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.349318",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "def842a8-e3aa-11e8-a9cc-52543be04c81",
@@ -22162,7 +22235,8 @@
     "lastChecked": "2026-01-25T02:04:17.352950",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "5b48d259-27f5-11e8-91bf-52543be04c81",
@@ -22317,7 +22391,8 @@
     "lastChecked": "2026-01-25T02:04:17.354045",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "71d1622f-f9a1-11e8-a97a-52543be04c81",
@@ -22761,7 +22836,8 @@
     "lastChecked": "2026-01-25T02:04:17.357072",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6f424852-4bf4-431e-a715-3fcb553095b3",
@@ -23355,7 +23431,8 @@
     "lastChecked": "2026-01-25T02:04:17.362437",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Belgrade",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "c945d723-ff40-456d-83a6-19c4f8b84e9c",
@@ -23384,7 +23461,8 @@
     "lastChecked": "2026-01-25T02:04:17.362666",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Addis Ababa",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96103291-0601-11e8-ae97-52543be04c81",
@@ -23415,7 +23493,8 @@
     "lastChecked": "2026-01-25T02:04:17.362887",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Athens",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "4330ada4-1c36-4d39-9608-21753718c481",
@@ -23666,7 +23745,8 @@
     "lastChecked": "2026-01-25T02:04:17.364812",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Colombo",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "52768156-3f43-11e8-b74d-52543be04c81",
@@ -23725,7 +23805,8 @@
     "lastChecked": "2026-01-25T02:04:17.365461",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Sana'a",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "5facce98-2f87-11e8-91bf-52543be04c81",
@@ -24012,7 +24093,8 @@
     "lastChecked": "2026-01-25T02:04:17.367731",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Dakar",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "fb19cfc3-4839-11ea-a860-52543be04c81",
@@ -24072,7 +24154,8 @@
     "lastChecked": "2026-01-25T02:04:17.368316",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ankara",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "208c966b-0df4-4939-943f-1ac7bfe9d2ee",
@@ -24293,7 +24376,8 @@
     "lastChecked": "2026-01-25T02:04:17.369811",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9615de2d-0601-11e8-ae97-52543be04c81",
@@ -24420,7 +24504,8 @@
     "lastChecked": "2026-01-25T02:04:17.371026",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "a9bee505-526e-4c7c-bf03-9797bbc8e28b",
@@ -24732,7 +24817,8 @@
     "lastChecked": "2026-01-25T02:04:17.373339",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9635bbe8-0601-11e8-ae97-52543be04c81",
@@ -24951,7 +25037,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.375472",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "b3b8de23-2fd3-4e4c-b790-19c7eca713d8",
@@ -25261,7 +25348,8 @@
     "lastChecked": "2026-01-25T02:04:17.378950",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Sarajevo",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "9621d2a4-0601-11e8-ae97-52543be04c81",
@@ -25357,7 +25445,8 @@
     "lastChecked": "2026-01-25T02:04:17.380060",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Dodoma",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "50071895-eda0-407d-ac37-08b4c157e1d7",
@@ -25426,7 +25515,8 @@
     "lastChecked": "2026-01-25T02:04:17.380501",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Madrid",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "4e2dee09-d692-42b7-aff6-7caced5b14d3",
@@ -25454,7 +25544,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.380697",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961973c2-0601-11e8-ae97-52543be04c81",
@@ -25807,7 +25898,8 @@
     "lastChecked": "2026-01-25T02:04:17.383445",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "bf8d199f-e158-4205-bd1d-7cec0b8158aa",
@@ -26250,7 +26342,8 @@
     "lastChecked": "2026-01-25T02:04:17.387631",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9617bbd8-0601-11e8-ae97-52543be04c81",
@@ -26732,7 +26825,8 @@
     "lastChecked": "2026-01-25T02:04:17.391094",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Warsaw",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "ca45e8f5-5408-4a8e-8017-061f8f6b81be",
@@ -26762,7 +26856,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.391307",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960e47fc-0601-11e8-ae97-52543be04c81",
@@ -27018,7 +27113,8 @@
     "lastChecked": "2026-01-25T02:04:17.393776",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Buenos Aires",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9ad31c7f-c053-11e9-8502-52543be04c81",
@@ -27215,7 +27311,8 @@
     "lastChecked": "2026-01-25T02:04:17.395319",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6cc8dac5-70c2-40bb-b095-8606fe1ed0f8",
@@ -27656,7 +27753,8 @@
     "favicon": "https://caracol.com.co/pf/resources/caracol-colombia/touch-icon-ipad.png?d=174",
     "lastChecked": "2026-01-25T02:04:17.398456",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "5b47e763-07e5-11ea-a87e-52543be04c81",
@@ -27688,7 +27786,8 @@
     "lastChecked": "2026-01-25T02:04:17.398672",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Nairobi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "47c5dd82-470a-11e9-aa55-52543be04c81",
@@ -27887,7 +27986,8 @@
     "lastChecked": "2026-01-25T02:04:17.400197",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "db343ca6-5aa4-11e9-a622-52543be04c81",
@@ -27978,7 +28078,8 @@
     "lastChecked": "2026-01-25T02:04:17.401375",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "88ac049f-d017-11e9-a861-52543be04c81",
@@ -28143,7 +28244,8 @@
     "lastChecked": "2026-01-25T02:04:17.402683",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bucharest",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "3c6c111c-6bbc-44ae-8ad8-46b502b3002a",
@@ -28172,7 +28274,8 @@
     "lastChecked": "2026-01-25T02:04:17.402909",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Buenos Aires",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960a6167-0601-11e8-ae97-52543be04c81",
@@ -28241,7 +28344,8 @@
     "lastChecked": "2026-01-25T02:04:17.403570",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: London",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "1adf1539-e647-44c3-85d8-b437b768fb8c",
@@ -28403,7 +28507,8 @@
     "lastChecked": "2026-01-25T02:04:17.404920",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "963f9bfc-0601-11e8-ae97-52543be04c81",
@@ -28904,7 +29009,8 @@
     "lastChecked": "2026-01-25T02:04:17.408761",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bratislava",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961180ce-0601-11e8-ae97-52543be04c81",
@@ -29252,7 +29358,8 @@
     "lastChecked": "2026-01-25T02:04:17.412208",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "960f7e3a-0601-11e8-ae97-52543be04c81",
@@ -29453,7 +29560,8 @@
     "lastChecked": "2026-01-25T02:04:17.413825",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Pretoria",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "b442256e-5791-4d29-a2ab-575cd6dc340b",
@@ -29487,7 +29595,8 @@
     "favicon": "https://www.iheart.com/favicon.ico",
     "lastChecked": "2026-01-25T02:04:17.414059",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960c2c57-0601-11e8-ae97-52543be04c81",
@@ -29646,7 +29755,8 @@
     "lastChecked": "2026-01-25T02:04:17.415199",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "92722b77-b256-4b95-8e24-b264982eb9d3",
@@ -29924,7 +30034,8 @@
     "lastChecked": "2026-01-25T02:04:17.417853",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Santiago",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6058ff93-ee55-407e-9221-c6ad07fd2531",
@@ -29987,7 +30098,8 @@
     "lastChecked": "2026-01-25T02:04:17.419077",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Tripoli",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "958c558d-6b13-4829-92ff-49233f56de97",
@@ -30371,7 +30483,8 @@
     "lastChecked": "2026-01-25T02:04:17.421898",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "9611cf11-0601-11e8-ae97-52543be04c81",
@@ -30436,7 +30549,8 @@
     "lastChecked": "2026-01-25T02:04:17.422362",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Colombo",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "84e746a9-e2d3-42ff-b09f-e788660fdf28",
@@ -30534,7 +30648,8 @@
     "lastChecked": "2026-01-25T02:04:17.423072",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Riga",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960ef35c-0601-11e8-ae97-52543be04c81",
@@ -31195,7 +31310,8 @@
     "lastChecked": "2026-01-25T02:04:17.429474",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "f8fb7eac-cc70-4e71-b56d-47ff892f9e85",
@@ -31294,7 +31410,8 @@
     "lastChecked": "2026-01-25T02:04:17.430418",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "706def0c-7017-4601-8305-db1cdb2e9420",
@@ -31615,7 +31732,8 @@
     "lastChecked": "2026-01-25T02:04:17.432945",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kigali",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "98137c2d-ce68-4e33-8cb7-ddf3692ecc9d",
@@ -32190,7 +32308,8 @@
     "lastChecked": "2026-01-25T02:04:17.437962",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Lima",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9605f05a-0601-11e8-ae97-52543be04c81",
@@ -32407,7 +32526,8 @@
     "lastChecked": "2026-01-25T02:04:17.439467",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "a1189085-eed0-414c-b8d8-6652189767dd",
@@ -32763,7 +32883,8 @@
     "lastChecked": "2026-01-25T02:04:17.442882",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960c0804-0601-11e8-ae97-52543be04c81",
@@ -32797,7 +32918,8 @@
     "lastChecked": "2026-01-25T02:04:17.443223",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Budapest",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "c4453134-d33d-4e72-8ec9-7cae783cbe74",
@@ -32862,7 +32984,8 @@
     "lastChecked": "2026-01-25T02:04:17.443704",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9638a4fb-0601-11e8-ae97-52543be04c81",
@@ -32926,7 +33049,8 @@
     "lastChecked": "2026-01-25T02:04:17.444208",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Paris",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "960de34b-0601-11e8-ae97-52543be04c81",
@@ -33092,7 +33216,8 @@
     "lastChecked": "2026-01-25T02:04:17.445396",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "d360268f-8f23-4386-b062-bcd368f1f211",
@@ -33674,7 +33799,8 @@
     "lastChecked": "2026-01-25T02:04:17.450550",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Manila",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9626d31f-0601-11e8-ae97-52543be04c81",
@@ -33799,7 +33925,8 @@
     "lastChecked": "2026-01-25T02:04:17.452199",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Warsaw",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "48c265ba-4102-4b16-95c1-a4f494bb48cd",
@@ -34087,7 +34214,8 @@
     "lastChecked": "2026-01-25T02:04:17.454540",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "537565d8-5c99-4a23-a583-3e5b93ac9d2f",
@@ -34337,7 +34465,8 @@
     "lastChecked": "2026-01-25T02:04:17.456541",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Warsaw",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "0b80555f-eb5c-4fce-94d2-109eec7bee6b",
@@ -34495,7 +34624,8 @@
     "lastChecked": "2026-01-25T02:04:17.457637",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Asunción",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "57742af1-79d4-4bc7-ae81-b58146638ae7",
@@ -34934,7 +35064,8 @@
     "lastChecked": "2026-01-25T02:04:17.461038",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kampala",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "402a2649-09aa-4059-b61c-9901bd400966",
@@ -34969,7 +35100,8 @@
     "lastChecked": "2026-01-25T02:04:17.461641",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Quito",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "5f154f50-472f-11e9-aa55-52543be04c81",
@@ -35027,7 +35159,8 @@
     "lastChecked": "2026-01-25T02:04:17.462066",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ankara",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6b184db5-4f63-4ec1-9a59-8573675908a2",
@@ -35154,7 +35287,8 @@
     "lastChecked": "2026-01-25T02:04:17.463408",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "b06d68db-53b6-4692-9120-e6699d95dc9c",
@@ -35635,7 +35769,8 @@
     "lastChecked": "2026-01-25T02:04:17.467432",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ottawa",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96353f71-0601-11e8-ae97-52543be04c81",
@@ -35889,7 +36024,8 @@
     "lastChecked": "2026-01-25T02:04:17.470046",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Buenos Aires",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "fc1d94ce-d7bf-4953-aac8-1180c5372f19",
@@ -36013,7 +36149,8 @@
     "lastChecked": "2026-01-25T02:04:17.471009",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Madrid",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "97d830f4-c35f-11e9-8502-52543be04c81",
@@ -36114,7 +36251,8 @@
     "lastChecked": "2026-01-25T02:04:17.471932",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Warsaw",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "25ad253b-bf3f-11e9-8502-52543be04c81",
@@ -36908,7 +37046,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.479311",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "f75cc3d3-10eb-40e3-926a-a9030eae3bba",
@@ -37027,7 +37166,8 @@
     "lastChecked": "2026-01-25T02:04:17.480231",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "95277bca-2c9a-4c08-b2e7-0854e5793f8e",
@@ -37186,7 +37326,8 @@
     "favicon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoorUN6xkuaIk6TGP-9ihpdnXm229tGwOtllkyFdsupw&s",
     "lastChecked": "2026-01-25T02:04:17.481588",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "6d7bb86d-65bc-4b84-9202-0fc79d2e203c",
@@ -37276,7 +37417,8 @@
     "lastChecked": "2026-01-25T02:04:17.482505",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Luanda",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "663af3ed-508f-483a-9a1e-c41ac9177873",
@@ -37370,7 +37512,8 @@
     "lastChecked": "2026-01-25T02:04:17.483486",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Quito",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "d3de929b-1967-4082-8f9e-b2b57a3377b9",
@@ -38377,7 +38520,8 @@
     "lastChecked": "2026-01-25T02:04:17.492346",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Baku",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "50e38be6-ffe4-472d-83fb-4a6a15987177",
@@ -38541,7 +38685,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.493758",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "83baf74b-5aa9-11e9-a622-52543be04c81",
@@ -38574,7 +38719,8 @@
     "lastChecked": "2026-01-25T02:04:17.493967",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Lilongwe",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96167407-0601-11e8-ae97-52543be04c81",
@@ -39086,7 +39232,8 @@
     "lastChecked": "2026-01-25T02:04:17.497876",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "84cb575d-42bb-42e0-bed7-b1190bb9a8b6",
@@ -39287,7 +39434,8 @@
     "lastChecked": "2026-01-25T02:04:17.499641",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960d68cf-0601-11e8-ae97-52543be04c81",
@@ -39356,7 +39504,8 @@
     "lastChecked": "2026-01-25T02:04:17.500097",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6a7c8a21-cb7d-41d2-8c32-99c355e2ac20",
@@ -39604,7 +39753,8 @@
     "lastChecked": "2026-01-25T02:04:17.502155",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: London",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "a781a6da-a41f-498d-92f5-aede46952d54",
@@ -39791,7 +39941,8 @@
     "favicon": "https://cdn-profiles.tunein.com/p1306541/images/logod.png",
     "lastChecked": "2026-01-25T02:04:17.503563",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961b7d40-0601-11e8-ae97-52543be04c81",
@@ -40250,7 +40401,8 @@
     "lastChecked": "2026-01-25T02:04:17.507714",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96057c18-0601-11e8-ae97-52543be04c81",
@@ -40343,7 +40495,8 @@
     "lastChecked": "2026-01-25T02:04:17.508466",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Santiago",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "a949b7f0-0b79-11e9-a80b-52543be04c81",
@@ -40372,7 +40525,8 @@
     "lastChecked": "2026-01-25T02:04:17.508926",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "879907df-654a-4a72-989e-b968ab51e818",
@@ -40973,7 +41127,8 @@
     "lastChecked": "2026-01-25T02:04:17.513730",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "af23facc-2a9e-487e-9ff6-42ba600ce38d",
@@ -41323,7 +41478,8 @@
     "lastChecked": "2026-01-25T02:04:17.516558",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "17453e45-640d-11e8-b15b-52543be04c81",
@@ -41643,7 +41799,8 @@
     "lastChecked": "2026-01-25T02:04:17.519095",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "04d8949c-1d24-4e74-9550-92e645764e5b",
@@ -41677,7 +41834,8 @@
     "favicon": "https://i.iheart.com/v3/re/new_assets/5c769b2fe7770a23546c3d7f",
     "lastChecked": "2026-01-25T02:04:17.519735",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "962e9a46-0601-11e8-ae97-52543be04c81",
@@ -42052,7 +42210,8 @@
     "lastChecked": "2026-01-25T02:04:17.522579",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Tashkent",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "edf4d3da-5827-4247-8e9d-68b67b2bcf3d",
@@ -42272,7 +42431,8 @@
     "lastChecked": "2026-01-25T02:04:17.524639",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "8a3685e2-711e-4764-9080-6fa143c33014",
@@ -42368,7 +42528,8 @@
     "lastChecked": "2026-01-25T02:04:17.525314",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "fa4085cf-bca6-11e8-aaf2-52543be04c81",
@@ -42431,7 +42592,8 @@
     "lastChecked": "2026-01-25T02:04:17.525770",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Jerusalem",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "7714000a-8b12-47b0-932c-c946527aec12",
@@ -42654,7 +42816,8 @@
     "lastChecked": "2026-01-25T02:04:17.527599",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bridgetown",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "962a7679-0601-11e8-ae97-52543be04c81",
@@ -42812,7 +42975,8 @@
     "lastChecked": "2026-01-25T02:04:17.528704",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: San Salvador",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96183962-0601-11e8-ae97-52543be04c81",
@@ -42911,7 +43075,8 @@
     "lastChecked": "2026-01-25T02:04:17.529394",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9619eedb-0601-11e8-ae97-52543be04c81",
@@ -43312,7 +43477,8 @@
     "lastChecked": "2026-01-25T02:04:17.532644",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brussels",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9623d0ee-0601-11e8-ae97-52543be04c81",
@@ -43347,7 +43513,8 @@
     "lastChecked": "2026-01-25T02:04:17.532875",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "69bc7084-523c-11ea-be63-52543be04c81",
@@ -43771,7 +43938,8 @@
     "lastChecked": "2026-01-25T02:04:17.537098",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "686a0847-a519-460d-b351-831e1a80d516",
@@ -43898,7 +44066,8 @@
     "lastChecked": "2026-01-25T02:04:17.537973",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "32c1aa82-c639-4c73-9236-948bbda511d7",
@@ -43930,7 +44099,8 @@
     "lastChecked": "2026-01-25T02:04:17.538196",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96190d7e-0601-11e8-ae97-52543be04c81",
@@ -44089,7 +44259,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.539285",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "a3a695be-35ba-4a1a-b8e7-d90815f4b942",
@@ -44188,7 +44359,8 @@
     "lastChecked": "2026-01-25T02:04:17.540154",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Quito",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "30634435-5a8f-11e9-a622-52543be04c81",
@@ -44221,7 +44393,8 @@
     "lastChecked": "2026-01-25T02:04:17.540366",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Quito",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "676c0b71-51b1-4949-b8a2-dfdc12b582af",
@@ -44409,7 +44582,8 @@
     "lastChecked": "2026-01-25T02:04:17.542190",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kinshasa",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96054dc3-0601-11e8-ae97-52543be04c81",
@@ -44689,7 +44863,8 @@
     "lastChecked": "2026-01-25T02:04:17.544670",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ljubljana",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961210eb-0601-11e8-ae97-52543be04c81",
@@ -44947,7 +45122,8 @@
     "lastChecked": "2026-01-25T02:04:17.546884",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "d407234d-18b3-4419-ba07-e19b2c8cb885",
@@ -45014,7 +45190,8 @@
     "lastChecked": "2026-01-25T02:04:17.547604",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Beijing",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "96450d28-0601-11e8-ae97-52543be04c81",
@@ -45591,7 +45768,8 @@
     "favicon": "https://i.iheart.com/v3/re/new_assets/5c9bef57a47b1251f8a34e43",
     "lastChecked": "2026-01-25T02:04:17.552326",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "07cb8d88-4d99-4e33-aaeb-2952dcaada3f",
@@ -46122,7 +46300,8 @@
     "lastChecked": "2026-01-25T02:04:17.556561",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "bcf92941-0daf-44b0-b8af-bddee31bd9df",
@@ -46252,7 +46431,8 @@
     "lastChecked": "2026-01-25T02:04:17.557479",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96102577-0601-11e8-ae97-52543be04c81",
@@ -46440,7 +46620,8 @@
     "lastChecked": "2026-01-25T02:04:17.559111",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Riga",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "0e8da368-6917-11e8-b15b-52543be04c81",
@@ -47133,7 +47314,8 @@
     "lastChecked": "2026-01-25T02:04:17.564632",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Budapest",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "a8c1c86e-e1c0-4e86-ba15-74c258ac0af9",
@@ -48093,7 +48275,8 @@
     "favicon": "https://i.iheart.com/v3/re/new_assets/5c9bef57a47b1251f8a34e45",
     "lastChecked": "2026-01-25T02:04:17.572342",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960b6384-0601-11e8-ae97-52543be04c81",
@@ -48388,7 +48571,8 @@
     "favicon": "https://adwaafm.com/wp-content/uploads/2023/11/cropped-fgfg-1-180x180.png",
     "lastChecked": "2026-01-25T02:04:17.574536",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "a29b614a-6dd1-4e98-a7f7-a70eb21f82fb",
@@ -48545,7 +48729,8 @@
     "lastChecked": "2026-01-25T02:04:17.575711",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Paris",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9623b030-0601-11e8-ae97-52543be04c81",
@@ -48579,7 +48764,8 @@
     "lastChecked": "2026-01-25T02:04:17.576177",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "8e17bd51-765e-4103-916a-69a4ed56ac9a",
@@ -48706,7 +48892,8 @@
     "lastChecked": "2026-01-25T02:04:17.577212",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Algiers",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "830a7eff-916d-456c-842a-d7786e475658",
@@ -49036,7 +49223,8 @@
     "favicon": "https://www.iheart.com/favicon.ico",
     "lastChecked": "2026-01-25T02:04:17.579912",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "d8ed96be-3c9f-11ea-8dd7-52543be04c81",
@@ -49516,7 +49704,8 @@
     "lastChecked": "2026-01-25T02:04:17.583400",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Colombo",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "964998e7-0601-11e8-ae97-52543be04c81",
@@ -49959,7 +50148,8 @@
     "lastChecked": "2026-01-25T02:04:17.587398",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "06993d81-0b79-11e9-a80b-52543be04c81",
@@ -49988,7 +50178,8 @@
     "lastChecked": "2026-01-25T02:04:17.587618",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "4d0e856c-3766-41a3-9c89-fc947611ff11",
@@ -50242,7 +50433,8 @@
     "lastChecked": "2026-01-25T02:04:17.589360",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Madrid",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "4fa18bc0-94f8-4589-942a-ed44abedb3bb",
@@ -50302,7 +50494,8 @@
     "lastChecked": "2026-01-25T02:04:17.589804",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "871dca29-a443-4670-9804-f2c3113ddd15",
@@ -50331,7 +50524,8 @@
     "lastChecked": "2026-01-25T02:04:17.590021",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "43718921-41a0-48f5-9645-c467d19a5095",
@@ -50467,7 +50661,8 @@
     "lastChecked": "2026-01-25T02:04:17.590947",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Pretoria",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "257d9018-727c-4253-af99-639879e4d99c",
@@ -50660,7 +50855,8 @@
     "favicon": "https://nasradio.fm/images/logo.png",
     "lastChecked": "2026-01-25T02:04:17.592243",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "447a1a5f-aee6-4b21-b85f-10ceb1896ad3",
@@ -50692,7 +50888,8 @@
     "favicon": "https://cdn-profiles.tunein.com/s8129/images/logod.jpg",
     "lastChecked": "2026-01-25T02:04:17.592472",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "28b85cc9-696f-4175-966e-7459653c4811",
@@ -50755,7 +50952,8 @@
     "lastChecked": "2026-01-25T02:04:17.593882",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96286716-0601-11e8-ae97-52543be04c81",
@@ -50875,7 +51073,8 @@
     "lastChecked": "2026-01-25T02:04:17.594868",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Minsk",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "d8f01eea-26be-4e3d-871d-7596e3ab8fb1",
@@ -50935,7 +51134,8 @@
     "lastChecked": "2026-01-25T02:04:17.595298",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9607be6f-0601-11e8-ae97-52543be04c81",
@@ -51380,7 +51580,8 @@
     "lastChecked": "2026-01-25T02:04:17.599221",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ankara",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "217e4e14-8637-4581-88fa-bd144af3b691",
@@ -51473,7 +51674,8 @@
     "lastChecked": "2026-01-25T02:04:17.600152",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: La Paz",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "5a492e5f-48fc-4ad2-891b-e53c70499228",
@@ -51505,7 +51707,8 @@
     "lastChecked": "2026-01-25T02:04:17.600381",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "ea84fe8c-ec1b-41da-a552-842c00cdcc26",
@@ -51962,7 +52165,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.603484",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "52994d67-31ea-448f-b6bc-7eaeb6a3504b",
@@ -51994,7 +52198,8 @@
     "lastChecked": "2026-01-25T02:04:17.603705",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9a2b2498-c09b-4b8e-b058-6bc02f8251ee",
@@ -52441,7 +52646,8 @@
     "lastChecked": "2026-01-25T02:04:17.607229",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96342772-0601-11e8-ae97-52543be04c81",
@@ -52504,7 +52710,8 @@
     "favicon": "https://www.radioacktiva.com/wp-content/uploads/2024/12/cropped-favicon-new1-180x180.png",
     "lastChecked": "2026-01-25T02:04:17.607661",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "4889d4ef-a405-11e8-abb8-52543be04c81",
@@ -52660,7 +52867,8 @@
     "lastChecked": "2026-01-25T02:04:17.608774",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "f8620783-2536-4275-a49b-bb08b8a25e1f",
@@ -52853,7 +53061,8 @@
     "favicon": "https://i.postimg.cc/XN8kDbwZ/Mood-Espejito-Espejito.jpg",
     "lastChecked": "2026-01-25T02:04:17.610978",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "ffcdc7e1-089e-4dfb-b11f-c2dcb26ef923",
@@ -53701,7 +53910,8 @@
     "lastChecked": "2026-01-25T02:04:17.617958",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "02cca7ad-dc4e-498b-a88e-691fdc98e27f",
@@ -53867,7 +54077,8 @@
     "lastChecked": "2026-01-25T02:04:17.619028",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Abuja",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "66617a79-5235-44d1-b59d-f996eae58a65",
@@ -54277,7 +54488,8 @@
     "lastChecked": "2026-01-25T02:04:17.622136",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Jerusalem",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "b577d001-7e85-434d-bd32-0fd998d606d8",
@@ -54372,7 +54584,8 @@
     "lastChecked": "2026-01-25T02:04:17.622800",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "2925144c-f91a-47ee-b2e8-3a11c486d47b",
@@ -54840,7 +55053,8 @@
     "lastChecked": "2026-01-25T02:04:17.626552",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Buenos Aires",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96337005-0601-11e8-ae97-52543be04c81",
@@ -55261,7 +55475,8 @@
     "lastChecked": "2026-01-25T02:04:17.629736",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: San Salvador",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96147f07-0601-11e8-ae97-52543be04c81",
@@ -55676,7 +55891,8 @@
     "lastChecked": "2026-01-25T02:04:17.633131",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Amsterdam",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "d95c1da9-838c-4684-a009-44fc73608279",
@@ -56069,7 +56285,8 @@
     "lastChecked": "2026-01-25T02:04:17.636513",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bridgetown",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961ec4b7-0601-11e8-ae97-52543be04c81",
@@ -56136,7 +56353,8 @@
     "favicon": "https://cdn-profiles.tunein.com/s24567/images/logog.jpg",
     "lastChecked": "2026-01-25T02:04:17.636956",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "4f36078b-bdc9-4e65-827c-599c49d377e2",
@@ -56264,7 +56482,8 @@
     "lastChecked": "2026-01-25T02:04:17.637868",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Accra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "bb6b7ad8-f327-11e9-a96c-52543be04c81",
@@ -56806,7 +57025,8 @@
     "favicon": "https://www.988.com.my/wp-content/themes/988_web/assets/988-logo.png",
     "lastChecked": "2026-01-25T02:04:17.641739",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "e5d19d2a-49ce-4846-af68-cc415f9ba895",
@@ -57155,7 +57375,8 @@
     "lastChecked": "2026-01-25T02:04:17.645028",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Guatemala City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9642ac1c-0601-11e8-ae97-52543be04c81",
@@ -57374,7 +57595,8 @@
     "lastChecked": "2026-01-25T02:04:17.646570",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kigali",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "d59ad82a-3044-4951-8c6c-a0d72b26001c",
@@ -57405,7 +57627,8 @@
     "lastChecked": "2026-01-25T02:04:17.646789",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Prague",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "961e9c8c-0601-11e8-ae97-52543be04c81",
@@ -57434,7 +57657,8 @@
     "lastChecked": "2026-01-25T02:04:17.646996",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Zagreb",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9647b768-0601-11e8-ae97-52543be04c81",
@@ -57878,7 +58102,8 @@
     "lastChecked": "2026-01-25T02:04:17.650507",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961319d4-0601-11e8-ae97-52543be04c81",
@@ -58543,7 +58768,8 @@
     "lastChecked": "2026-01-25T02:04:17.655864",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Abuja",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "cae35448-1285-4f12-b3e0-2f4fdde00002",
@@ -59157,7 +59383,8 @@
     "lastChecked": "2026-01-25T02:04:17.661152",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Berlin",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "cbc50678-e70e-11e9-a96c-52543be04c81",
@@ -59258,7 +59485,8 @@
     "favicon": "https://www.wdeportes.com/pf/resources/wdeportes/favicon.ico?d=71",
     "lastChecked": "2026-01-25T02:04:17.661815",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "8712fca3-870c-4dfb-8d5b-c01095aa6e98",
@@ -59732,7 +59960,8 @@
     "lastChecked": "2026-01-25T02:04:17.665519",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Port-au-Prince",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "de478916-6d8d-4997-9894-9d068bcf1857",
@@ -59928,7 +60157,8 @@
     "lastChecked": "2026-01-25T02:04:17.667116",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "96131e7f-0601-11e8-ae97-52543be04c81",
@@ -60090,7 +60320,8 @@
     "lastChecked": "2026-01-25T02:04:17.668522",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Quito",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "698ab82f-5089-46cc-b513-0317f3db367a",
@@ -60533,7 +60764,8 @@
     "lastChecked": "2026-01-25T02:04:17.671554",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "0925f9a5-2cee-4900-b8f0-d6b0b64a90af",
@@ -60814,7 +61046,8 @@
     "lastChecked": "2026-01-25T02:04:17.674035",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "3a0985e9-788d-11e8-83fa-52543be04c81",
@@ -60970,7 +61203,8 @@
     "lastChecked": "2026-01-25T02:04:17.675420",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "ea24a46f-5bb4-4d28-9a72-c2145981a741",
@@ -61030,7 +61264,8 @@
     "lastChecked": "2026-01-25T02:04:17.675966",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961ae1a3-0601-11e8-ae97-52543be04c81",
@@ -61861,7 +62096,8 @@
     "lastChecked": "2026-01-25T02:04:17.682260",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "bfa448fd-2b74-4a60-a78d-7fea62cc0577",
@@ -61894,7 +62130,8 @@
     "lastChecked": "2026-01-25T02:04:17.682475",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "be2348b1-366d-4810-a93a-31319729c27b",
@@ -62595,7 +62832,8 @@
     "lastChecked": "2026-01-25T02:04:17.688184",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Stockholm",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "1f7dad2e-285c-4af4-b133-1b76a71cde8c",
@@ -62661,7 +62899,8 @@
     "lastChecked": "2026-01-25T02:04:17.688609",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Beijing",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "961f6001-0601-11e8-ae97-52543be04c81",
@@ -63368,7 +63607,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.695399",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "b5dcf9ee-fa72-47dd-9dd6-eb8a8d5dec91",
@@ -63686,7 +63926,8 @@
     "lastChecked": "2026-01-25T02:04:17.698145",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Warsaw",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "d1820c39-b733-40ed-b995-c1677ea5081e",
@@ -63749,7 +63990,8 @@
     "lastChecked": "2026-01-25T02:04:17.698615",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "aed90d76-548c-4916-800b-e8b50f0dbf6f",
@@ -63908,7 +64150,8 @@
     "lastChecked": "2026-01-25T02:04:17.700285",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "51151199-e8dc-42a9-8257-e22effb01f25",
@@ -64313,7 +64556,8 @@
     "lastChecked": "2026-01-25T02:04:17.703571",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Paris",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "962dbeab-0601-11e8-ae97-52543be04c81",
@@ -64472,7 +64716,8 @@
     "lastChecked": "2026-01-25T02:04:17.704769",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Madrid",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "c5537928-638d-4eef-b603-11a089027f8c",
@@ -64662,7 +64907,8 @@
     "lastChecked": "2026-01-25T02:04:17.706370",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Amman",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96194ab6-0601-11e8-ae97-52543be04c81",
@@ -65210,7 +65456,8 @@
     "lastChecked": "2026-01-25T02:04:17.711871",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Santiago",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "8c957443-7a60-4fa2-9597-a30dac191a70",
@@ -65302,7 +65549,8 @@
     "lastChecked": "2026-01-25T02:04:17.713192",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kuala Lumpur",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "f4fcca1a-ba7e-11e9-acb2-52543be04c81",
@@ -65398,7 +65646,8 @@
     "lastChecked": "2026-01-25T02:04:17.713839",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Manila",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "721b8f32-8071-4cca-a10f-c999d3b65346",
@@ -65459,7 +65708,8 @@
     "lastChecked": "2026-01-25T02:04:17.714478",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "e2fe33ad-87a6-4bca-bb2a-f051212c82c2",
@@ -65905,7 +66155,8 @@
     "lastChecked": "2026-01-25T02:04:17.718740",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "961a0451-0601-11e8-ae97-52543be04c81",
@@ -65940,7 +66191,8 @@
     "lastChecked": "2026-01-25T02:04:17.718960",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9626456e-0601-11e8-ae97-52543be04c81",
@@ -66423,7 +66675,8 @@
     "favicon": "https://www.lasabrosita.fm/u/plantillas/p/la-sabrosita/imgs/favicons//apple-touch-icon.png",
     "lastChecked": "2026-01-25T02:04:17.722601",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960cc3f3-0601-11e8-ae97-52543be04c81",
@@ -66803,7 +67056,8 @@
     "lastChecked": "2026-01-25T02:04:17.725752",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Lima",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "964fea63-0601-11e8-ae97-52543be04c81",
@@ -66834,7 +67088,8 @@
     "lastChecked": "2026-01-25T02:04:17.725980",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brussels",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "32f2eb10-b498-4c85-96aa-7d9c266d9910",
@@ -67284,7 +67539,8 @@
     "favicon": "https://zeno.fm/favicon.ico",
     "lastChecked": "2026-01-25T02:04:17.730153",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "c76686ca-a8b9-4db9-9839-1470c9599623",
@@ -67477,7 +67733,8 @@
     "lastChecked": "2026-01-25T02:04:17.731519",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Bogotá",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "4782ccd8-2a36-47ff-9e2f-af0da5400f9a",
@@ -67544,7 +67801,8 @@
     "lastChecked": "2026-01-25T02:04:17.731977",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "e4533603-14e6-46a5-9c40-36cecf9c5ff3",
@@ -68175,7 +68433,8 @@
     "lastChecked": "2026-01-25T02:04:17.737635",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "1a8df17d-5a57-11e9-a622-52543be04c81",
@@ -68237,7 +68496,8 @@
     "lastChecked": "2026-01-25T02:04:17.738110",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9a12e2fe-ba2b-42ae-946e-fa657fb779a4",
@@ -68878,7 +69138,8 @@
     "lastChecked": "2026-01-25T02:04:17.742737",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "33baec18-c053-11e9-8502-52543be04c81",
@@ -69035,7 +69296,8 @@
     "lastChecked": "2026-01-25T02:04:17.744110",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "6ad5e93f-869d-4165-a685-25e8363c1bf4",
@@ -69231,7 +69493,8 @@
     "favicon": "https://www.iheart.com/static/assets/favicon.ico",
     "lastChecked": "2026-01-25T02:04:17.745496",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "4b473070-a3c2-41bd-8d98-c2db5f5954bc",
@@ -70213,7 +70476,8 @@
     "favicon": "https://www.ukhozifm.co.za/wp-content/uploads/2023/07/cropped-ukhozi-tranparent-logo.png",
     "lastChecked": "2026-01-25T02:04:17.753496",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "964ff6ca-0601-11e8-ae97-52543be04c81",
@@ -70527,7 +70791,8 @@
     "lastChecked": "2026-01-25T02:04:17.755760",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rabat",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "900a7450-c2fb-4896-a38f-99a2e6dc0c6e",
@@ -70853,7 +71118,8 @@
     "lastChecked": "2026-01-25T02:04:17.757992",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "118a5501-b15d-4fb3-b010-fd0e4ffda525",
@@ -71463,7 +71729,8 @@
     "lastChecked": "2026-01-25T02:04:17.762939",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Riga",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9641191e-0601-11e8-ae97-52543be04c81",
@@ -71652,7 +71919,8 @@
     "lastChecked": "2026-01-25T02:04:17.764560",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Accra",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "9618c802-0601-11e8-ae97-52543be04c81",
@@ -71909,7 +72177,8 @@
     "lastChecked": "2026-01-25T02:04:17.766700",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: New Delhi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "a83302f8-386f-11e9-9b4e-52543be04c81",
@@ -71938,7 +72207,8 @@
     "lastChecked": "2026-01-25T02:04:17.767158",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Ankara",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6e028771-c452-11e9-8502-52543be04c81",
@@ -72028,7 +72298,8 @@
     "lastChecked": "2026-01-25T02:04:17.768277",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9611e44f-0601-11e8-ae97-52543be04c81",
@@ -72186,7 +72457,8 @@
     "lastChecked": "2026-01-25T02:04:17.770209",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Havana",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "871d49cd-8d7e-4956-85a5-20e0540512b1",
@@ -72668,7 +72940,8 @@
     "lastChecked": "2026-01-25T02:04:17.773415",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9409faee-d774-450b-945f-38ecc3aec8c1",
@@ -73013,7 +73286,8 @@
     "lastChecked": "2026-01-25T02:04:17.776427",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: La Paz",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "4fe95a8d-512e-11e8-a4d1-52543be04c81",
@@ -73204,7 +73478,8 @@
     "lastChecked": "2026-01-25T02:04:17.778240",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Islamabad",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9628915b-0601-11e8-ae97-52543be04c81",
@@ -73237,7 +73512,8 @@
     "lastChecked": "2026-01-25T02:04:17.778455",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Rome",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "585600d9-bdc4-4a2e-93c5-2421041cc55c",
@@ -73596,7 +73872,8 @@
     "lastChecked": "2026-01-25T02:04:17.781322",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Lilongwe",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "5e0d918f-c682-11e8-a498-52543be04c81",
@@ -73973,7 +74250,8 @@
     "lastChecked": "2026-01-25T02:04:17.784761",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Beirut",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "eaf0b016-633a-11e9-a622-52543be04c81",
@@ -74609,7 +74887,8 @@
     "lastChecked": "2026-01-25T02:04:17.789333",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Nairobi",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "e1da6a48-0c5a-4598-81f3-2319ef465c0f",
@@ -75514,7 +75793,8 @@
     "lastChecked": "2026-01-25T02:04:17.798724",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Riyadh",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "1eb520fb-5bef-44f2-ba53-66d3fc996fc8",
@@ -75549,7 +75829,8 @@
     "lastChecked": "2026-01-25T02:04:17.798948",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9fe19f6a-6e9c-4c58-bdf1-4d8431934d09",
@@ -76314,7 +76595,8 @@
     "lastChecked": "2026-01-25T02:04:17.805195",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "0fd3faa9-6afe-46d4-b31a-5c53691cfbf9",
@@ -76347,7 +76629,8 @@
     "lastChecked": "2026-01-25T02:04:17.805413",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Kuala Lumpur",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "52e142ff-1137-422a-b97e-75e27880abff",
@@ -76567,7 +76850,8 @@
     "lastChecked": "2026-01-25T02:04:17.806960",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Canberra",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960bbed9-0601-11e8-ae97-52543be04c81",
@@ -76666,7 +76950,8 @@
     "lastChecked": "2026-01-25T02:04:17.808164",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brussels",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "ca932026-594e-11e9-a622-52543be04c81",
@@ -77235,7 +77520,8 @@
     "lastChecked": "2026-01-25T02:04:17.812180",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brussels",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "2c788192-ca75-42c9-ace6-866087380796",
@@ -77645,7 +77931,8 @@
     "lastChecked": "2026-01-25T02:04:17.815148",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Mexico City",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "6d538ad4-f329-11e9-a96c-52543be04c81",
@@ -77711,7 +77998,8 @@
     "lastChecked": "2026-01-25T02:04:17.815591",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: London",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "21b074e0-dd20-41cc-9d3d-ad4b9b5b4afe",
@@ -77806,7 +78094,8 @@
     "lastChecked": "2026-01-25T02:04:17.816291",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Quito",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "13f6579f-f2a4-11e9-a96c-52543be04c81",
@@ -78247,7 +78536,8 @@
     "lastChecked": "2026-01-25T02:04:17.820134",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Santiago",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "960f5358-0601-11e8-ae97-52543be04c81",
@@ -78415,7 +78705,8 @@
     "lastChecked": "2026-01-25T02:04:17.821251",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Abuja",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "8326841b-66b6-4bc7-8a9f-abac1604d5a8",
@@ -79146,7 +79437,8 @@
     "lastChecked": "2026-01-25T02:04:17.826567",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Asunción",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "383945c6-6ca0-4da6-8d1e-c231bc7809f7",
@@ -79502,7 +79794,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.829175",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "fa31e2f5-8092-11e9-aa30-52543be04c81",
@@ -79688,7 +79981,8 @@
     "favicon": "",
     "lastChecked": "2026-01-25T02:04:17.830550",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "251e6493-47f3-461b-9e15-52cc16c47c7a",
@@ -79722,7 +80016,8 @@
     "favicon": "https://www.iheart.com/favicon.ico",
     "lastChecked": "2026-01-25T02:04:17.830992",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "008edbea-c5fb-11e9-8502-52543be04c81",
@@ -80051,7 +80346,8 @@
     "favicon": "https://www.iheart.com/favicon.ico",
     "lastChecked": "2026-01-25T02:04:17.833865",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "962a6a94-0601-11e8-ae97-52543be04c81",
@@ -80209,7 +80505,8 @@
     "lastChecked": "2026-01-25T02:04:17.835467",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brussels",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "5f729860-a726-4468-bf41-67986e60bdef",
@@ -80466,7 +80763,8 @@
     "lastChecked": "2026-01-25T02:04:17.837821",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "e2d75665-c4a9-4433-b953-3a5346ae5fb6",
@@ -80534,7 +80832,8 @@
     "lastChecked": "2026-01-25T02:04:17.838302",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Brasília",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "96250be4-0601-11e8-ae97-52543be04c81",
@@ -80657,7 +80956,8 @@
     "lastChecked": "2026-01-25T02:04:17.839432",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Gitega",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "962288c2-0601-11e8-ae97-52543be04c81",
@@ -80755,7 +81055,8 @@
     "lastChecked": "2026-01-25T02:04:17.840835",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Moscow",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:no-response,magic:None"
   },
   {
     "id": "685ec2f1-d235-11e9-a861-52543be04c81",
@@ -81364,7 +81665,8 @@
     "lastChecked": "2026-01-25T02:04:17.846158",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Washington D.C.",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "dfa6d153-83de-4112-bd36-2156720bdfc5",
@@ -81586,7 +81888,8 @@
     "lastChecked": "2026-01-25T02:04:17.848024",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Madrid",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "bf5b804b-45ba-41ed-a1a7-41e0544e08e9",
@@ -81976,7 +82279,8 @@
     "lastChecked": "2026-01-25T02:04:17.851139",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: London",
-    "supported": true
+    "supported": false,
+    "supportReason": "actual-ct:audio/aacp,magic:None"
   },
   {
     "id": "0d4011f6-3de2-4345-972e-e77cabbb1bdf",
@@ -82138,7 +82442,8 @@
     "favicon": "https://www.cinkhabar.com/themes/cinkhabar/images/favicon.png",
     "lastChecked": "2026-01-25T02:04:17.852339",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "57d9c792-5ead-4b1b-ae00-7ad1aa3b09e7",
@@ -83149,7 +83454,8 @@
     "lastChecked": "2026-01-25T02:04:17.860990",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: San José",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "3cd58592-e487-420a-9c14-ae29aa4a9483",
@@ -83359,7 +83665,8 @@
     "lastChecked": "2026-01-25T02:04:17.862813",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Luanda",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "9c7f65f2-938d-4b76-9c5d-a581f18a307d",
@@ -83456,7 +83763,8 @@
     "favicon": "https://www.iheart.com/static/assets/favicon.ico",
     "lastChecked": "2026-01-25T02:04:17.863720",
     "coordsPrecision": "precise",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "dca6e9a6-d9df-4e0e-a603-e4ae89c62b24",
@@ -84106,7 +84414,8 @@
     "lastChecked": "2026-01-25T02:04:17.869086",
     "coordsPrecision": "approximate",
     "coordsSource": "Capital: Singapore",
-    "supported": true
+    "supported": false,
+    "supportReason": "audio/aacp-not-supported-in-chrome"
   },
   {
     "id": "79e3bcb9-a030-4832-870e-0933f3bde362",
