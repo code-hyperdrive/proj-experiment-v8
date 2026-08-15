@@ -768,60 +768,59 @@ class GlobeRadioApp {
             document.body.classList.add('panel-collapsed');
         }
         
-        // Panel auto-hide functionality
-        let panelAutoHideTimer = null;
-        
-        const startPanelAutoHideTimer = () => {
-            const autoHideEnabled = this.user.getPreference('panelAutoHide');
-            const delay = this.user.getPreference('panelAutoHideDelay') || 10;
-            
-            // Clear existing timer
-            if (panelAutoHideTimer) {
-                clearTimeout(panelAutoHideTimer);
-                panelAutoHideTimer = null;
-            }
-            
-            // Only start timer if auto-hide is enabled and panel is expanded
-            if (autoHideEnabled && !document.body.classList.contains('panel-collapsed')) {
-                panelAutoHideTimer = setTimeout(() => {
+        // Panel auto-collapse: always-on 15-second idle timer + click-outside
+        const PANEL_IDLE_TIMEOUT = 15000; // 15 seconds
+        let panelIdleTimer = null;
+
+        const startPanelIdleTimer = () => {
+            if (panelIdleTimer) clearTimeout(panelIdleTimer);
+            // Only run when panel is expanded
+            if (!document.body.classList.contains('panel-collapsed')) {
+                panelIdleTimer = setTimeout(() => {
                     collapsePanel();
-                }, delay * 1000);
+                }, PANEL_IDLE_TIMEOUT);
             }
         };
-        
-        const resetPanelAutoHideTimer = () => {
-            startPanelAutoHideTimer();
+
+        const resetPanelIdleTimer = () => {
+            if (panelIdleTimer) clearTimeout(panelIdleTimer);
+            panelIdleTimer = null;
+            startPanelIdleTimer();
         };
-        
-        // Reset timer on any panel interaction
+
+        // Pause idle timer while mouse is inside the panel; restart on leave
         sidePanel?.addEventListener('mouseenter', () => {
-            if (panelAutoHideTimer) {
-                clearTimeout(panelAutoHideTimer);
-                panelAutoHideTimer = null;
+            if (panelIdleTimer) {
+                clearTimeout(panelIdleTimer);
+                panelIdleTimer = null;
             }
         });
-        
+
         sidePanel?.addEventListener('mouseleave', () => {
-            startPanelAutoHideTimer();
+            startPanelIdleTimer();
         });
-        
-        // Reset timer when panel expands
+
+        // Any interaction inside the panel resets the idle clock
+        sidePanel?.addEventListener('click', () => resetPanelIdleTimer());
+        sidePanel?.addEventListener('keydown', () => resetPanelIdleTimer());
+
+        // Restart idle timer each time the panel is expanded
         expandBtn?.addEventListener('click', () => {
-            setTimeout(startPanelAutoHideTimer, 100);
+            setTimeout(startPanelIdleTimer, 100);
         });
-        
-        // Listen for settings changes
-        window.addEventListener('panelAutoHideChanged', (e) => {
-            if (e.detail.enabled) {
-                startPanelAutoHideTimer();
-            } else if (panelAutoHideTimer) {
-                clearTimeout(panelAutoHideTimer);
-                panelAutoHideTimer = null;
+
+        // Click outside the panel → collapse immediately
+        document.addEventListener('click', (e) => {
+            if (document.body.classList.contains('panel-collapsed')) return;
+            const isInsidePanel   = sidePanel?.contains(e.target);
+            const isExpandBtn     = e.target.closest('#expandPanelBtn');
+            if (!isInsidePanel && !isExpandBtn) {
+                collapsePanel();
             }
         });
-        
-        // Start auto-hide timer on initial load if enabled
-        startPanelAutoHideTimer();
+
+        // Start idle timer on initial load if panel is already expanded
+        startPanelIdleTimer();
         
         // Setup random flip animation for floating logo
         this.setupFloatingLogoAnimation();
