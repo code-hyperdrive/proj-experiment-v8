@@ -642,67 +642,58 @@ class UserProfile {
 
                         <!-- Tab 2: Stats -->
                         <div class="profile-tab-content" id="profileTabStats" hidden>
-                            <!-- Summary stat tiles -->
-                            <div class="profile-stats">
-                                <div class="profile-stat">
-                                    <span class="stat-icon">⏱️</span>
-                                    <span class="stat-value">${stats.formattedTime}</span>
-                                    <span class="stat-label">${t('listeningTime')}</span>
+                            <!-- 2×2 compact stat tiles -->
+                            <div class="stats-grid-compact">
+                                <div class="stat-tile">
+                                    <span class="stat-tile-icon">⏱️</span>
+                                    <span class="stat-tile-value">${stats.formattedTime}</span>
+                                    <span class="stat-tile-label">${t('listeningTime')}</span>
                                 </div>
-                                <div class="profile-stat">
-                                    <span class="stat-icon">📻</span>
-                                    <span class="stat-value">${stats.stationsPlayed}</span>
-                                    <span class="stat-label">${t('stationsPlayed')}</span>
+                                <div class="stat-tile">
+                                    <span class="stat-tile-icon">📻</span>
+                                    <span class="stat-tile-value">${stats.stationsPlayed}</span>
+                                    <span class="stat-tile-label">${t('stationsPlayed')}</span>
                                 </div>
-                                <div class="profile-stat">
-                                    <span class="stat-icon">⭐</span>
-                                    <span class="stat-value">${stats.favoritesCount}</span>
-                                    <span class="stat-label">${t('favorites')}</span>
+                                <div class="stat-tile">
+                                    <span class="stat-tile-icon">⭐</span>
+                                    <span class="stat-tile-value">${stats.favoritesCount}</span>
+                                    <span class="stat-tile-label">${t('favorites')}</span>
                                 </div>
-                                <div class="profile-stat">
-                                    <span class="stat-icon">🌍</span>
-                                    <span class="stat-value">${this.escapeHtml(stats.topCountry)}</span>
-                                    <span class="stat-label">Top Country</span>
+                                <div class="stat-tile">
+                                    <span class="stat-tile-icon">🌍</span>
+                                    <span class="stat-tile-value">${this.escapeHtml(stats.topCountry)}</span>
+                                    <span class="stat-tile-label">Top Country</span>
                                 </div>
                             </div>
 
-                            <!-- Top Genres -->
-                            ${Object.keys(this.data.genreStats || {}).length > 0 ? `
-                            <div class="profile-id-section" style="margin-top: var(--spacing-md);">
-                                <div class="id-display-row" style="margin-bottom: var(--spacing-sm);">
-                                    <label style="font-weight: 600;">🎵 Top Genres</label>
-                                </div>
-                                ${Object.entries(this.data.genreStats)
-                                    .sort((a, b) => b[1] - a[1])
-                                    .slice(0, 5)
-                                    .map(([genre, count]) => `
-                                    <div style="display:flex; justify-content:space-between; align-items:center; padding: 4px 0; border-bottom: 1px solid var(--border-color); font-size: var(--font-size-sm);">
-                                        <span>${this.escapeHtml(genre)}</span>
-                                        <span style="color: var(--accent-primary); font-weight:600;">${count}</span>
-                                    </div>`).join('')}
-                            </div>` : ''}
+                            <!-- Top Genres + Countries side by side -->
+                            <div class="stats-breakdown-row">
+                                ${Object.keys(this.data.genreStats || {}).length > 0 ? `
+                                <div class="stats-breakdown-card">
+                                    <p class="stats-breakdown-title">🎵 Genres</p>
+                                    ${Object.entries(this.data.genreStats)
+                                        .sort((a, b) => b[1] - a[1]).slice(0, 4)
+                                        .map(([genre, count]) => `
+                                        <div class="stats-breakdown-row-item">
+                                            <span>${this.escapeHtml(genre)}</span>
+                                            <span class="stats-breakdown-count">${count}</span>
+                                        </div>`).join('')}
+                                </div>` : ''}
+                                ${Object.keys(this.data.countryStats || {}).length > 0 ? `
+                                <div class="stats-breakdown-card">
+                                    <p class="stats-breakdown-title">🌍 Countries</p>
+                                    ${Object.entries(this.data.countryStats)
+                                        .sort((a, b) => b[1] - a[1]).slice(0, 4)
+                                        .map(([country, count]) => `
+                                        <div class="stats-breakdown-row-item">
+                                            <span>${this.escapeHtml(country)}</span>
+                                            <span class="stats-breakdown-count">${count}</span>
+                                        </div>`).join('')}
+                                </div>` : ''}
+                            </div>
 
-                            <!-- Top Countries -->
-                            ${Object.keys(this.data.countryStats || {}).length > 0 ? `
-                            <div class="profile-id-section" style="margin-top: var(--spacing-md);">
-                                <div class="id-display-row" style="margin-bottom: var(--spacing-sm);">
-                                    <label style="font-weight: 600;">🌍 Top Countries</label>
-                                </div>
-                                ${Object.entries(this.data.countryStats)
-                                    .sort((a, b) => b[1] - a[1])
-                                    .slice(0, 5)
-                                    .map(([country, count]) => `
-                                    <div style="display:flex; justify-content:space-between; align-items:center; padding: 4px 0; border-bottom: 1px solid var(--border-color); font-size: var(--font-size-sm);">
-                                        <span>${this.escapeHtml(country)}</span>
-                                        <span style="color: var(--accent-primary); font-weight:600;">${count}</span>
-                                    </div>`).join('')}
-                            </div>` : ''}
-
-                            <!-- No data placeholder -->
                             ${stats.stationsPlayed === 0 ? `
-                            <p style="text-align:center; color: var(--text-secondary); font-size: var(--font-size-sm); margin-top: var(--spacing-lg);">
-                                🎧 Start listening to see your stats here!
-                            </p>` : ''}
+                            <p class="stats-empty-hint">🎧 Start listening to see your stats here!</p>` : ''}
                         </div>
 
                         <!-- Tab 4: Appearance -->
