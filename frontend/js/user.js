@@ -583,6 +583,10 @@ class UserProfile {
                             <span class="tab-icon">👤</span>
                             <span class="tab-label">Profile</span>
                         </button>
+                        <button class="profile-tab-btn" data-tab="stats" role="tab" aria-selected="false">
+                            <span class="tab-icon">📊</span>
+                            <span class="tab-label">Stats</span>
+                        </button>
                         <button class="profile-tab-btn" data-tab="appearance" role="tab" aria-selected="false">
                             <span class="tab-icon">🎨</span>
                             <span class="tab-label">Appearance</span>
@@ -654,7 +658,11 @@ class UserProfile {
                                 </div>
                             ` : ''}
 
-                            <!-- Stats -->
+                        </div>
+
+                        <!-- Tab 2: Stats -->
+                        <div class="profile-tab-content" id="profileTabStats" hidden>
+                            <!-- Summary stat tiles -->
                             <div class="profile-stats">
                                 <div class="profile-stat">
                                     <span class="stat-icon">⏱️</span>
@@ -672,14 +680,52 @@ class UserProfile {
                                     <span class="stat-label">${t('favorites')}</span>
                                 </div>
                                 <div class="profile-stat">
-                                    <span class="stat-icon">🎵</span>
-                                    <span class="stat-value">${this.escapeHtml(stats.topGenre)}</span>
-                                    <span class="stat-label">Top Genre</span>
+                                    <span class="stat-icon">🌍</span>
+                                    <span class="stat-value">${this.escapeHtml(stats.topCountry)}</span>
+                                    <span class="stat-label">Top Country</span>
                                 </div>
                             </div>
+
+                            <!-- Top Genres -->
+                            ${Object.keys(this.data.genreStats || {}).length > 0 ? `
+                            <div class="profile-id-section" style="margin-top: var(--spacing-md);">
+                                <div class="id-display-row" style="margin-bottom: var(--spacing-sm);">
+                                    <label style="font-weight: 600;">🎵 Top Genres</label>
+                                </div>
+                                ${Object.entries(this.data.genreStats)
+                                    .sort((a, b) => b[1] - a[1])
+                                    .slice(0, 5)
+                                    .map(([genre, count]) => `
+                                    <div style="display:flex; justify-content:space-between; align-items:center; padding: 4px 0; border-bottom: 1px solid var(--border-color); font-size: var(--font-size-sm);">
+                                        <span>${this.escapeHtml(genre)}</span>
+                                        <span style="color: var(--accent-primary); font-weight:600;">${count}</span>
+                                    </div>`).join('')}
+                            </div>` : ''}
+
+                            <!-- Top Countries -->
+                            ${Object.keys(this.data.countryStats || {}).length > 0 ? `
+                            <div class="profile-id-section" style="margin-top: var(--spacing-md);">
+                                <div class="id-display-row" style="margin-bottom: var(--spacing-sm);">
+                                    <label style="font-weight: 600;">🌍 Top Countries</label>
+                                </div>
+                                ${Object.entries(this.data.countryStats)
+                                    .sort((a, b) => b[1] - a[1])
+                                    .slice(0, 5)
+                                    .map(([country, count]) => `
+                                    <div style="display:flex; justify-content:space-between; align-items:center; padding: 4px 0; border-bottom: 1px solid var(--border-color); font-size: var(--font-size-sm);">
+                                        <span>${this.escapeHtml(country)}</span>
+                                        <span style="color: var(--accent-primary); font-weight:600;">${count}</span>
+                                    </div>`).join('')}
+                            </div>` : ''}
+
+                            <!-- No data placeholder -->
+                            ${stats.stationsPlayed === 0 ? `
+                            <p style="text-align:center; color: var(--text-secondary); font-size: var(--font-size-sm); margin-top: var(--spacing-lg);">
+                                🎧 Start listening to see your stats here!
+                            </p>` : ''}
                         </div>
-                        
-                        <!-- Tab 2: Appearance -->
+
+                        <!-- Tab 4: Appearance -->
                         <div class="profile-tab-content" id="profileTabAppearance" hidden>
                             <div class="profile-preferences">
                                 <div class="pref-item">
@@ -763,7 +809,7 @@ class UserProfile {
                             </div>
                         </div>
                         
-                        <!-- Tab 3: Visualizer -->
+                        <!-- Tab 5: Visualizer -->
                         <div class="profile-tab-content" id="profileTabVisualizer" hidden>
                             <div class="profile-preferences">
                                 <div class="pref-item">
@@ -820,7 +866,7 @@ class UserProfile {
                             </div>
                         </div>
                         
-                        <!-- Tab 4: Account -->
+                        <!-- Tab 6: Account -->
                         <div class="profile-tab-content" id="profileTabAccount" hidden>
                             <!-- App Install (hidden via CSS/JS once running standalone) -->
                             <div class="profile-data-management" id="profileInstallSection">
@@ -897,7 +943,7 @@ class UserProfile {
                             </div>
                         </div>
 
-                        <!-- Tab 5: Admin Dashboard (only for admins) -->
+                        <!-- Tab 7: Admin Dashboard (only for admins) -->
                         ${isAdmin ? `
                         <div class="profile-tab-content" id="profileTabAdmin" hidden>
                             <div style="padding: 20px;">
